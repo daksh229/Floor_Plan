@@ -1,0 +1,57 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- Virtual environments ---
+poc/venv/
+.venv/
+venv/
+env/
+poc/.env/
+# --- Secrets / local config ---
+.env
+*.env
+!.env.example
+
+# --- Audit store (may contain client-sensitive Claude responses) ---
+poc/audit_store/
+
+# --- Sample plan PDFs (potentially confidential — drop locally, do not commit) ---
+samples/*.pdf
+samples/*.PDF
+!samples/.gitkeep
+
+# --- Generated artifacts ---
+_procalc_extract/
+
+# --- RAG / ML caches (regenerable, large) ---
+poc/.cache/
+poc/rag_index/
+*.faiss
+.huggingface/
+~/.cache/huggingface/
+
+# --- Streamlit ---
+.streamlit/secrets.toml
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
