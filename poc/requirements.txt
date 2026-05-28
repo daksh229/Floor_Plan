@@ -1,6 +1,24 @@
+# Streamlit + Claude (Phases 1, 4, 5)
 streamlit>=1.32
 anthropic>=0.40
+python-dotenv>=1.0
+pydantic>=2.5
+
+# PDF + image handling (Phases 1, 2, 5)
 pypdfium2>=4.30
 pillow>=10.0
-pydantic>=2.5
-python-dotenv>=1.0
+numpy>=1.24
+
+# Computer vision symbol detection (Phase 2)
+opencv-python>=4.8
+
+# OCR (Phase 3)
+pytesseract>=0.3.10
+# NOTE: pytesseract is a wrapper. The Tesseract binary itself must be installed
+# separately on Windows from https://github.com/UB-Mannheim/tesseract/wiki
+# and the executable path made available (PATH or pytesseract.tesseract_cmd).
+
+# RAG: embeddings + vector index (Phase 3)
+sentence-transformers>=2.5
+faiss-cpu>=1.7
+torchvision

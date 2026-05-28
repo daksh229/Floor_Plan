@@ -1,0 +1,3997 @@
+{
+  "run_id": "1779948059_13287481",
+  "source_pdf": "synthetic_layout.pdf",
+  "detections": [
+    {
+      "symbol_class": "ceiling_fan",
+      "bbox": [
+        107,
+        445,
+        175,
+        513
+      ],
+      "score": 0.9915,
+      "rotation_deg": 90,
+      "scale": 0.85,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "ceiling_fan",
+      "bbox": [
+        406,
+        972,
+        474,
+        1040
+      ],
+      "score": 0.9834,
+      "rotation_deg": 0,
+      "scale": 0.85,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "ceiling_fan",
+      "bbox": [
+        1220,
+        601,
+        1288,
+        669
+      ],
+      "score": 0.7703,
+      "rotation_deg": 180,
+      "scale": 0.85,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "ceiling_light",
+      "bbox": [
+        460,
+        1101,
+        552,
+        1193
+      ],
+      "score": 0.9611,
+      "rotation_deg": 180,
+      "scale": 1.15,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "ceiling_light",
+      "bbox": [
+        1058,
+        1095,
+        1138,
+        1175
+      ],
+      "score": 0.9019,
+      "rotation_deg": 90,
+      "scale": 1.0,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "ceiling_light",
+      "bbox": [
+        393,
+        572,
+        473,
+        652
+      ],
+      "score": 0.8927,
+      "rotation_deg": 90,
+      "scale": 1.0,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "ceiling_light",
+      "bbox": [
+        1191,
+        924,
+        1259,
+        992
+      ],
+      "score": 0.7205,
+      "rotation_deg": 0,
+      "scale": 0.85,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "ceiling_light",
+      "bbox": [
+        1204,
+        1109,
+        1272,
+        1177
+      ],
+      "score": 0.7158,
+      "rotation_deg": 270,
+      "scale": 0.85,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "data_point",
+      "bbox": [
+        336,
+        1053,
+        428,
+        1145
+      ],
+      "score": 0.9051,
+      "rotation_deg": 0,
+      "scale": 1.15,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "data_point",
+      "bbox": [
+        282,
+        513,
+        374,
+        605
+      ],
+      "score": 0.8018,
+      "rotation_deg": 180,
+      "scale": 1.15,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "dimmer",
+      "bbox": [
+        1622,
+        470,
+        1690,
+        538
+      ],
+      "score": 0.8926,
+      "rotation_deg": 0,
+      "scale": 0.85,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "distribution_board",
+      "bbox": [
+        1711,
+        685,
+        1779,
+        753
+      ],
+      "score": 0.7283,
+      "rotation_deg": 0,
+      "scale": 0.85,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "double_gpo",
+      "bbox": [
+        296,
+        832,
+        376,
+        912
+      ],
+      "score": 0.9846,
+      "rotation_deg": 0,
+      "scale": 1.0,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "double_gpo",
+      "bbox": [
+        493,
+        411,
+        561,
+        479
+      ],
+      "score": 0.9816,
+      "rotation_deg": 270,
+      "scale": 0.85,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "double_gpo",
+      "bbox": [
+        1594,
+        409,
+        1662,
+        477
+      ],
+      "score": 0.9081,
+      "rotation_deg": 270,
+      "scale": 0.85,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "double_gpo",
+      "bbox": [
+        524,
+        931,
+        592,
+        999
+      ],
+      "score": 0.8597,
+      "rotation_deg": 90,
+      "scale": 0.85,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "double_gpo",
+      "bbox": [
+        870,
+        546,
+        962,
+        638
+      ],
+      "score": 0.8387,
+      "rotation_deg": 270,
+      "scale": 1.15,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "double_gpo",
+      "bbox": [
+        1719,
+        359,
+        1811,
+        451
+      ],
+      "score": 0.7889,
+      "rotation_deg": 90,
+      "scale": 1.15,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "double_gpo",
+      "bbox": [
+        178,
+        422,
+        246,
+        490
+      ],
+      "score": 0.7002,
+      "rotation_deg": 0,
+      "scale": 0.85,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "double_gpo",
+      "bbox": [
+        767,
+        723,
+        859,
+        815
+      ],
+      "score": 0.6719,
+      "rotation_deg": 90,
+      "scale": 1.15,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "double_gpo",
+      "bbox": [
+        913,
+        353,
+        981,
+        421
+      ],
+      "score": 0.6678,
+      "rotation_deg": 180,
+      "scale": 0.85,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "double_gpo",
+      "bbox": [
+        1088,
+        621,
+        1156,
+        689
+      ],
+      "score": 0.6673,
+      "rotation_deg": 270,
+      "scale": 0.85,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "double_gpo",
+      "bbox": [
+        1690,
+        317,
+        1782,
+        409
+      ],
+      "score": 0.6561,
+      "rotation_deg": 90,
+      "scale": 1.15,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "double_gpo",
+      "bbox": [
+        1815,
+        713,
+        1907,
+        805
+      ],
+      "score": 0.6058,
+      "rotation_deg": 0,
+      "scale": 1.15,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "double_gpo",
+      "bbox": [
+        897,
+        700,
+        977,
+        780
+      ],
+      "score": 0.6057,
+      "rotation_deg": 270,
+      "scale": 1.0,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "downlight",
+      "bbox": [
+        1260,
+        703,
+        1352,
+        795
+      ],
+      "score": 0.9922,
+      "rotation_deg": 90,
+      "scale": 1.15,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "downlight",
+      "bbox": [
+        1393,
+        482,
+        1461,
+        550
+      ],
+      "score": 0.9875,
+      "rotation_deg": 0,
+      "scale": 0.85,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "downlight",
+      "bbox": [
+        1697,
+        446,
+        1777,
+        526
+      ],
+      "score": 0.9872,
+      "rotation_deg": 90,
+      "scale": 1.0,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "downlight",
+      "bbox": [
+        899,
+        440,
+        967,
+        508
+      ],
+      "score": 0.9871,
+      "rotation_deg": 270,
+      "scale": 0.85,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "downlight",
+      "bbox": [
+        970,
+        558,
+        1062,
+        650
+      ],
+      "score": 0.9776,
+      "rotation_deg": 180,
+      "scale": 1.15,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "downlight",
+      "bbox": [
+        1053,
+        424,
+        1121,
+        492
+      ],
+      "score": 0.9773,
+      "rotation_deg": 180,
+      "scale": 0.85,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "downlight",
+      "bbox": [
+        1120,
+        705,
+        1200,
+        785
+      ],
+      "score": 0.972,
+      "rotation_deg": 90,
+      "scale": 1.0,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "downlight",
+      "bbox": [
+        1550,
+        313,
+        1630,
+        393
+      ],
+      "score": 0.9553,
+      "rotation_deg": 0,
+      "scale": 1.0,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "downlight",
+      "bbox": [
+        1584,
+        723,
+        1676,
+        815
+      ],
+      "score": 0.9236,
+      "rotation_deg": 270,
+      "scale": 1.15,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "downlight",
+      "bbox": [
+        1828,
+        405,
+        1896,
+        473
+      ],
+      "score": 0.8955,
+      "rotation_deg": 180,
+      "scale": 0.85,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "downlight",
+      "bbox": [
+        645,
+        689,
+        725,
+        769
+      ],
+      "score": 0.8773,
+      "rotation_deg": 180,
+      "scale": 1.0,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "exhaust_fan",
+      "bbox": [
+        1703,
+        785,
+        1795,
+        877
+      ],
+      "score": 0.7377,
+      "rotation_deg": 0,
+      "scale": 1.15,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "single_gpo",
+      "bbox": [
+        1212,
+        444,
+        1280,
+        512
+      ],
+      "score": 0.9168,
+      "rotation_deg": 0,
+      "scale": 0.85,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "single_pole_switch",
+      "bbox": [
+        1402,
+        1090,
+        1494,
+        1182
+      ],
+      "score": 0.9871,
+      "rotation_deg": 0,
+      "scale": 1.15,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "single_pole_switch",
+      "bbox": [
+        1638,
+        254,
+        1730,
+        346
+      ],
+      "score": 0.8988,
+      "rotation_deg": 180,
+      "scale": 1.15,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "single_pole_switch",
+      "bbox": [
+        479,
+        981,
+        547,
+        1049
+      ],
+      "score": 0.8587,
+      "rotation_deg": 0,
+      "scale": 0.85,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "single_pole_switch",
+      "bbox": [
+        1490,
+        724,
+        1570,
+        804
+      ],
+      "score": 0.7268,
+      "rotation_deg": 0,
+      "scale": 1.0,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "smoke_detector",
+      "bbox": [
+        1037,
+        877,
+        1117,
+        957
+      ],
+      "score": 0.7169,
+      "rotation_deg": 0,
+      "scale": 1.0,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "smoke_detector",
+      "bbox": [
+        1463,
+        313,
+        1543,
+        393
+      ],
+      "score": 0.7133,
+      "rotation_deg": 270,
+      "scale": 1.0,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "smoke_detector",
+      "bbox": [
+        805,
+        878,
+        897,
+        970
+      ],
+      "score": 0.5128,
+      "rotation_deg": 0,
+      "scale": 1.15,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "tv_point",
+      "bbox": [
+        739,
+        280,
+        807,
+        348
+      ],
+      "score": 0.8027,
+      "rotation_deg": 90,
+      "scale": 0.85,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "two_way_switch",
+      "bbox": [
+        1101,
+        331,
+        1193,
+        423
+      ],
+      "score": 0.9752,
+      "rotation_deg": 0,
+      "scale": 1.15,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "two_way_switch",
+      "bbox": [
+        871,
+        903,
+        951,
+        983
+      ],
+      "score": 0.8422,
+      "rotation_deg": 180,
+      "scale": 1.0,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "two_way_switch",
+      "bbox": [
+        1798,
+        338,
+        1878,
+        418
+      ],
+      "score": 0.5875,
+      "rotation_deg": 90,
+      "scale": 1.0,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "two_way_switch",
+      "bbox": [
+        444,
+        510,
+        512,
+        578
+      ],
+      "score": 0.5852,
+      "rotation_deg": 90,
+      "scale": 0.85,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "two_way_switch",
+      "bbox": [
+        183,
+        331,
+        251,
+        399
+      ],
+      "score": 0.579,
+      "rotation_deg": 90,
+      "scale": 0.85,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "wall_light",
+      "bbox": [
+        1408,
+        756,
+        1476,
+        824
+      ],
+      "score": 0.738,
+      "rotation_deg": 180,
+      "scale": 0.85,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "wall_light",
+      "bbox": [
+        745,
+        305,
+        801,
+        361
+      ],
+      "score": 0.5884,
+      "rotation_deg": 0,
+      "scale": 0.7,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "wp_gpo",
+      "bbox": [
+        884,
+        1082,
+        976,
+        1174
+      ],
+      "score": 0.9427,
+      "rotation_deg": 0,
+      "scale": 1.15,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "wp_gpo",
+      "bbox": [
+        1152,
+        1119,
+        1220,
+        1187
+      ],
+      "score": 0.6949,
+      "rotation_deg": 0,
+      "scale": 0.85,
+      "source_page": 1
+    },
+    {
+      "symbol_class": "wp_gpo",
+      "bbox": [
+        1735,
+        715,
+        1827,
+        807
+      ],
+      "score": 0.6347,
+      "rotation_deg": 0,
+      "scale": 1.15,
+      "source_page": 1
+    }
+  ],
+  "ocr_spans": [
+    {
+      "text": "PROJECT:",
+      "bbox": [
+        22,
+        24,
+        156,
+        44
+      ],
+      "confidence": 0.96,
+      "source_page": 1
+    },
+    {
+      "text": "SYNTHETIC",
+      "bbox": [
+        169,
+        24,
+        325,
+        44
+      ],
+      "confidence": 0.96,
+      "source_page": 1
+    },
+    {
+      "text": "TEST",
+      "bbox": [
+        335,
+        24,
+        406,
+        44
+      ],
+      "confidence": 0.95,
+      "source_page": 1
+    },
+    {
+      "text": "DWELLING",
+      "bbox": [
+        416,
+        24,
+        559,
+        44
+      ],
+      "confidence": 0.96,
+      "source_page": 1
+    },
+    {
+      "text": "DWG",
+      "bbox": [
+        1723,
+        24,
+        1787,
+        44
+      ],
+      "confidence": 0.92,
+      "source_page": 1
+    },
+    {
+      "text": "NO.",
+      "bbox": [
+        1799,
+        24,
+        1844,
+        44
+      ],
+      "confidence": 0.93,
+      "source_page": 1
+    },
+    {
+      "text": "E-100",
+      "bbox": [
+        1865,
+        24,
+        1937,
+        44
+      ],
+      "confidence": 0.91,
+      "source_page": 1
+    },
+    {
+      "text": "Rev:",
+      "bbox": [
+        1722,
+        60,
+        1770,
+        73
+      ],
+      "confidence": 0.8,
+      "source_page": 1
+    },
+    {
+      "text": "Date:",
+      "bbox": [
+        1789,
+        60,
+        1825,
+        73
+      ],
+      "confidence": 0.89,
+      "source_page": 1
+    },
+    {
+      "text": "2026-05-27",
+      "bbox": [
+        1837,
+        60,
+        1927,
+        73
+      ],
+      "confidence": 0.96,
+      "source_page": 1
+    },
+    {
+      "text": "Sheet:",
+      "bbox": [
+        21,
+        60,
+        71,
+        73
+      ],
+      "confidence": 0.93,
+      "source_page": 1
+    },
+    {
+      "text": "E-100",
+      "bbox": [
+        78,
+        60,
+        124,
+        73
+      ],
+      "confidence": 0.92,
+      "source_page": 1
+    },
+    {
+      "text": "Ground",
+      "bbox": [
+        154,
+        60,
+        212,
+        73
+      ],
+      "confidence": 0.96,
+      "source_page": 1
+    },
+    {
+      "text": "Floor",
+      "bbox": [
+        219,
+        60,
+        259,
+        73
+      ],
+      "confidence": 0.96,
+      "source_page": 1
+    },
+    {
+      "text": "Electrical",
+      "bbox": [
+        265,
+        60,
+        336,
+        73
+      ],
+      "confidence": 0.96,
+      "source_page": 1
+    },
+    {
+      "text": "Layout",
+      "bbox": [
+        343,
+        60,
+        396,
+        77
+      ],
+      "confidence": 0.96,
+      "source_page": 1
+    },
+    {
+      "text": "Scale:",
+      "bbox": [
+        21,
+        82,
+        64,
+        95
+      ],
+      "confidence": 0.92,
+      "source_page": 1
+    },
+    {
+      "text": "1:100",
+      "bbox": [
+        77,
+        82,
+        119,
+        95
+      ],
+      "confidence": 0.92,
+      "source_page": 1
+    },
+    {
+      "text": "(indicative)",
+      "bbox": [
+        126,
+        82,
+        211,
+        99
+      ],
+      "confidence": 0.95,
+      "source_page": 1
+    },
+    {
+      "text": "Drawn:",
+      "bbox": [
+        239,
+        78,
+        293,
+        103
+      ],
+      "confidence": 0.93,
+      "source_page": 1
+    },
+    {
+      "text": "synth.generate_sample.py",
+      "bbox": [
+        300,
+        82,
+        510,
+        99
+      ],
+      "confidence": 0.91,
+      "source_page": 1
+    },
+    {
+      "text": "Bedroom",
+      "bbox": [
+        293,
+        216,
+        412,
+        238
+      ],
+      "confidence": 0.96,
+      "source_page": 1
+    },
+    {
+      "text": "Living",
+      "bbox": [
+        973,
+        216,
+        1048,
+        244
+      ],
+      "confidence": 0.96,
+      "source_page": 1
+    },
+    {
+      "text": "Kitchen",
+      "bbox": [
+        1593,
+        216,
+        1690,
+        238
+      ],
+      "confidence": 0.96,
+      "source_page": 1
+    },
+    {
+      "text": "O®",
+      "bbox": [
+        121,
+        326,
+        244,
+        394
+      ],
+      "confidence": 0.82,
+      "source_page": 1
+    },
+    {
+      "text": "Gm)",
+      "bbox": [
+        1629,
+        467,
+        1694,
+        532
+      ],
+      "confidence": 0.65,
+      "source_page": 1
+    },
+    {
+      "text": "&)",
+      "bbox": [
+        879,
+        558,
+        1031,
+        626
+      ],
+      "confidence": 0.55,
+      "source_page": 1
+    },
+    {
+      "text": "Bathroom",
+      "bbox": [
+        1478,
+        636,
+        1605,
+        658
+      ],
+      "confidence": 0.96,
+      "source_page": 1
+    },
+    {
+      "text": "Laundry",
+      "bbox": [
+        1748,
+        636,
+        1855,
+        664
+      ],
+      "confidence": 0.96,
+      "source_page": 1
+    },
+    {
+      "text": "Bedroom",
+      "bbox": [
+        293,
+        736,
+        412,
+        758
+      ],
+      "confidence": 0.94,
+      "source_page": 1
+    },
+    {
+      "text": "(S)",
+      "bbox": [
+        1501,
+        735,
+        1645,
+        794
+      ],
+      "confidence": 0.7,
+      "source_page": 1
+    },
+    {
+      "text": "ip",
+      "bbox": [
+        1730,
+        695,
+        1817,
+        797
+      ],
+      "confidence": 0.72,
+      "source_page": 1
+    },
+    {
+      "text": "Hallway",
+      "bbox": [
+        1220,
+        836,
+        1324,
+        864
+      ],
+      "confidence": 0.96,
+      "source_page": 1
+    },
+    {
+      "text": "LEGEND",
+      "bbox": [
+        1566,
+        924,
+        1645,
+        939
+      ],
+      "confidence": 0.96,
+      "source_page": 1
+    },
+    {
+      "text": "®@",
+      "bbox": [
+        1563,
+        957,
+        1591,
+        988
+      ],
+      "confidence": 0.48,
+      "source_page": 1
+    },
+    {
+      "text": "ceiling",
+      "bbox": [
+        1604,
+        965,
+        1643,
+        979
+      ],
+      "confidence": 0.92,
+      "source_page": 1
+    },
+    {
+      "text": "fan",
+      "bbox": [
+        1648,
+        965,
+        1667,
+        976
+      ],
+      "confidence": 0.92,
+      "source_page": 1
+    },
+    {
+      "text": "ceiling",
+      "bbox": [
+        1814,
+        965,
+        1853,
+        979
+      ],
+      "confidence": 0.94,
+      "source_page": 1
+    },
+    {
+      "text": "light",
+      "bbox": [
+        1859,
+        965,
+        1884,
+        979
+      ],
+      "confidence": 0.78,
+      "source_page": 1
+    },
+    {
+      "text": "data",
+      "bbox": [
+        1603,
+        1007,
+        1630,
+        1018
+      ],
+      "confidence": 0.77,
+      "source_page": 1
+    },
+    {
+      "text": "point",
+      "bbox": [
+        1636,
+        1008,
+        1666,
+        1021
+      ],
+      "confidence": 0.95,
+      "source_page": 1
+    },
+    {
+      "text": "Garage",
+      "bbox": [
+        1222,
+        1016,
+        1320,
+        1044
+      ],
+      "confidence": 0.96,
+      "source_page": 1
+    },
+    {
+      "text": "a)",
+      "bbox": [
+        1777,
+        1002,
+        1802,
+        1027
+      ],
+      "confidence": 0.48,
+      "source_page": 1
+    },
+    {
+      "text": "dimmer",
+      "bbox": [
+        1814,
+        1007,
+        1863,
+        1018
+      ],
+      "confidence": 0.78,
+      "source_page": 1
+    },
+    {
+      "text": "distribution",
+      "bbox": [
+        1603,
+        1049,
+        1672,
+        1060
+      ],
+      "confidence": 0.91,
+      "source_page": 1
+    },
+    {
+      "text": "board",
+      "bbox": [
+        1678,
+        1049,
+        1713,
+        1060
+      ],
+      "confidence": 0.96,
+      "source_page": 1
+    },
+    {
+      "text": "double",
+      "bbox": [
+        1814,
+        1049,
+        1856,
+        1060
+      ],
+      "confidence": 0.93,
+      "source_page": 1
+    },
+    {
+      "text": "gpo",
+      "bbox": [
+        1861,
+        1052,
+        1884,
+        1063
+      ],
+      "confidence": 0.4,
+      "source_page": 1
+    },
+    {
+      "text": "exhaust",
+      "bbox": [
+        1814,
+        1091,
+        1865,
+        1102
+      ],
+      "confidence": 0.83,
+      "source_page": 1
+    },
+    {
+      "text": "fan",
+      "bbox": [
+        1869,
+        1091,
+        1888,
+        1102
+      ],
+      "confidence": 0.96,
+      "source_page": 1
+    },
+    {
+      "text": "single",
+      "bbox": [
+        1604,
+        1133,
+        1640,
+        1147
+      ],
+      "confidence": 0.93,
+      "source_page": 1
+    },
+    {
+      "text": "gpo",
+      "bbox": [
+        1645,
+        1136,
+        1669,
+        1147
+      ],
+      "confidence": 0.92,
+      "source_page": 1
+    },
+    {
+      "text": "single",
+      "bbox": [
+        1814,
+        1133,
+        1851,
+        1147
+      ],
+      "confidence": 0.93,
+      "source_page": 1
+    },
+    {
+      "text": "pole",
+      "bbox": [
+        1856,
+        1133,
+        1882,
+        1147
+      ],
+      "confidence": 0.93,
+      "source_page": 1
+    },
+    {
+      "text": "switch",
+      "bbox": [
+        1887,
+        1133,
+        1927,
+        1144
+      ],
+      "confidence": 0.96,
+      "source_page": 1
+    },
+    {
+      "text": "smoke",
+      "bbox": [
+        1604,
+        1175,
+        1648,
+        1186
+      ],
+      "confidence": 0.88,
+      "source_page": 1
+    },
+    {
+      "text": "detector",
+      "bbox": [
+        1652,
+        1175,
+        1705,
+        1186
+      ],
+      "confidence": 0.96,
+      "source_page": 1
+    },
+    {
+      "text": "tv",
+      "bbox": [
+        1813,
+        1176,
+        1824,
+        1186
+      ],
+      "confidence": 0.91,
+      "source_page": 1
+    },
+    {
+      "text": "point",
+      "bbox": [
+        1830,
+        1176,
+        1860,
+        1189
+      ],
+      "confidence": 0.96,
+      "source_page": 1
+    },
+    {
+      "text": "two",
+      "bbox": [
+        1603,
+        1218,
+        1626,
+        1228
+      ],
+      "confidence": 0.92,
+      "source_page": 1
+    },
+    {
+      "text": "way",
+      "bbox": [
+        1630,
+        1220,
+        1656,
+        1231
+      ],
+      "confidence": 0.96,
+      "source_page": 1
+    },
+    {
+      "text": "switch",
+      "bbox": [
+        1662,
+        1217,
+        1702,
+        1228
+      ],
+      "confidence": 0.96,
+      "source_page": 1
+    },
+    {
+      "text": "walllight",
+      "bbox": [
+        1813,
+        1217,
+        1868,
+        1231
+      ],
+      "confidence": 0.54,
+      "source_page": 1
+    }
+  ],
+  "symbol_matches": [
+    {
+      "detection": {
+        "symbol_class": "ceiling_fan",
+        "bbox": [
+          107,
+          445,
+          175,
+          513
+        ],
+        "score": 0.9915,
+        "rotation_deg": 90,
+        "scale": 0.85,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "ceiling_fan",
+          "canonical_name": "Ceiling fan",
+          "similarity": 0.6685981750488281,
+          "unit": "ea",
+          "spec": "1200mm 4-blade AC ceiling fan with wall control",
+          "indicative_cost_aud": 189.0
+        },
+        {
+          "library_key": "exhaust_fan",
+          "canonical_name": "Exhaust fan",
+          "similarity": 0.4627785086631775,
+          "unit": "ea",
+          "spec": "240V 250mm wall/ceiling exhaust fan, 200 m³/h",
+          "indicative_cost_aud": 78.0
+        },
+        {
+          "library_key": "ceiling_light",
+          "canonical_name": "Ceiling-mounted batten / oyster light",
+          "similarity": 0.3674803078174591,
+          "unit": "ea",
+          "spec": "240V LED oyster, 18W warm white, surface mount",
+          "indicative_cost_aud": 42.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "ceiling_fan",
+        "bbox": [
+          406,
+          972,
+          474,
+          1040
+        ],
+        "score": 0.9834,
+        "rotation_deg": 0,
+        "scale": 0.85,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "ceiling_fan",
+          "canonical_name": "Ceiling fan",
+          "similarity": 0.6685981750488281,
+          "unit": "ea",
+          "spec": "1200mm 4-blade AC ceiling fan with wall control",
+          "indicative_cost_aud": 189.0
+        },
+        {
+          "library_key": "exhaust_fan",
+          "canonical_name": "Exhaust fan",
+          "similarity": 0.4627785086631775,
+          "unit": "ea",
+          "spec": "240V 250mm wall/ceiling exhaust fan, 200 m³/h",
+          "indicative_cost_aud": 78.0
+        },
+        {
+          "library_key": "ceiling_light",
+          "canonical_name": "Ceiling-mounted batten / oyster light",
+          "similarity": 0.3674803078174591,
+          "unit": "ea",
+          "spec": "240V LED oyster, 18W warm white, surface mount",
+          "indicative_cost_aud": 42.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "ceiling_fan",
+        "bbox": [
+          1220,
+          601,
+          1288,
+          669
+        ],
+        "score": 0.7703,
+        "rotation_deg": 180,
+        "scale": 0.85,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "ceiling_fan",
+          "canonical_name": "Ceiling fan",
+          "similarity": 0.6685981750488281,
+          "unit": "ea",
+          "spec": "1200mm 4-blade AC ceiling fan with wall control",
+          "indicative_cost_aud": 189.0
+        },
+        {
+          "library_key": "exhaust_fan",
+          "canonical_name": "Exhaust fan",
+          "similarity": 0.4627785086631775,
+          "unit": "ea",
+          "spec": "240V 250mm wall/ceiling exhaust fan, 200 m³/h",
+          "indicative_cost_aud": 78.0
+        },
+        {
+          "library_key": "ceiling_light",
+          "canonical_name": "Ceiling-mounted batten / oyster light",
+          "similarity": 0.3674803078174591,
+          "unit": "ea",
+          "spec": "240V LED oyster, 18W warm white, surface mount",
+          "indicative_cost_aud": 42.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "ceiling_light",
+        "bbox": [
+          460,
+          1101,
+          552,
+          1193
+        ],
+        "score": 0.9611,
+        "rotation_deg": 180,
+        "scale": 1.15,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "ceiling_light",
+          "canonical_name": "Ceiling-mounted batten / oyster light",
+          "similarity": 0.5793442130088806,
+          "unit": "ea",
+          "spec": "240V LED oyster, 18W warm white, surface mount",
+          "indicative_cost_aud": 42.0
+        },
+        {
+          "library_key": "downlight",
+          "canonical_name": "Recessed LED downlight",
+          "similarity": 0.4333416223526001,
+          "unit": "ea",
+          "spec": "240V 10W LED recessed downlight, 90mm cutout, dimmable",
+          "indicative_cost_aud": 22.0
+        },
+        {
+          "library_key": "wall_light",
+          "canonical_name": "Wall-mounted light",
+          "similarity": 0.42095890641212463,
+          "unit": "ea",
+          "spec": "240V LED wall sconce 8W, IP44 indoor/outdoor",
+          "indicative_cost_aud": 56.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "ceiling_light",
+        "bbox": [
+          1058,
+          1095,
+          1138,
+          1175
+        ],
+        "score": 0.9019,
+        "rotation_deg": 90,
+        "scale": 1.0,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "ceiling_light",
+          "canonical_name": "Ceiling-mounted batten / oyster light",
+          "similarity": 0.5793442130088806,
+          "unit": "ea",
+          "spec": "240V LED oyster, 18W warm white, surface mount",
+          "indicative_cost_aud": 42.0
+        },
+        {
+          "library_key": "downlight",
+          "canonical_name": "Recessed LED downlight",
+          "similarity": 0.4333416223526001,
+          "unit": "ea",
+          "spec": "240V 10W LED recessed downlight, 90mm cutout, dimmable",
+          "indicative_cost_aud": 22.0
+        },
+        {
+          "library_key": "wall_light",
+          "canonical_name": "Wall-mounted light",
+          "similarity": 0.42095890641212463,
+          "unit": "ea",
+          "spec": "240V LED wall sconce 8W, IP44 indoor/outdoor",
+          "indicative_cost_aud": 56.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "ceiling_light",
+        "bbox": [
+          393,
+          572,
+          473,
+          652
+        ],
+        "score": 0.8927,
+        "rotation_deg": 90,
+        "scale": 1.0,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "ceiling_light",
+          "canonical_name": "Ceiling-mounted batten / oyster light",
+          "similarity": 0.5793442130088806,
+          "unit": "ea",
+          "spec": "240V LED oyster, 18W warm white, surface mount",
+          "indicative_cost_aud": 42.0
+        },
+        {
+          "library_key": "downlight",
+          "canonical_name": "Recessed LED downlight",
+          "similarity": 0.4333416223526001,
+          "unit": "ea",
+          "spec": "240V 10W LED recessed downlight, 90mm cutout, dimmable",
+          "indicative_cost_aud": 22.0
+        },
+        {
+          "library_key": "wall_light",
+          "canonical_name": "Wall-mounted light",
+          "similarity": 0.42095890641212463,
+          "unit": "ea",
+          "spec": "240V LED wall sconce 8W, IP44 indoor/outdoor",
+          "indicative_cost_aud": 56.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "ceiling_light",
+        "bbox": [
+          1191,
+          924,
+          1259,
+          992
+        ],
+        "score": 0.7205,
+        "rotation_deg": 0,
+        "scale": 0.85,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "ceiling_light",
+          "canonical_name": "Ceiling-mounted batten / oyster light",
+          "similarity": 0.5793442130088806,
+          "unit": "ea",
+          "spec": "240V LED oyster, 18W warm white, surface mount",
+          "indicative_cost_aud": 42.0
+        },
+        {
+          "library_key": "downlight",
+          "canonical_name": "Recessed LED downlight",
+          "similarity": 0.4333416223526001,
+          "unit": "ea",
+          "spec": "240V 10W LED recessed downlight, 90mm cutout, dimmable",
+          "indicative_cost_aud": 22.0
+        },
+        {
+          "library_key": "wall_light",
+          "canonical_name": "Wall-mounted light",
+          "similarity": 0.42095890641212463,
+          "unit": "ea",
+          "spec": "240V LED wall sconce 8W, IP44 indoor/outdoor",
+          "indicative_cost_aud": 56.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "ceiling_light",
+        "bbox": [
+          1204,
+          1109,
+          1272,
+          1177
+        ],
+        "score": 0.7158,
+        "rotation_deg": 270,
+        "scale": 0.85,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "ceiling_light",
+          "canonical_name": "Ceiling-mounted batten / oyster light",
+          "similarity": 0.5793442130088806,
+          "unit": "ea",
+          "spec": "240V LED oyster, 18W warm white, surface mount",
+          "indicative_cost_aud": 42.0
+        },
+        {
+          "library_key": "downlight",
+          "canonical_name": "Recessed LED downlight",
+          "similarity": 0.4333416223526001,
+          "unit": "ea",
+          "spec": "240V 10W LED recessed downlight, 90mm cutout, dimmable",
+          "indicative_cost_aud": 22.0
+        },
+        {
+          "library_key": "wall_light",
+          "canonical_name": "Wall-mounted light",
+          "similarity": 0.42095890641212463,
+          "unit": "ea",
+          "spec": "240V LED wall sconce 8W, IP44 indoor/outdoor",
+          "indicative_cost_aud": 56.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "data_point",
+        "bbox": [
+          336,
+          1053,
+          428,
+          1145
+        ],
+        "score": 0.9051,
+        "rotation_deg": 0,
+        "scale": 1.15,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "data_point",
+          "canonical_name": "Data outlet (Cat6)",
+          "similarity": 0.4040220081806183,
+          "unit": "ea",
+          "spec": "Cat6 RJ45 wall plate, 1-port, white",
+          "indicative_cost_aud": 18.5
+        },
+        {
+          "library_key": "tv_point",
+          "canonical_name": "TV outlet (PAL/F-type)",
+          "similarity": 0.2155398577451706,
+          "unit": "ea",
+          "spec": "PAL/F-type combined TV wall outlet, 1-gang, white",
+          "indicative_cost_aud": 16.0
+        },
+        {
+          "library_key": "double_gpo",
+          "canonical_name": "Double GPO (general purpose outlet)",
+          "similarity": 0.20641247928142548,
+          "unit": "ea",
+          "spec": "10A 250V double switched socket outlet, white",
+          "indicative_cost_aud": 14.2
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "data_point",
+        "bbox": [
+          282,
+          513,
+          374,
+          605
+        ],
+        "score": 0.8018,
+        "rotation_deg": 180,
+        "scale": 1.15,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "data_point",
+          "canonical_name": "Data outlet (Cat6)",
+          "similarity": 0.4040220081806183,
+          "unit": "ea",
+          "spec": "Cat6 RJ45 wall plate, 1-port, white",
+          "indicative_cost_aud": 18.5
+        },
+        {
+          "library_key": "tv_point",
+          "canonical_name": "TV outlet (PAL/F-type)",
+          "similarity": 0.2155398577451706,
+          "unit": "ea",
+          "spec": "PAL/F-type combined TV wall outlet, 1-gang, white",
+          "indicative_cost_aud": 16.0
+        },
+        {
+          "library_key": "double_gpo",
+          "canonical_name": "Double GPO (general purpose outlet)",
+          "similarity": 0.20641247928142548,
+          "unit": "ea",
+          "spec": "10A 250V double switched socket outlet, white",
+          "indicative_cost_aud": 14.2
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "dimmer",
+        "bbox": [
+          1622,
+          470,
+          1690,
+          538
+        ],
+        "score": 0.8926,
+        "rotation_deg": 0,
+        "scale": 0.85,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "dimmer",
+          "canonical_name": "Dimmer switch",
+          "similarity": 0.6420640349388123,
+          "unit": "ea",
+          "spec": "240V 400W trailing-edge, suitable for LED",
+          "indicative_cost_aud": 38.0
+        },
+        {
+          "library_key": "downlight",
+          "canonical_name": "Recessed LED downlight",
+          "similarity": 0.3826102316379547,
+          "unit": "ea",
+          "spec": "240V 10W LED recessed downlight, 90mm cutout, dimmable",
+          "indicative_cost_aud": 22.0
+        },
+        {
+          "library_key": "ceiling_light",
+          "canonical_name": "Ceiling-mounted batten / oyster light",
+          "similarity": 0.24082645773887634,
+          "unit": "ea",
+          "spec": "240V LED oyster, 18W warm white, surface mount",
+          "indicative_cost_aud": 42.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "distribution_board",
+        "bbox": [
+          1711,
+          685,
+          1779,
+          753
+        ],
+        "score": 0.7283,
+        "rotation_deg": 0,
+        "scale": 0.85,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "distribution_board",
+          "canonical_name": "Distribution board (consumer unit)",
+          "similarity": 0.7150112390518188,
+          "unit": "ea",
+          "spec": "12-pole surface-mount distribution board with main switch and bus bars",
+          "indicative_cost_aud": 240.0
+        },
+        {
+          "library_key": "single_pole_switch",
+          "canonical_name": "Single-pole switch (1-gang)",
+          "similarity": 0.22396844625473022,
+          "unit": "ea",
+          "spec": "250V 10A, 1-gang, white moulded plate",
+          "indicative_cost_aud": 8.5
+        },
+        {
+          "library_key": "data_point",
+          "canonical_name": "Data outlet (Cat6)",
+          "similarity": 0.21761028468608856,
+          "unit": "ea",
+          "spec": "Cat6 RJ45 wall plate, 1-port, white",
+          "indicative_cost_aud": 18.5
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "double_gpo",
+        "bbox": [
+          296,
+          832,
+          376,
+          912
+        ],
+        "score": 0.9846,
+        "rotation_deg": 0,
+        "scale": 1.0,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "double_gpo",
+          "canonical_name": "Double GPO (general purpose outlet)",
+          "similarity": 0.6313995718955994,
+          "unit": "ea",
+          "spec": "10A 250V double switched socket outlet, white",
+          "indicative_cost_aud": 14.2
+        },
+        {
+          "library_key": "single_gpo",
+          "canonical_name": "Single GPO (general purpose outlet)",
+          "similarity": 0.4970669746398926,
+          "unit": "ea",
+          "spec": "10A 250V single switched socket outlet, white",
+          "indicative_cost_aud": 9.4
+        },
+        {
+          "library_key": "wp_gpo",
+          "canonical_name": "Weatherproof GPO (IP rated)",
+          "similarity": 0.3571443557739258,
+          "unit": "ea",
+          "spec": "10A 250V IP54 weatherproof switched outlet with hinged cover",
+          "indicative_cost_aud": 29.5
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "double_gpo",
+        "bbox": [
+          493,
+          411,
+          561,
+          479
+        ],
+        "score": 0.9816,
+        "rotation_deg": 270,
+        "scale": 0.85,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "double_gpo",
+          "canonical_name": "Double GPO (general purpose outlet)",
+          "similarity": 0.6313995718955994,
+          "unit": "ea",
+          "spec": "10A 250V double switched socket outlet, white",
+          "indicative_cost_aud": 14.2
+        },
+        {
+          "library_key": "single_gpo",
+          "canonical_name": "Single GPO (general purpose outlet)",
+          "similarity": 0.4970669746398926,
+          "unit": "ea",
+          "spec": "10A 250V single switched socket outlet, white",
+          "indicative_cost_aud": 9.4
+        },
+        {
+          "library_key": "wp_gpo",
+          "canonical_name": "Weatherproof GPO (IP rated)",
+          "similarity": 0.3571443557739258,
+          "unit": "ea",
+          "spec": "10A 250V IP54 weatherproof switched outlet with hinged cover",
+          "indicative_cost_aud": 29.5
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "double_gpo",
+        "bbox": [
+          1594,
+          409,
+          1662,
+          477
+        ],
+        "score": 0.9081,
+        "rotation_deg": 270,
+        "scale": 0.85,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "double_gpo",
+          "canonical_name": "Double GPO (general purpose outlet)",
+          "similarity": 0.6313995718955994,
+          "unit": "ea",
+          "spec": "10A 250V double switched socket outlet, white",
+          "indicative_cost_aud": 14.2
+        },
+        {
+          "library_key": "single_gpo",
+          "canonical_name": "Single GPO (general purpose outlet)",
+          "similarity": 0.4970669746398926,
+          "unit": "ea",
+          "spec": "10A 250V single switched socket outlet, white",
+          "indicative_cost_aud": 9.4
+        },
+        {
+          "library_key": "wp_gpo",
+          "canonical_name": "Weatherproof GPO (IP rated)",
+          "similarity": 0.3571443557739258,
+          "unit": "ea",
+          "spec": "10A 250V IP54 weatherproof switched outlet with hinged cover",
+          "indicative_cost_aud": 29.5
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "double_gpo",
+        "bbox": [
+          524,
+          931,
+          592,
+          999
+        ],
+        "score": 0.8597,
+        "rotation_deg": 90,
+        "scale": 0.85,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "double_gpo",
+          "canonical_name": "Double GPO (general purpose outlet)",
+          "similarity": 0.6313995718955994,
+          "unit": "ea",
+          "spec": "10A 250V double switched socket outlet, white",
+          "indicative_cost_aud": 14.2
+        },
+        {
+          "library_key": "single_gpo",
+          "canonical_name": "Single GPO (general purpose outlet)",
+          "similarity": 0.4970669746398926,
+          "unit": "ea",
+          "spec": "10A 250V single switched socket outlet, white",
+          "indicative_cost_aud": 9.4
+        },
+        {
+          "library_key": "wp_gpo",
+          "canonical_name": "Weatherproof GPO (IP rated)",
+          "similarity": 0.3571443557739258,
+          "unit": "ea",
+          "spec": "10A 250V IP54 weatherproof switched outlet with hinged cover",
+          "indicative_cost_aud": 29.5
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "double_gpo",
+        "bbox": [
+          870,
+          546,
+          962,
+          638
+        ],
+        "score": 0.8387,
+        "rotation_deg": 270,
+        "scale": 1.15,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "double_gpo",
+          "canonical_name": "Double GPO (general purpose outlet)",
+          "similarity": 0.6313995718955994,
+          "unit": "ea",
+          "spec": "10A 250V double switched socket outlet, white",
+          "indicative_cost_aud": 14.2
+        },
+        {
+          "library_key": "single_gpo",
+          "canonical_name": "Single GPO (general purpose outlet)",
+          "similarity": 0.4970669746398926,
+          "unit": "ea",
+          "spec": "10A 250V single switched socket outlet, white",
+          "indicative_cost_aud": 9.4
+        },
+        {
+          "library_key": "wp_gpo",
+          "canonical_name": "Weatherproof GPO (IP rated)",
+          "similarity": 0.3571443557739258,
+          "unit": "ea",
+          "spec": "10A 250V IP54 weatherproof switched outlet with hinged cover",
+          "indicative_cost_aud": 29.5
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "double_gpo",
+        "bbox": [
+          1719,
+          359,
+          1811,
+          451
+        ],
+        "score": 0.7889,
+        "rotation_deg": 90,
+        "scale": 1.15,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "double_gpo",
+          "canonical_name": "Double GPO (general purpose outlet)",
+          "similarity": 0.6313995718955994,
+          "unit": "ea",
+          "spec": "10A 250V double switched socket outlet, white",
+          "indicative_cost_aud": 14.2
+        },
+        {
+          "library_key": "single_gpo",
+          "canonical_name": "Single GPO (general purpose outlet)",
+          "similarity": 0.4970669746398926,
+          "unit": "ea",
+          "spec": "10A 250V single switched socket outlet, white",
+          "indicative_cost_aud": 9.4
+        },
+        {
+          "library_key": "wp_gpo",
+          "canonical_name": "Weatherproof GPO (IP rated)",
+          "similarity": 0.3571443557739258,
+          "unit": "ea",
+          "spec": "10A 250V IP54 weatherproof switched outlet with hinged cover",
+          "indicative_cost_aud": 29.5
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "double_gpo",
+        "bbox": [
+          178,
+          422,
+          246,
+          490
+        ],
+        "score": 0.7002,
+        "rotation_deg": 0,
+        "scale": 0.85,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "double_gpo",
+          "canonical_name": "Double GPO (general purpose outlet)",
+          "similarity": 0.6313995718955994,
+          "unit": "ea",
+          "spec": "10A 250V double switched socket outlet, white",
+          "indicative_cost_aud": 14.2
+        },
+        {
+          "library_key": "single_gpo",
+          "canonical_name": "Single GPO (general purpose outlet)",
+          "similarity": 0.4970669746398926,
+          "unit": "ea",
+          "spec": "10A 250V single switched socket outlet, white",
+          "indicative_cost_aud": 9.4
+        },
+        {
+          "library_key": "wp_gpo",
+          "canonical_name": "Weatherproof GPO (IP rated)",
+          "similarity": 0.3571443557739258,
+          "unit": "ea",
+          "spec": "10A 250V IP54 weatherproof switched outlet with hinged cover",
+          "indicative_cost_aud": 29.5
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "double_gpo",
+        "bbox": [
+          767,
+          723,
+          859,
+          815
+        ],
+        "score": 0.6719,
+        "rotation_deg": 90,
+        "scale": 1.15,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "double_gpo",
+          "canonical_name": "Double GPO (general purpose outlet)",
+          "similarity": 0.6313995718955994,
+          "unit": "ea",
+          "spec": "10A 250V double switched socket outlet, white",
+          "indicative_cost_aud": 14.2
+        },
+        {
+          "library_key": "single_gpo",
+          "canonical_name": "Single GPO (general purpose outlet)",
+          "similarity": 0.4970669746398926,
+          "unit": "ea",
+          "spec": "10A 250V single switched socket outlet, white",
+          "indicative_cost_aud": 9.4
+        },
+        {
+          "library_key": "wp_gpo",
+          "canonical_name": "Weatherproof GPO (IP rated)",
+          "similarity": 0.3571443557739258,
+          "unit": "ea",
+          "spec": "10A 250V IP54 weatherproof switched outlet with hinged cover",
+          "indicative_cost_aud": 29.5
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "double_gpo",
+        "bbox": [
+          913,
+          353,
+          981,
+          421
+        ],
+        "score": 0.6678,
+        "rotation_deg": 180,
+        "scale": 0.85,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "double_gpo",
+          "canonical_name": "Double GPO (general purpose outlet)",
+          "similarity": 0.6313995718955994,
+          "unit": "ea",
+          "spec": "10A 250V double switched socket outlet, white",
+          "indicative_cost_aud": 14.2
+        },
+        {
+          "library_key": "single_gpo",
+          "canonical_name": "Single GPO (general purpose outlet)",
+          "similarity": 0.4970669746398926,
+          "unit": "ea",
+          "spec": "10A 250V single switched socket outlet, white",
+          "indicative_cost_aud": 9.4
+        },
+        {
+          "library_key": "wp_gpo",
+          "canonical_name": "Weatherproof GPO (IP rated)",
+          "similarity": 0.3571443557739258,
+          "unit": "ea",
+          "spec": "10A 250V IP54 weatherproof switched outlet with hinged cover",
+          "indicative_cost_aud": 29.5
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "double_gpo",
+        "bbox": [
+          1088,
+          621,
+          1156,
+          689
+        ],
+        "score": 0.6673,
+        "rotation_deg": 270,
+        "scale": 0.85,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "double_gpo",
+          "canonical_name": "Double GPO (general purpose outlet)",
+          "similarity": 0.6313995718955994,
+          "unit": "ea",
+          "spec": "10A 250V double switched socket outlet, white",
+          "indicative_cost_aud": 14.2
+        },
+        {
+          "library_key": "single_gpo",
+          "canonical_name": "Single GPO (general purpose outlet)",
+          "similarity": 0.4970669746398926,
+          "unit": "ea",
+          "spec": "10A 250V single switched socket outlet, white",
+          "indicative_cost_aud": 9.4
+        },
+        {
+          "library_key": "wp_gpo",
+          "canonical_name": "Weatherproof GPO (IP rated)",
+          "similarity": 0.3571443557739258,
+          "unit": "ea",
+          "spec": "10A 250V IP54 weatherproof switched outlet with hinged cover",
+          "indicative_cost_aud": 29.5
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "double_gpo",
+        "bbox": [
+          1690,
+          317,
+          1782,
+          409
+        ],
+        "score": 0.6561,
+        "rotation_deg": 90,
+        "scale": 1.15,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "double_gpo",
+          "canonical_name": "Double GPO (general purpose outlet)",
+          "similarity": 0.6313995718955994,
+          "unit": "ea",
+          "spec": "10A 250V double switched socket outlet, white",
+          "indicative_cost_aud": 14.2
+        },
+        {
+          "library_key": "single_gpo",
+          "canonical_name": "Single GPO (general purpose outlet)",
+          "similarity": 0.4970669746398926,
+          "unit": "ea",
+          "spec": "10A 250V single switched socket outlet, white",
+          "indicative_cost_aud": 9.4
+        },
+        {
+          "library_key": "wp_gpo",
+          "canonical_name": "Weatherproof GPO (IP rated)",
+          "similarity": 0.3571443557739258,
+          "unit": "ea",
+          "spec": "10A 250V IP54 weatherproof switched outlet with hinged cover",
+          "indicative_cost_aud": 29.5
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "double_gpo",
+        "bbox": [
+          1815,
+          713,
+          1907,
+          805
+        ],
+        "score": 0.6058,
+        "rotation_deg": 0,
+        "scale": 1.15,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "double_gpo",
+          "canonical_name": "Double GPO (general purpose outlet)",
+          "similarity": 0.6313995718955994,
+          "unit": "ea",
+          "spec": "10A 250V double switched socket outlet, white",
+          "indicative_cost_aud": 14.2
+        },
+        {
+          "library_key": "single_gpo",
+          "canonical_name": "Single GPO (general purpose outlet)",
+          "similarity": 0.4970669746398926,
+          "unit": "ea",
+          "spec": "10A 250V single switched socket outlet, white",
+          "indicative_cost_aud": 9.4
+        },
+        {
+          "library_key": "wp_gpo",
+          "canonical_name": "Weatherproof GPO (IP rated)",
+          "similarity": 0.3571443557739258,
+          "unit": "ea",
+          "spec": "10A 250V IP54 weatherproof switched outlet with hinged cover",
+          "indicative_cost_aud": 29.5
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "double_gpo",
+        "bbox": [
+          897,
+          700,
+          977,
+          780
+        ],
+        "score": 0.6057,
+        "rotation_deg": 270,
+        "scale": 1.0,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "double_gpo",
+          "canonical_name": "Double GPO (general purpose outlet)",
+          "similarity": 0.6313995718955994,
+          "unit": "ea",
+          "spec": "10A 250V double switched socket outlet, white",
+          "indicative_cost_aud": 14.2
+        },
+        {
+          "library_key": "single_gpo",
+          "canonical_name": "Single GPO (general purpose outlet)",
+          "similarity": 0.4970669746398926,
+          "unit": "ea",
+          "spec": "10A 250V single switched socket outlet, white",
+          "indicative_cost_aud": 9.4
+        },
+        {
+          "library_key": "wp_gpo",
+          "canonical_name": "Weatherproof GPO (IP rated)",
+          "similarity": 0.3571443557739258,
+          "unit": "ea",
+          "spec": "10A 250V IP54 weatherproof switched outlet with hinged cover",
+          "indicative_cost_aud": 29.5
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "downlight",
+        "bbox": [
+          1260,
+          703,
+          1352,
+          795
+        ],
+        "score": 0.9922,
+        "rotation_deg": 90,
+        "scale": 1.15,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "downlight",
+          "canonical_name": "Recessed LED downlight",
+          "similarity": 0.48958754539489746,
+          "unit": "ea",
+          "spec": "240V 10W LED recessed downlight, 90mm cutout, dimmable",
+          "indicative_cost_aud": 22.0
+        },
+        {
+          "library_key": "ceiling_light",
+          "canonical_name": "Ceiling-mounted batten / oyster light",
+          "similarity": 0.3206227123737335,
+          "unit": "ea",
+          "spec": "240V LED oyster, 18W warm white, surface mount",
+          "indicative_cost_aud": 42.0
+        },
+        {
+          "library_key": "wall_light",
+          "canonical_name": "Wall-mounted light",
+          "similarity": 0.2826511859893799,
+          "unit": "ea",
+          "spec": "240V LED wall sconce 8W, IP44 indoor/outdoor",
+          "indicative_cost_aud": 56.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "downlight",
+        "bbox": [
+          1393,
+          482,
+          1461,
+          550
+        ],
+        "score": 0.9875,
+        "rotation_deg": 0,
+        "scale": 0.85,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "downlight",
+          "canonical_name": "Recessed LED downlight",
+          "similarity": 0.48958754539489746,
+          "unit": "ea",
+          "spec": "240V 10W LED recessed downlight, 90mm cutout, dimmable",
+          "indicative_cost_aud": 22.0
+        },
+        {
+          "library_key": "ceiling_light",
+          "canonical_name": "Ceiling-mounted batten / oyster light",
+          "similarity": 0.3206227123737335,
+          "unit": "ea",
+          "spec": "240V LED oyster, 18W warm white, surface mount",
+          "indicative_cost_aud": 42.0
+        },
+        {
+          "library_key": "wall_light",
+          "canonical_name": "Wall-mounted light",
+          "similarity": 0.2826511859893799,
+          "unit": "ea",
+          "spec": "240V LED wall sconce 8W, IP44 indoor/outdoor",
+          "indicative_cost_aud": 56.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "downlight",
+        "bbox": [
+          1697,
+          446,
+          1777,
+          526
+        ],
+        "score": 0.9872,
+        "rotation_deg": 90,
+        "scale": 1.0,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "downlight",
+          "canonical_name": "Recessed LED downlight",
+          "similarity": 0.48958754539489746,
+          "unit": "ea",
+          "spec": "240V 10W LED recessed downlight, 90mm cutout, dimmable",
+          "indicative_cost_aud": 22.0
+        },
+        {
+          "library_key": "ceiling_light",
+          "canonical_name": "Ceiling-mounted batten / oyster light",
+          "similarity": 0.3206227123737335,
+          "unit": "ea",
+          "spec": "240V LED oyster, 18W warm white, surface mount",
+          "indicative_cost_aud": 42.0
+        },
+        {
+          "library_key": "wall_light",
+          "canonical_name": "Wall-mounted light",
+          "similarity": 0.2826511859893799,
+          "unit": "ea",
+          "spec": "240V LED wall sconce 8W, IP44 indoor/outdoor",
+          "indicative_cost_aud": 56.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "downlight",
+        "bbox": [
+          899,
+          440,
+          967,
+          508
+        ],
+        "score": 0.9871,
+        "rotation_deg": 270,
+        "scale": 0.85,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "downlight",
+          "canonical_name": "Recessed LED downlight",
+          "similarity": 0.48958754539489746,
+          "unit": "ea",
+          "spec": "240V 10W LED recessed downlight, 90mm cutout, dimmable",
+          "indicative_cost_aud": 22.0
+        },
+        {
+          "library_key": "ceiling_light",
+          "canonical_name": "Ceiling-mounted batten / oyster light",
+          "similarity": 0.3206227123737335,
+          "unit": "ea",
+          "spec": "240V LED oyster, 18W warm white, surface mount",
+          "indicative_cost_aud": 42.0
+        },
+        {
+          "library_key": "wall_light",
+          "canonical_name": "Wall-mounted light",
+          "similarity": 0.2826511859893799,
+          "unit": "ea",
+          "spec": "240V LED wall sconce 8W, IP44 indoor/outdoor",
+          "indicative_cost_aud": 56.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "downlight",
+        "bbox": [
+          970,
+          558,
+          1062,
+          650
+        ],
+        "score": 0.9776,
+        "rotation_deg": 180,
+        "scale": 1.15,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "downlight",
+          "canonical_name": "Recessed LED downlight",
+          "similarity": 0.48958754539489746,
+          "unit": "ea",
+          "spec": "240V 10W LED recessed downlight, 90mm cutout, dimmable",
+          "indicative_cost_aud": 22.0
+        },
+        {
+          "library_key": "ceiling_light",
+          "canonical_name": "Ceiling-mounted batten / oyster light",
+          "similarity": 0.3206227123737335,
+          "unit": "ea",
+          "spec": "240V LED oyster, 18W warm white, surface mount",
+          "indicative_cost_aud": 42.0
+        },
+        {
+          "library_key": "wall_light",
+          "canonical_name": "Wall-mounted light",
+          "similarity": 0.2826511859893799,
+          "unit": "ea",
+          "spec": "240V LED wall sconce 8W, IP44 indoor/outdoor",
+          "indicative_cost_aud": 56.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "downlight",
+        "bbox": [
+          1053,
+          424,
+          1121,
+          492
+        ],
+        "score": 0.9773,
+        "rotation_deg": 180,
+        "scale": 0.85,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "downlight",
+          "canonical_name": "Recessed LED downlight",
+          "similarity": 0.48958754539489746,
+          "unit": "ea",
+          "spec": "240V 10W LED recessed downlight, 90mm cutout, dimmable",
+          "indicative_cost_aud": 22.0
+        },
+        {
+          "library_key": "ceiling_light",
+          "canonical_name": "Ceiling-mounted batten / oyster light",
+          "similarity": 0.3206227123737335,
+          "unit": "ea",
+          "spec": "240V LED oyster, 18W warm white, surface mount",
+          "indicative_cost_aud": 42.0
+        },
+        {
+          "library_key": "wall_light",
+          "canonical_name": "Wall-mounted light",
+          "similarity": 0.2826511859893799,
+          "unit": "ea",
+          "spec": "240V LED wall sconce 8W, IP44 indoor/outdoor",
+          "indicative_cost_aud": 56.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "downlight",
+        "bbox": [
+          1120,
+          705,
+          1200,
+          785
+        ],
+        "score": 0.972,
+        "rotation_deg": 90,
+        "scale": 1.0,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "downlight",
+          "canonical_name": "Recessed LED downlight",
+          "similarity": 0.48958754539489746,
+          "unit": "ea",
+          "spec": "240V 10W LED recessed downlight, 90mm cutout, dimmable",
+          "indicative_cost_aud": 22.0
+        },
+        {
+          "library_key": "ceiling_light",
+          "canonical_name": "Ceiling-mounted batten / oyster light",
+          "similarity": 0.3206227123737335,
+          "unit": "ea",
+          "spec": "240V LED oyster, 18W warm white, surface mount",
+          "indicative_cost_aud": 42.0
+        },
+        {
+          "library_key": "wall_light",
+          "canonical_name": "Wall-mounted light",
+          "similarity": 0.2826511859893799,
+          "unit": "ea",
+          "spec": "240V LED wall sconce 8W, IP44 indoor/outdoor",
+          "indicative_cost_aud": 56.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "downlight",
+        "bbox": [
+          1550,
+          313,
+          1630,
+          393
+        ],
+        "score": 0.9553,
+        "rotation_deg": 0,
+        "scale": 1.0,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "downlight",
+          "canonical_name": "Recessed LED downlight",
+          "similarity": 0.48958754539489746,
+          "unit": "ea",
+          "spec": "240V 10W LED recessed downlight, 90mm cutout, dimmable",
+          "indicative_cost_aud": 22.0
+        },
+        {
+          "library_key": "ceiling_light",
+          "canonical_name": "Ceiling-mounted batten / oyster light",
+          "similarity": 0.3206227123737335,
+          "unit": "ea",
+          "spec": "240V LED oyster, 18W warm white, surface mount",
+          "indicative_cost_aud": 42.0
+        },
+        {
+          "library_key": "wall_light",
+          "canonical_name": "Wall-mounted light",
+          "similarity": 0.2826511859893799,
+          "unit": "ea",
+          "spec": "240V LED wall sconce 8W, IP44 indoor/outdoor",
+          "indicative_cost_aud": 56.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "downlight",
+        "bbox": [
+          1584,
+          723,
+          1676,
+          815
+        ],
+        "score": 0.9236,
+        "rotation_deg": 270,
+        "scale": 1.15,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "downlight",
+          "canonical_name": "Recessed LED downlight",
+          "similarity": 0.48958754539489746,
+          "unit": "ea",
+          "spec": "240V 10W LED recessed downlight, 90mm cutout, dimmable",
+          "indicative_cost_aud": 22.0
+        },
+        {
+          "library_key": "ceiling_light",
+          "canonical_name": "Ceiling-mounted batten / oyster light",
+          "similarity": 0.3206227123737335,
+          "unit": "ea",
+          "spec": "240V LED oyster, 18W warm white, surface mount",
+          "indicative_cost_aud": 42.0
+        },
+        {
+          "library_key": "wall_light",
+          "canonical_name": "Wall-mounted light",
+          "similarity": 0.2826511859893799,
+          "unit": "ea",
+          "spec": "240V LED wall sconce 8W, IP44 indoor/outdoor",
+          "indicative_cost_aud": 56.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "downlight",
+        "bbox": [
+          1828,
+          405,
+          1896,
+          473
+        ],
+        "score": 0.8955,
+        "rotation_deg": 180,
+        "scale": 0.85,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "downlight",
+          "canonical_name": "Recessed LED downlight",
+          "similarity": 0.48958754539489746,
+          "unit": "ea",
+          "spec": "240V 10W LED recessed downlight, 90mm cutout, dimmable",
+          "indicative_cost_aud": 22.0
+        },
+        {
+          "library_key": "ceiling_light",
+          "canonical_name": "Ceiling-mounted batten / oyster light",
+          "similarity": 0.3206227123737335,
+          "unit": "ea",
+          "spec": "240V LED oyster, 18W warm white, surface mount",
+          "indicative_cost_aud": 42.0
+        },
+        {
+          "library_key": "wall_light",
+          "canonical_name": "Wall-mounted light",
+          "similarity": 0.2826511859893799,
+          "unit": "ea",
+          "spec": "240V LED wall sconce 8W, IP44 indoor/outdoor",
+          "indicative_cost_aud": 56.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "downlight",
+        "bbox": [
+          645,
+          689,
+          725,
+          769
+        ],
+        "score": 0.8773,
+        "rotation_deg": 180,
+        "scale": 1.0,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "downlight",
+          "canonical_name": "Recessed LED downlight",
+          "similarity": 0.48958754539489746,
+          "unit": "ea",
+          "spec": "240V 10W LED recessed downlight, 90mm cutout, dimmable",
+          "indicative_cost_aud": 22.0
+        },
+        {
+          "library_key": "ceiling_light",
+          "canonical_name": "Ceiling-mounted batten / oyster light",
+          "similarity": 0.3206227123737335,
+          "unit": "ea",
+          "spec": "240V LED oyster, 18W warm white, surface mount",
+          "indicative_cost_aud": 42.0
+        },
+        {
+          "library_key": "wall_light",
+          "canonical_name": "Wall-mounted light",
+          "similarity": 0.2826511859893799,
+          "unit": "ea",
+          "spec": "240V LED wall sconce 8W, IP44 indoor/outdoor",
+          "indicative_cost_aud": 56.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "exhaust_fan",
+        "bbox": [
+          1703,
+          785,
+          1795,
+          877
+        ],
+        "score": 0.7377,
+        "rotation_deg": 0,
+        "scale": 1.15,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "exhaust_fan",
+          "canonical_name": "Exhaust fan",
+          "similarity": 0.585199773311615,
+          "unit": "ea",
+          "spec": "240V 250mm wall/ceiling exhaust fan, 200 m³/h",
+          "indicative_cost_aud": 78.0
+        },
+        {
+          "library_key": "ceiling_fan",
+          "canonical_name": "Ceiling fan",
+          "similarity": 0.4540005326271057,
+          "unit": "ea",
+          "spec": "1200mm 4-blade AC ceiling fan with wall control",
+          "indicative_cost_aud": 189.0
+        },
+        {
+          "library_key": "ceiling_light",
+          "canonical_name": "Ceiling-mounted batten / oyster light",
+          "similarity": 0.15738777816295624,
+          "unit": "ea",
+          "spec": "240V LED oyster, 18W warm white, surface mount",
+          "indicative_cost_aud": 42.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "single_gpo",
+        "bbox": [
+          1212,
+          444,
+          1280,
+          512
+        ],
+        "score": 0.9168,
+        "rotation_deg": 0,
+        "scale": 0.85,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "single_gpo",
+          "canonical_name": "Single GPO (general purpose outlet)",
+          "similarity": 0.6103224754333496,
+          "unit": "ea",
+          "spec": "10A 250V single switched socket outlet, white",
+          "indicative_cost_aud": 9.4
+        },
+        {
+          "library_key": "double_gpo",
+          "canonical_name": "Double GPO (general purpose outlet)",
+          "similarity": 0.5128428936004639,
+          "unit": "ea",
+          "spec": "10A 250V double switched socket outlet, white",
+          "indicative_cost_aud": 14.2
+        },
+        {
+          "library_key": "wp_gpo",
+          "canonical_name": "Weatherproof GPO (IP rated)",
+          "similarity": 0.35992273688316345,
+          "unit": "ea",
+          "spec": "10A 250V IP54 weatherproof switched outlet with hinged cover",
+          "indicative_cost_aud": 29.5
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "single_pole_switch",
+        "bbox": [
+          1402,
+          1090,
+          1494,
+          1182
+        ],
+        "score": 0.9871,
+        "rotation_deg": 0,
+        "scale": 1.15,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "single_pole_switch",
+          "canonical_name": "Single-pole switch (1-gang)",
+          "similarity": 0.5931152105331421,
+          "unit": "ea",
+          "spec": "250V 10A, 1-gang, white moulded plate",
+          "indicative_cost_aud": 8.5
+        },
+        {
+          "library_key": "two_way_switch",
+          "canonical_name": "Two-way switch (intermediate / 2-way)",
+          "similarity": 0.3884150981903076,
+          "unit": "ea",
+          "spec": "250V 10A, 2-way mechanism, 1-gang plate",
+          "indicative_cost_aud": 11.2
+        },
+        {
+          "library_key": "dimmer",
+          "canonical_name": "Dimmer switch",
+          "similarity": 0.31066182255744934,
+          "unit": "ea",
+          "spec": "240V 400W trailing-edge, suitable for LED",
+          "indicative_cost_aud": 38.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "single_pole_switch",
+        "bbox": [
+          1638,
+          254,
+          1730,
+          346
+        ],
+        "score": 0.8988,
+        "rotation_deg": 180,
+        "scale": 1.15,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "single_pole_switch",
+          "canonical_name": "Single-pole switch (1-gang)",
+          "similarity": 0.5931152105331421,
+          "unit": "ea",
+          "spec": "250V 10A, 1-gang, white moulded plate",
+          "indicative_cost_aud": 8.5
+        },
+        {
+          "library_key": "two_way_switch",
+          "canonical_name": "Two-way switch (intermediate / 2-way)",
+          "similarity": 0.3884150981903076,
+          "unit": "ea",
+          "spec": "250V 10A, 2-way mechanism, 1-gang plate",
+          "indicative_cost_aud": 11.2
+        },
+        {
+          "library_key": "dimmer",
+          "canonical_name": "Dimmer switch",
+          "similarity": 0.31066182255744934,
+          "unit": "ea",
+          "spec": "240V 400W trailing-edge, suitable for LED",
+          "indicative_cost_aud": 38.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "single_pole_switch",
+        "bbox": [
+          479,
+          981,
+          547,
+          1049
+        ],
+        "score": 0.8587,
+        "rotation_deg": 0,
+        "scale": 0.85,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "single_pole_switch",
+          "canonical_name": "Single-pole switch (1-gang)",
+          "similarity": 0.5931152105331421,
+          "unit": "ea",
+          "spec": "250V 10A, 1-gang, white moulded plate",
+          "indicative_cost_aud": 8.5
+        },
+        {
+          "library_key": "two_way_switch",
+          "canonical_name": "Two-way switch (intermediate / 2-way)",
+          "similarity": 0.3884150981903076,
+          "unit": "ea",
+          "spec": "250V 10A, 2-way mechanism, 1-gang plate",
+          "indicative_cost_aud": 11.2
+        },
+        {
+          "library_key": "dimmer",
+          "canonical_name": "Dimmer switch",
+          "similarity": 0.31066182255744934,
+          "unit": "ea",
+          "spec": "240V 400W trailing-edge, suitable for LED",
+          "indicative_cost_aud": 38.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "single_pole_switch",
+        "bbox": [
+          1490,
+          724,
+          1570,
+          804
+        ],
+        "score": 0.7268,
+        "rotation_deg": 0,
+        "scale": 1.0,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "single_pole_switch",
+          "canonical_name": "Single-pole switch (1-gang)",
+          "similarity": 0.5931152105331421,
+          "unit": "ea",
+          "spec": "250V 10A, 1-gang, white moulded plate",
+          "indicative_cost_aud": 8.5
+        },
+        {
+          "library_key": "two_way_switch",
+          "canonical_name": "Two-way switch (intermediate / 2-way)",
+          "similarity": 0.3884150981903076,
+          "unit": "ea",
+          "spec": "250V 10A, 2-way mechanism, 1-gang plate",
+          "indicative_cost_aud": 11.2
+        },
+        {
+          "library_key": "dimmer",
+          "canonical_name": "Dimmer switch",
+          "similarity": 0.31066182255744934,
+          "unit": "ea",
+          "spec": "240V 400W trailing-edge, suitable for LED",
+          "indicative_cost_aud": 38.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "smoke_detector",
+        "bbox": [
+          1037,
+          877,
+          1117,
+          957
+        ],
+        "score": 0.7169,
+        "rotation_deg": 0,
+        "scale": 1.0,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "smoke_detector",
+          "canonical_name": "Mains-wired photoelectric smoke alarm",
+          "similarity": 0.4935741722583771,
+          "unit": "ea",
+          "spec": "240V hardwired photoelectric smoke alarm with 10-year battery backup, AS 3786 compliant",
+          "indicative_cost_aud": 48.0
+        },
+        {
+          "library_key": "exhaust_fan",
+          "canonical_name": "Exhaust fan",
+          "similarity": 0.16575008630752563,
+          "unit": "ea",
+          "spec": "240V 250mm wall/ceiling exhaust fan, 200 m³/h",
+          "indicative_cost_aud": 78.0
+        },
+        {
+          "library_key": "ceiling_fan",
+          "canonical_name": "Ceiling fan",
+          "similarity": 0.15749774873256683,
+          "unit": "ea",
+          "spec": "1200mm 4-blade AC ceiling fan with wall control",
+          "indicative_cost_aud": 189.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "smoke_detector",
+        "bbox": [
+          1463,
+          313,
+          1543,
+          393
+        ],
+        "score": 0.7133,
+        "rotation_deg": 270,
+        "scale": 1.0,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "smoke_detector",
+          "canonical_name": "Mains-wired photoelectric smoke alarm",
+          "similarity": 0.4935741722583771,
+          "unit": "ea",
+          "spec": "240V hardwired photoelectric smoke alarm with 10-year battery backup, AS 3786 compliant",
+          "indicative_cost_aud": 48.0
+        },
+        {
+          "library_key": "exhaust_fan",
+          "canonical_name": "Exhaust fan",
+          "similarity": 0.16575008630752563,
+          "unit": "ea",
+          "spec": "240V 250mm wall/ceiling exhaust fan, 200 m³/h",
+          "indicative_cost_aud": 78.0
+        },
+        {
+          "library_key": "ceiling_fan",
+          "canonical_name": "Ceiling fan",
+          "similarity": 0.15749774873256683,
+          "unit": "ea",
+          "spec": "1200mm 4-blade AC ceiling fan with wall control",
+          "indicative_cost_aud": 189.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "smoke_detector",
+        "bbox": [
+          805,
+          878,
+          897,
+          970
+        ],
+        "score": 0.5128,
+        "rotation_deg": 0,
+        "scale": 1.15,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "smoke_detector",
+          "canonical_name": "Mains-wired photoelectric smoke alarm",
+          "similarity": 0.4935741722583771,
+          "unit": "ea",
+          "spec": "240V hardwired photoelectric smoke alarm with 10-year battery backup, AS 3786 compliant",
+          "indicative_cost_aud": 48.0
+        },
+        {
+          "library_key": "exhaust_fan",
+          "canonical_name": "Exhaust fan",
+          "similarity": 0.16575008630752563,
+          "unit": "ea",
+          "spec": "240V 250mm wall/ceiling exhaust fan, 200 m³/h",
+          "indicative_cost_aud": 78.0
+        },
+        {
+          "library_key": "ceiling_fan",
+          "canonical_name": "Ceiling fan",
+          "similarity": 0.15749774873256683,
+          "unit": "ea",
+          "spec": "1200mm 4-blade AC ceiling fan with wall control",
+          "indicative_cost_aud": 189.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "tv_point",
+        "bbox": [
+          739,
+          280,
+          807,
+          348
+        ],
+        "score": 0.8027,
+        "rotation_deg": 90,
+        "scale": 0.85,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "tv_point",
+          "canonical_name": "TV outlet (PAL/F-type)",
+          "similarity": 0.45124566555023193,
+          "unit": "ea",
+          "spec": "PAL/F-type combined TV wall outlet, 1-gang, white",
+          "indicative_cost_aud": 16.0
+        },
+        {
+          "library_key": "data_point",
+          "canonical_name": "Data outlet (Cat6)",
+          "similarity": 0.275459885597229,
+          "unit": "ea",
+          "spec": "Cat6 RJ45 wall plate, 1-port, white",
+          "indicative_cost_aud": 18.5
+        },
+        {
+          "library_key": "distribution_board",
+          "canonical_name": "Distribution board (consumer unit)",
+          "similarity": 0.19205346703529358,
+          "unit": "ea",
+          "spec": "12-pole surface-mount distribution board with main switch and bus bars",
+          "indicative_cost_aud": 240.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "two_way_switch",
+        "bbox": [
+          1101,
+          331,
+          1193,
+          423
+        ],
+        "score": 0.9752,
+        "rotation_deg": 0,
+        "scale": 1.15,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "two_way_switch",
+          "canonical_name": "Two-way switch (intermediate / 2-way)",
+          "similarity": 0.6221890449523926,
+          "unit": "ea",
+          "spec": "250V 10A, 2-way mechanism, 1-gang plate",
+          "indicative_cost_aud": 11.2
+        },
+        {
+          "library_key": "single_pole_switch",
+          "canonical_name": "Single-pole switch (1-gang)",
+          "similarity": 0.3784328103065491,
+          "unit": "ea",
+          "spec": "250V 10A, 1-gang, white moulded plate",
+          "indicative_cost_aud": 8.5
+        },
+        {
+          "library_key": "dimmer",
+          "canonical_name": "Dimmer switch",
+          "similarity": 0.298578679561615,
+          "unit": "ea",
+          "spec": "240V 400W trailing-edge, suitable for LED",
+          "indicative_cost_aud": 38.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "two_way_switch",
+        "bbox": [
+          871,
+          903,
+          951,
+          983
+        ],
+        "score": 0.8422,
+        "rotation_deg": 180,
+        "scale": 1.0,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "two_way_switch",
+          "canonical_name": "Two-way switch (intermediate / 2-way)",
+          "similarity": 0.6221890449523926,
+          "unit": "ea",
+          "spec": "250V 10A, 2-way mechanism, 1-gang plate",
+          "indicative_cost_aud": 11.2
+        },
+        {
+          "library_key": "single_pole_switch",
+          "canonical_name": "Single-pole switch (1-gang)",
+          "similarity": 0.3784328103065491,
+          "unit": "ea",
+          "spec": "250V 10A, 1-gang, white moulded plate",
+          "indicative_cost_aud": 8.5
+        },
+        {
+          "library_key": "dimmer",
+          "canonical_name": "Dimmer switch",
+          "similarity": 0.298578679561615,
+          "unit": "ea",
+          "spec": "240V 400W trailing-edge, suitable for LED",
+          "indicative_cost_aud": 38.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "two_way_switch",
+        "bbox": [
+          1798,
+          338,
+          1878,
+          418
+        ],
+        "score": 0.5875,
+        "rotation_deg": 90,
+        "scale": 1.0,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "two_way_switch",
+          "canonical_name": "Two-way switch (intermediate / 2-way)",
+          "similarity": 0.6221890449523926,
+          "unit": "ea",
+          "spec": "250V 10A, 2-way mechanism, 1-gang plate",
+          "indicative_cost_aud": 11.2
+        },
+        {
+          "library_key": "single_pole_switch",
+          "canonical_name": "Single-pole switch (1-gang)",
+          "similarity": 0.3784328103065491,
+          "unit": "ea",
+          "spec": "250V 10A, 1-gang, white moulded plate",
+          "indicative_cost_aud": 8.5
+        },
+        {
+          "library_key": "dimmer",
+          "canonical_name": "Dimmer switch",
+          "similarity": 0.298578679561615,
+          "unit": "ea",
+          "spec": "240V 400W trailing-edge, suitable for LED",
+          "indicative_cost_aud": 38.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "two_way_switch",
+        "bbox": [
+          444,
+          510,
+          512,
+          578
+        ],
+        "score": 0.5852,
+        "rotation_deg": 90,
+        "scale": 0.85,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "two_way_switch",
+          "canonical_name": "Two-way switch (intermediate / 2-way)",
+          "similarity": 0.6221890449523926,
+          "unit": "ea",
+          "spec": "250V 10A, 2-way mechanism, 1-gang plate",
+          "indicative_cost_aud": 11.2
+        },
+        {
+          "library_key": "single_pole_switch",
+          "canonical_name": "Single-pole switch (1-gang)",
+          "similarity": 0.3784328103065491,
+          "unit": "ea",
+          "spec": "250V 10A, 1-gang, white moulded plate",
+          "indicative_cost_aud": 8.5
+        },
+        {
+          "library_key": "dimmer",
+          "canonical_name": "Dimmer switch",
+          "similarity": 0.298578679561615,
+          "unit": "ea",
+          "spec": "240V 400W trailing-edge, suitable for LED",
+          "indicative_cost_aud": 38.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "two_way_switch",
+        "bbox": [
+          183,
+          331,
+          251,
+          399
+        ],
+        "score": 0.579,
+        "rotation_deg": 90,
+        "scale": 0.85,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "two_way_switch",
+          "canonical_name": "Two-way switch (intermediate / 2-way)",
+          "similarity": 0.6221890449523926,
+          "unit": "ea",
+          "spec": "250V 10A, 2-way mechanism, 1-gang plate",
+          "indicative_cost_aud": 11.2
+        },
+        {
+          "library_key": "single_pole_switch",
+          "canonical_name": "Single-pole switch (1-gang)",
+          "similarity": 0.3784328103065491,
+          "unit": "ea",
+          "spec": "250V 10A, 1-gang, white moulded plate",
+          "indicative_cost_aud": 8.5
+        },
+        {
+          "library_key": "dimmer",
+          "canonical_name": "Dimmer switch",
+          "similarity": 0.298578679561615,
+          "unit": "ea",
+          "spec": "240V 400W trailing-edge, suitable for LED",
+          "indicative_cost_aud": 38.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "wall_light",
+        "bbox": [
+          1408,
+          756,
+          1476,
+          824
+        ],
+        "score": 0.738,
+        "rotation_deg": 180,
+        "scale": 0.85,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "wall_light",
+          "canonical_name": "Wall-mounted light",
+          "similarity": 0.6198500394821167,
+          "unit": "ea",
+          "spec": "240V LED wall sconce 8W, IP44 indoor/outdoor",
+          "indicative_cost_aud": 56.0
+        },
+        {
+          "library_key": "ceiling_light",
+          "canonical_name": "Ceiling-mounted batten / oyster light",
+          "similarity": 0.43572530150413513,
+          "unit": "ea",
+          "spec": "240V LED oyster, 18W warm white, surface mount",
+          "indicative_cost_aud": 42.0
+        },
+        {
+          "library_key": "downlight",
+          "canonical_name": "Recessed LED downlight",
+          "similarity": 0.39224666357040405,
+          "unit": "ea",
+          "spec": "240V 10W LED recessed downlight, 90mm cutout, dimmable",
+          "indicative_cost_aud": 22.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "wall_light",
+        "bbox": [
+          745,
+          305,
+          801,
+          361
+        ],
+        "score": 0.5884,
+        "rotation_deg": 0,
+        "scale": 0.7,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "wall_light",
+          "canonical_name": "Wall-mounted light",
+          "similarity": 0.6198500394821167,
+          "unit": "ea",
+          "spec": "240V LED wall sconce 8W, IP44 indoor/outdoor",
+          "indicative_cost_aud": 56.0
+        },
+        {
+          "library_key": "ceiling_light",
+          "canonical_name": "Ceiling-mounted batten / oyster light",
+          "similarity": 0.43572530150413513,
+          "unit": "ea",
+          "spec": "240V LED oyster, 18W warm white, surface mount",
+          "indicative_cost_aud": 42.0
+        },
+        {
+          "library_key": "downlight",
+          "canonical_name": "Recessed LED downlight",
+          "similarity": 0.39224666357040405,
+          "unit": "ea",
+          "spec": "240V 10W LED recessed downlight, 90mm cutout, dimmable",
+          "indicative_cost_aud": 22.0
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "wp_gpo",
+        "bbox": [
+          884,
+          1082,
+          976,
+          1174
+        ],
+        "score": 0.9427,
+        "rotation_deg": 0,
+        "scale": 1.15,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "wp_gpo",
+          "canonical_name": "Weatherproof GPO (IP rated)",
+          "similarity": 0.49242010712623596,
+          "unit": "ea",
+          "spec": "10A 250V IP54 weatherproof switched outlet with hinged cover",
+          "indicative_cost_aud": 29.5
+        },
+        {
+          "library_key": "double_gpo",
+          "canonical_name": "Double GPO (general purpose outlet)",
+          "similarity": 0.4312690496444702,
+          "unit": "ea",
+          "spec": "10A 250V double switched socket outlet, white",
+          "indicative_cost_aud": 14.2
+        },
+        {
+          "library_key": "single_gpo",
+          "canonical_name": "Single GPO (general purpose outlet)",
+          "similarity": 0.42430198192596436,
+          "unit": "ea",
+          "spec": "10A 250V single switched socket outlet, white",
+          "indicative_cost_aud": 9.4
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "wp_gpo",
+        "bbox": [
+          1152,
+          1119,
+          1220,
+          1187
+        ],
+        "score": 0.6949,
+        "rotation_deg": 0,
+        "scale": 0.85,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "wp_gpo",
+          "canonical_name": "Weatherproof GPO (IP rated)",
+          "similarity": 0.49242010712623596,
+          "unit": "ea",
+          "spec": "10A 250V IP54 weatherproof switched outlet with hinged cover",
+          "indicative_cost_aud": 29.5
+        },
+        {
+          "library_key": "double_gpo",
+          "canonical_name": "Double GPO (general purpose outlet)",
+          "similarity": 0.4312690496444702,
+          "unit": "ea",
+          "spec": "10A 250V double switched socket outlet, white",
+          "indicative_cost_aud": 14.2
+        },
+        {
+          "library_key": "single_gpo",
+          "canonical_name": "Single GPO (general purpose outlet)",
+          "similarity": 0.42430198192596436,
+          "unit": "ea",
+          "spec": "10A 250V single switched socket outlet, white",
+          "indicative_cost_aud": 9.4
+        }
+      ]
+    },
+    {
+      "detection": {
+        "symbol_class": "wp_gpo",
+        "bbox": [
+          1735,
+          715,
+          1827,
+          807
+        ],
+        "score": 0.6347,
+        "rotation_deg": 0,
+        "scale": 1.15,
+        "source_page": 1
+      },
+      "matches": [
+        {
+          "library_key": "wp_gpo",
+          "canonical_name": "Weatherproof GPO (IP rated)",
+          "similarity": 0.49242010712623596,
+          "unit": "ea",
+          "spec": "10A 250V IP54 weatherproof switched outlet with hinged cover",
+          "indicative_cost_aud": 29.5
+        },
+        {
+          "library_key": "double_gpo",
+          "canonical_name": "Double GPO (general purpose outlet)",
+          "similarity": 0.4312690496444702,
+          "unit": "ea",
+          "spec": "10A 250V double switched socket outlet, white",
+          "indicative_cost_aud": 14.2
+        },
+        {
+          "library_key": "single_gpo",
+          "canonical_name": "Single GPO (general purpose outlet)",
+          "similarity": 0.42430198192596436,
+          "unit": "ea",
+          "spec": "10A 250V single switched socket outlet, white",
+          "indicative_cost_aud": 9.4
+        }
+      ]
+    }
+  ],
+  "bom": {
+    "project_name": "SYNTHETIC TEST DWELLING",
+    "drawing_number": "E-100",
+    "revision": null,
+    "drawing_date": "2026-05-27",
+    "line_items": [
+      {
+        "library_key": "ceiling_fan",
+        "canonical_name": "Ceiling fan",
+        "quantity": 3,
+        "unit": "ea",
+        "spec": "1200mm 4-blade AC ceiling fan with wall control",
+        "unit_cost_aud": 189.0,
+        "line_total_aud": 567.0,
+        "source_pages": [
+          1
+        ],
+        "source_detection_count": 3,
+        "avg_detection_score": 0.9151,
+        "min_detection_score": 0.7703,
+        "confidence_band": "high",
+        "notes": null
+      },
+      {
+        "library_key": "ceiling_light",
+        "canonical_name": "Ceiling-mounted batten / oyster light",
+        "quantity": 5,
+        "unit": "ea",
+        "spec": "240V LED oyster, 18W warm white, surface mount",
+        "unit_cost_aud": 42.0,
+        "line_total_aud": 210.0,
+        "source_pages": [
+          1
+        ],
+        "source_detection_count": 5,
+        "avg_detection_score": 0.8384,
+        "min_detection_score": 0.7158,
+        "confidence_band": "high",
+        "notes": null
+      },
+      {
+        "library_key": "data_point",
+        "canonical_name": "Data outlet (Cat6)",
+        "quantity": 2,
+        "unit": "ea",
+        "spec": "Cat6 RJ45 wall plate, 1-port, white",
+        "unit_cost_aud": 18.5,
+        "line_total_aud": 37.0,
+        "source_pages": [
+          1
+        ],
+        "source_detection_count": 2,
+        "avg_detection_score": 0.8535,
+        "min_detection_score": 0.8018,
+        "confidence_band": "high",
+        "notes": null
+      },
+      {
+        "library_key": "dimmer",
+        "canonical_name": "Dimmer switch",
+        "quantity": 1,
+        "unit": "ea",
+        "spec": "240V 400W trailing-edge, suitable for LED",
+        "unit_cost_aud": 38.0,
+        "line_total_aud": 38.0,
+        "source_pages": [
+          1
+        ],
+        "source_detection_count": 1,
+        "avg_detection_score": 0.8926,
+        "min_detection_score": 0.8926,
+        "confidence_band": "high",
+        "notes": null
+      },
+      {
+        "library_key": "distribution_board",
+        "canonical_name": "Distribution board (consumer unit)",
+        "quantity": 1,
+        "unit": "ea",
+        "spec": "12-pole surface-mount distribution board with main switch and bus bars",
+        "unit_cost_aud": 240.0,
+        "line_total_aud": 240.0,
+        "source_pages": [
+          1
+        ],
+        "source_detection_count": 1,
+        "avg_detection_score": 0.7283,
+        "min_detection_score": 0.7283,
+        "confidence_band": "medium",
+        "notes": null
+      },
+      {
+        "library_key": "double_gpo",
+        "canonical_name": "Double GPO (general purpose outlet)",
+        "quantity": 13,
+        "unit": "ea",
+        "spec": "10A 250V double switched socket outlet, white",
+        "unit_cost_aud": 14.2,
+        "line_total_aud": 184.6,
+        "source_pages": [
+          1
+        ],
+        "source_detection_count": 13,
+        "avg_detection_score": 0.7643,
+        "min_detection_score": 0.6057,
+        "confidence_band": "medium",
+        "notes": null
+      },
+      {
+        "library_key": "downlight",
+        "canonical_name": "Recessed LED downlight",
+        "quantity": 11,
+        "unit": "ea",
+        "spec": "240V 10W LED recessed downlight, 90mm cutout, dimmable",
+        "unit_cost_aud": 22.0,
+        "line_total_aud": 242.0,
+        "source_pages": [
+          1
+        ],
+        "source_detection_count": 11,
+        "avg_detection_score": 0.9575,
+        "min_detection_score": 0.8773,
+        "confidence_band": "high",
+        "notes": null
+      },
+      {
+        "library_key": "exhaust_fan",
+        "canonical_name": "Exhaust fan",
+        "quantity": 1,
+        "unit": "ea",
+        "spec": "240V 250mm wall/ceiling exhaust fan, 200 m³/h",
+        "unit_cost_aud": 78.0,
+        "line_total_aud": 78.0,
+        "source_pages": [
+          1
+        ],
+        "source_detection_count": 1,
+        "avg_detection_score": 0.7377,
+        "min_detection_score": 0.7377,
+        "confidence_band": "medium",
+        "notes": null
+      },
+      {
+        "library_key": "single_gpo",
+        "canonical_name": "Single GPO (general purpose outlet)",
+        "quantity": 1,
+        "unit": "ea",
+        "spec": "10A 250V single switched socket outlet, white",
+        "unit_cost_aud": 9.4,
+        "line_total_aud": 9.4,
+        "source_pages": [
+          1
+        ],
+        "source_detection_count": 1,
+        "avg_detection_score": 0.9168,
+        "min_detection_score": 0.9168,
+        "confidence_band": "high",
+        "notes": null
+      },
+      {
+        "library_key": "single_pole_switch",
+        "canonical_name": "Single-pole switch (1-gang)",
+        "quantity": 4,
+        "unit": "ea",
+        "spec": "250V 10A, 1-gang, white moulded plate",
+        "unit_cost_aud": 8.5,
+        "line_total_aud": 34.0,
+        "source_pages": [
+          1
+        ],
+        "source_detection_count": 4,
+        "avg_detection_score": 0.8679,
+        "min_detection_score": 0.7268,
+        "confidence_band": "high",
+        "notes": null
+      },
+      {
+        "library_key": "smoke_detector",
+        "canonical_name": "Mains-wired photoelectric smoke alarm",
+        "quantity": 3,
+        "unit": "ea",
+        "spec": "240V hardwired photoelectric smoke alarm with 10-year battery backup, AS 3786 compliant",
+        "unit_cost_aud": 48.0,
+        "line_total_aud": 144.0,
+        "source_pages": [
+          1
+        ],
+        "source_detection_count": 3,
+        "avg_detection_score": 0.6477,
+        "min_detection_score": 0.5128,
+        "confidence_band": "low",
+        "notes": null
+      },
+      {
+        "library_key": "tv_point",
+        "canonical_name": "TV outlet (PAL/F-type)",
+        "quantity": 1,
+        "unit": "ea",
+        "spec": "PAL/F-type combined TV wall outlet, 1-gang, white",
+        "unit_cost_aud": 16.0,
+        "line_total_aud": 16.0,
+        "source_pages": [
+          1
+        ],
+        "source_detection_count": 1,
+        "avg_detection_score": 0.8027,
+        "min_detection_score": 0.8027,
+        "confidence_band": "high",
+        "notes": null
+      },
+      {
+        "library_key": "two_way_switch",
+        "canonical_name": "Two-way switch (intermediate / 2-way)",
+        "quantity": 5,
+        "unit": "ea",
+        "spec": "250V 10A, 2-way mechanism, 1-gang plate",
+        "unit_cost_aud": 11.2,
+        "line_total_aud": 56.0,
+        "source_pages": [
+          1
+        ],
+        "source_detection_count": 5,
+        "avg_detection_score": 0.7138,
+        "min_detection_score": 0.579,
+        "confidence_band": "medium",
+        "notes": null
+      },
+      {
+        "library_key": "wall_light",
+        "canonical_name": "Wall-mounted light",
+        "quantity": 2,
+        "unit": "ea",
+        "spec": "240V LED wall sconce 8W, IP44 indoor/outdoor",
+        "unit_cost_aud": 56.0,
+        "line_total_aud": 112.0,
+        "source_pages": [
+          1
+        ],
+        "source_detection_count": 2,
+        "avg_detection_score": 0.6632,
+        "min_detection_score": 0.5884,
+        "confidence_band": "medium",
+        "notes": null
+      },
+      {
+        "library_key": "wp_gpo",
+        "canonical_name": "Weatherproof GPO (IP rated)",
+        "quantity": 3,
+        "unit": "ea",
+        "spec": "10A 250V IP54 weatherproof switched outlet with hinged cover",
+        "unit_cost_aud": 29.5,
+        "line_total_aud": 88.5,
+        "source_pages": [
+          1
+        ],
+        "source_detection_count": 3,
+        "avg_detection_score": 0.7574,
+        "min_detection_score": 0.6347,
+        "confidence_band": "medium",
+        "notes": null
+      }
+    ],
+    "subtotal_aud": 2056.5,
+    "notes_from_assembler": "The 12-pole distribution board may be undersized if a garage sub-board, EV charger, or future circuits are anticipated — worth confirming circuit count with the engineer. Cabling, conduit, cable trays, circuit breakers/RCDs, and labour are not included in this BOM and should be added as separate allowances. The single exhaust fan count appears low for a dwelling with both a bathroom and laundry; confirm whether a second unit is required.",
+    "prompt_version": "bom_v1",
+    "model": "claude-sonnet-4-6",
+    "page_count": 1,
+    "generated_at": "2026-05-28T06:02:36.522050+00:00"
+  },
+  "elapsed_seconds": 97.09
+}

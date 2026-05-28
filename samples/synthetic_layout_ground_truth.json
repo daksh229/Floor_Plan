@@ -1,0 +1,880 @@
+{
+  "source_pdf": "synthetic_layout.pdf",
+  "page_index": 1,
+  "canvas": {
+    "width": 2000,
+    "height": 1400
+  },
+  "seed": 20260527,
+  "mask_regions": [
+    {
+      "name": "legend",
+      "bbox": [
+        1550,
+        910,
+        1970,
+        1370
+      ]
+    }
+  ],
+  "placement_count": 60,
+  "counts_by_class": {
+    "ceiling_fan": 3,
+    "ceiling_light": 5,
+    "data_point": 3,
+    "dimmer": 1,
+    "distribution_board": 1,
+    "double_gpo": 14,
+    "downlight": 12,
+    "exhaust_fan": 2,
+    "single_gpo": 1,
+    "single_pole_switch": 6,
+    "smoke_detector": 3,
+    "tv_point": 1,
+    "two_way_switch": 4,
+    "wall_light": 1,
+    "wp_gpo": 3
+  },
+  "placements": [
+    {
+      "symbol_class": "single_pole_switch",
+      "room": "Bedroom 1",
+      "cx": 212,
+      "cy": 456,
+      "scale": 0.812,
+      "rotation_deg": 0,
+      "bbox": [
+        180,
+        424,
+        244,
+        488
+      ]
+    },
+    {
+      "symbol_class": "double_gpo",
+      "room": "Bedroom 1",
+      "cx": 527,
+      "cy": 445,
+      "scale": 0.85,
+      "rotation_deg": 270,
+      "bbox": [
+        493,
+        411,
+        561,
+        479
+      ]
+    },
+    {
+      "symbol_class": "double_gpo",
+      "room": "Bedroom 1",
+      "cx": 477,
+      "cy": 543,
+      "scale": 0.94,
+      "rotation_deg": 0,
+      "bbox": [
+        440,
+        506,
+        515,
+        581
+      ]
+    },
+    {
+      "symbol_class": "double_gpo",
+      "room": "Bedroom 1",
+      "cx": 216,
+      "cy": 364,
+      "scale": 0.938,
+      "rotation_deg": 0,
+      "bbox": [
+        179,
+        327,
+        254,
+        402
+      ]
+    },
+    {
+      "symbol_class": "ceiling_light",
+      "room": "Bedroom 1",
+      "cx": 432,
+      "cy": 610,
+      "scale": 1.017,
+      "rotation_deg": 0,
+      "bbox": [
+        392,
+        570,
+        473,
+        651
+      ]
+    },
+    {
+      "symbol_class": "ceiling_fan",
+      "room": "Bedroom 1",
+      "cx": 141,
+      "cy": 479,
+      "scale": 0.858,
+      "rotation_deg": 90,
+      "bbox": [
+        107,
+        445,
+        175,
+        513
+      ]
+    },
+    {
+      "symbol_class": "data_point",
+      "room": "Bedroom 1",
+      "cx": 328,
+      "cy": 559,
+      "scale": 1.078,
+      "rotation_deg": 180,
+      "bbox": [
+        285,
+        516,
+        371,
+        602
+      ]
+    },
+    {
+      "symbol_class": "smoke_detector",
+      "room": "Bedroom 1",
+      "cx": 148,
+      "cy": 353,
+      "scale": 0.914,
+      "rotation_deg": 0,
+      "bbox": [
+        112,
+        317,
+        185,
+        390
+      ]
+    },
+    {
+      "symbol_class": "single_pole_switch",
+      "room": "Bedroom 2",
+      "cx": 513,
+      "cy": 1015,
+      "scale": 0.827,
+      "rotation_deg": 0,
+      "bbox": [
+        480,
+        982,
+        546,
+        1048
+      ]
+    },
+    {
+      "symbol_class": "double_gpo",
+      "room": "Bedroom 2",
+      "cx": 336,
+      "cy": 872,
+      "scale": 1.012,
+      "rotation_deg": 0,
+      "bbox": [
+        296,
+        832,
+        376,
+        912
+      ]
+    },
+    {
+      "symbol_class": "double_gpo",
+      "room": "Bedroom 2",
+      "cx": 558,
+      "cy": 965,
+      "scale": 0.826,
+      "rotation_deg": 90,
+      "bbox": [
+        525,
+        932,
+        591,
+        998
+      ]
+    },
+    {
+      "symbol_class": "ceiling_light",
+      "room": "Bedroom 2",
+      "cx": 504,
+      "cy": 1145,
+      "scale": 1.171,
+      "rotation_deg": 0,
+      "bbox": [
+        458,
+        1099,
+        551,
+        1192
+      ]
+    },
+    {
+      "symbol_class": "ceiling_fan",
+      "room": "Bedroom 2",
+      "cx": 440,
+      "cy": 1006,
+      "scale": 0.855,
+      "rotation_deg": 0,
+      "bbox": [
+        406,
+        972,
+        474,
+        1040
+      ]
+    },
+    {
+      "symbol_class": "data_point",
+      "room": "Bedroom 2",
+      "cx": 382,
+      "cy": 1098,
+      "scale": 1.195,
+      "rotation_deg": 0,
+      "bbox": [
+        335,
+        1051,
+        430,
+        1146
+      ]
+    },
+    {
+      "symbol_class": "two_way_switch",
+      "room": "Living",
+      "cx": 1146,
+      "cy": 377,
+      "scale": 1.156,
+      "rotation_deg": 0,
+      "bbox": [
+        1100,
+        331,
+        1192,
+        423
+      ]
+    },
+    {
+      "symbol_class": "two_way_switch",
+      "room": "Living",
+      "cx": 935,
+      "cy": 740,
+      "scale": 0.914,
+      "rotation_deg": 0,
+      "bbox": [
+        899,
+        704,
+        972,
+        777
+      ]
+    },
+    {
+      "symbol_class": "double_gpo",
+      "room": "Living",
+      "cx": 947,
+      "cy": 387,
+      "scale": 0.901,
+      "rotation_deg": 180,
+      "bbox": [
+        911,
+        351,
+        983,
+        423
+      ]
+    },
+    {
+      "symbol_class": "double_gpo",
+      "room": "Living",
+      "cx": 1122,
+      "cy": 655,
+      "scale": 0.809,
+      "rotation_deg": 270,
+      "bbox": [
+        1090,
+        623,
+        1154,
+        687
+      ]
+    },
+    {
+      "symbol_class": "double_gpo",
+      "room": "Living",
+      "cx": 812,
+      "cy": 768,
+      "scale": 1.095,
+      "rotation_deg": 90,
+      "bbox": [
+        769,
+        725,
+        856,
+        812
+      ]
+    },
+    {
+      "symbol_class": "double_gpo",
+      "room": "Living",
+      "cx": 915,
+      "cy": 591,
+      "scale": 1.191,
+      "rotation_deg": 270,
+      "bbox": [
+        868,
+        544,
+        963,
+        639
+      ]
+    },
+    {
+      "symbol_class": "single_gpo",
+      "room": "Living",
+      "cx": 1245,
+      "cy": 478,
+      "scale": 0.868,
+      "rotation_deg": 0,
+      "bbox": [
+        1211,
+        444,
+        1280,
+        513
+      ]
+    },
+    {
+      "symbol_class": "downlight",
+      "room": "Living",
+      "cx": 1159,
+      "cy": 744,
+      "scale": 0.964,
+      "rotation_deg": 0,
+      "bbox": [
+        1121,
+        706,
+        1198,
+        783
+      ]
+    },
+    {
+      "symbol_class": "downlight",
+      "room": "Living",
+      "cx": 681,
+      "cy": 728,
+      "scale": 1.111,
+      "rotation_deg": 0,
+      "bbox": [
+        637,
+        684,
+        725,
+        772
+      ]
+    },
+    {
+      "symbol_class": "downlight",
+      "room": "Living",
+      "cx": 932,
+      "cy": 474,
+      "scale": 0.879,
+      "rotation_deg": 0,
+      "bbox": [
+        897,
+        439,
+        967,
+        509
+      ]
+    },
+    {
+      "symbol_class": "downlight",
+      "room": "Living",
+      "cx": 1305,
+      "cy": 747,
+      "scale": 1.146,
+      "rotation_deg": 0,
+      "bbox": [
+        1260,
+        702,
+        1351,
+        793
+      ]
+    },
+    {
+      "symbol_class": "downlight",
+      "room": "Living",
+      "cx": 1086,
+      "cy": 457,
+      "scale": 0.889,
+      "rotation_deg": 270,
+      "bbox": [
+        1051,
+        422,
+        1122,
+        493
+      ]
+    },
+    {
+      "symbol_class": "downlight",
+      "room": "Living",
+      "cx": 1014,
+      "cy": 604,
+      "scale": 1.109,
+      "rotation_deg": 90,
+      "bbox": [
+        970,
+        560,
+        1058,
+        648
+      ]
+    },
+    {
+      "symbol_class": "ceiling_fan",
+      "room": "Living",
+      "cx": 1253,
+      "cy": 634,
+      "scale": 0.821,
+      "rotation_deg": 270,
+      "bbox": [
+        1221,
+        602,
+        1286,
+        667
+      ]
+    },
+    {
+      "symbol_class": "tv_point",
+      "room": "Living",
+      "cx": 773,
+      "cy": 315,
+      "scale": 0.812,
+      "rotation_deg": 90,
+      "bbox": [
+        741,
+        283,
+        805,
+        347
+      ]
+    },
+    {
+      "symbol_class": "data_point",
+      "room": "Living",
+      "cx": 679,
+      "cy": 454,
+      "scale": 1.103,
+      "rotation_deg": 0,
+      "bbox": [
+        635,
+        410,
+        723,
+        498
+      ]
+    },
+    {
+      "symbol_class": "single_pole_switch",
+      "room": "Kitchen",
+      "cx": 1683,
+      "cy": 300,
+      "scale": 1.168,
+      "rotation_deg": 180,
+      "bbox": [
+        1637,
+        254,
+        1730,
+        347
+      ]
+    },
+    {
+      "symbol_class": "dimmer",
+      "room": "Kitchen",
+      "cx": 1655,
+      "cy": 503,
+      "scale": 0.863,
+      "rotation_deg": 0,
+      "bbox": [
+        1621,
+        469,
+        1690,
+        538
+      ]
+    },
+    {
+      "symbol_class": "double_gpo",
+      "room": "Kitchen",
+      "cx": 1627,
+      "cy": 443,
+      "scale": 0.845,
+      "rotation_deg": 270,
+      "bbox": [
+        1594,
+        410,
+        1661,
+        477
+      ]
+    },
+    {
+      "symbol_class": "double_gpo",
+      "room": "Kitchen",
+      "cx": 1734,
+      "cy": 362,
+      "scale": 1.113,
+      "rotation_deg": 90,
+      "bbox": [
+        1690,
+        318,
+        1779,
+        407
+      ]
+    },
+    {
+      "symbol_class": "double_gpo",
+      "room": "Kitchen",
+      "cx": 1836,
+      "cy": 377,
+      "scale": 1.089,
+      "rotation_deg": 0,
+      "bbox": [
+        1793,
+        334,
+        1880,
+        421
+      ]
+    },
+    {
+      "symbol_class": "double_gpo",
+      "room": "Kitchen",
+      "cx": 1764,
+      "cy": 405,
+      "scale": 1.155,
+      "rotation_deg": 90,
+      "bbox": [
+        1718,
+        359,
+        1810,
+        451
+      ]
+    },
+    {
+      "symbol_class": "downlight",
+      "room": "Kitchen",
+      "cx": 1737,
+      "cy": 486,
+      "scale": 1.026,
+      "rotation_deg": 180,
+      "bbox": [
+        1696,
+        445,
+        1778,
+        527
+      ]
+    },
+    {
+      "symbol_class": "downlight",
+      "room": "Kitchen",
+      "cx": 1860,
+      "cy": 438,
+      "scale": 0.853,
+      "rotation_deg": 0,
+      "bbox": [
+        1826,
+        404,
+        1894,
+        472
+      ]
+    },
+    {
+      "symbol_class": "downlight",
+      "room": "Kitchen",
+      "cx": 1589,
+      "cy": 353,
+      "scale": 0.944,
+      "rotation_deg": 0,
+      "bbox": [
+        1552,
+        316,
+        1627,
+        391
+      ]
+    },
+    {
+      "symbol_class": "downlight",
+      "room": "Kitchen",
+      "cx": 1426,
+      "cy": 516,
+      "scale": 0.832,
+      "rotation_deg": 0,
+      "bbox": [
+        1393,
+        483,
+        1459,
+        549
+      ]
+    },
+    {
+      "symbol_class": "smoke_detector",
+      "room": "Kitchen",
+      "cx": 1502,
+      "cy": 353,
+      "scale": 0.974,
+      "rotation_deg": 270,
+      "bbox": [
+        1464,
+        315,
+        1541,
+        392
+      ]
+    },
+    {
+      "symbol_class": "single_pole_switch",
+      "room": "Bathroom",
+      "cx": 1529,
+      "cy": 764,
+      "scale": 0.971,
+      "rotation_deg": 0,
+      "bbox": [
+        1491,
+        726,
+        1568,
+        803
+      ]
+    },
+    {
+      "symbol_class": "downlight",
+      "room": "Bathroom",
+      "cx": 1519,
+      "cy": 828,
+      "scale": 0.982,
+      "rotation_deg": 0,
+      "bbox": [
+        1480,
+        789,
+        1558,
+        867
+      ]
+    },
+    {
+      "symbol_class": "downlight",
+      "room": "Bathroom",
+      "cx": 1629,
+      "cy": 770,
+      "scale": 1.086,
+      "rotation_deg": 180,
+      "bbox": [
+        1586,
+        727,
+        1672,
+        813
+      ]
+    },
+    {
+      "symbol_class": "exhaust_fan",
+      "room": "Bathroom",
+      "cx": 1573,
+      "cy": 824,
+      "scale": 0.808,
+      "rotation_deg": 270,
+      "bbox": [
+        1541,
+        792,
+        1605,
+        856
+      ]
+    },
+    {
+      "symbol_class": "wall_light",
+      "room": "Bathroom",
+      "cx": 1441,
+      "cy": 790,
+      "scale": 0.862,
+      "rotation_deg": 180,
+      "bbox": [
+        1407,
+        756,
+        1475,
+        824
+      ]
+    },
+    {
+      "symbol_class": "single_pole_switch",
+      "room": "Laundry",
+      "cx": 1810,
+      "cy": 837,
+      "scale": 1.124,
+      "rotation_deg": 0,
+      "bbox": [
+        1766,
+        793,
+        1855,
+        882
+      ]
+    },
+    {
+      "symbol_class": "double_gpo",
+      "room": "Laundry",
+      "cx": 1859,
+      "cy": 759,
+      "scale": 1.199,
+      "rotation_deg": 0,
+      "bbox": [
+        1812,
+        712,
+        1907,
+        807
+      ]
+    },
+    {
+      "symbol_class": "wp_gpo",
+      "room": "Laundry",
+      "cx": 1781,
+      "cy": 762,
+      "scale": 1.109,
+      "rotation_deg": 0,
+      "bbox": [
+        1737,
+        718,
+        1825,
+        806
+      ]
+    },
+    {
+      "symbol_class": "exhaust_fan",
+      "room": "Laundry",
+      "cx": 1748,
+      "cy": 831,
+      "scale": 1.156,
+      "rotation_deg": 0,
+      "bbox": [
+        1702,
+        785,
+        1794,
+        877
+      ]
+    },
+    {
+      "symbol_class": "distribution_board",
+      "room": "Laundry",
+      "cx": 1744,
+      "cy": 719,
+      "scale": 0.838,
+      "rotation_deg": 0,
+      "bbox": [
+        1711,
+        686,
+        1778,
+        753
+      ]
+    },
+    {
+      "symbol_class": "two_way_switch",
+      "room": "Hallway",
+      "cx": 910,
+      "cy": 942,
+      "scale": 0.993,
+      "rotation_deg": 180,
+      "bbox": [
+        871,
+        903,
+        950,
+        982
+      ]
+    },
+    {
+      "symbol_class": "two_way_switch",
+      "room": "Hallway",
+      "cx": 850,
+      "cy": 924,
+      "scale": 0.925,
+      "rotation_deg": 0,
+      "bbox": [
+        814,
+        888,
+        887,
+        961
+      ]
+    },
+    {
+      "symbol_class": "ceiling_light",
+      "room": "Hallway",
+      "cx": 1224,
+      "cy": 958,
+      "scale": 0.805,
+      "rotation_deg": 0,
+      "bbox": [
+        1192,
+        926,
+        1256,
+        990
+      ]
+    },
+    {
+      "symbol_class": "smoke_detector",
+      "room": "Hallway",
+      "cx": 1076,
+      "cy": 916,
+      "scale": 1.049,
+      "rotation_deg": 0,
+      "bbox": [
+        1035,
+        875,
+        1118,
+        958
+      ]
+    },
+    {
+      "symbol_class": "single_pole_switch",
+      "room": "Garage",
+      "cx": 1447,
+      "cy": 1136,
+      "scale": 1.158,
+      "rotation_deg": 0,
+      "bbox": [
+        1401,
+        1090,
+        1493,
+        1182
+      ]
+    },
+    {
+      "symbol_class": "wp_gpo",
+      "room": "Garage",
+      "cx": 929,
+      "cy": 1127,
+      "scale": 1.171,
+      "rotation_deg": 0,
+      "bbox": [
+        883,
+        1081,
+        976,
+        1174
+      ]
+    },
+    {
+      "symbol_class": "wp_gpo",
+      "room": "Garage",
+      "cx": 1185,
+      "cy": 1153,
+      "scale": 0.892,
+      "rotation_deg": 0,
+      "bbox": [
+        1150,
+        1118,
+        1221,
+        1189
+      ]
+    },
+    {
+      "symbol_class": "ceiling_light",
+      "room": "Garage",
+      "cx": 1098,
+      "cy": 1133,
+      "scale": 1.023,
+      "rotation_deg": 270,
+      "bbox": [
+        1058,
+        1093,
+        1139,
+        1174
+      ]
+    },
+    {
+      "symbol_class": "ceiling_light",
+      "room": "Garage",
+      "cx": 1237,
+      "cy": 1143,
+      "scale": 0.822,
+      "rotation_deg": 180,
+      "bbox": [
+        1205,
+        1111,
+        1270,
+        1176
+      ]
+    }
+  ]
+}

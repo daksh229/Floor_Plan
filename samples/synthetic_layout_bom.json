@@ -1,0 +1,269 @@
+{
+  "project_name": "SYNTHETIC TEST DWELLING",
+  "drawing_number": "E-100",
+  "revision": null,
+  "drawing_date": "2026-05-27",
+  "line_items": [
+    {
+      "library_key": "ceiling_fan",
+      "canonical_name": "Ceiling fan",
+      "quantity": 3,
+      "unit": "ea",
+      "spec": "1200mm 4-blade AC ceiling fan with wall control",
+      "unit_cost_aud": 189.0,
+      "line_total_aud": 567.0,
+      "source_pages": [
+        1
+      ],
+      "source_detection_count": 3,
+      "avg_detection_score": 0.9151,
+      "min_detection_score": 0.7703,
+      "confidence_band": "high",
+      "notes": null
+    },
+    {
+      "library_key": "ceiling_light",
+      "canonical_name": "Ceiling-mounted batten / oyster light",
+      "quantity": 5,
+      "unit": "ea",
+      "spec": "240V LED oyster, 18W warm white, surface mount",
+      "unit_cost_aud": 42.0,
+      "line_total_aud": 210.0,
+      "source_pages": [
+        1
+      ],
+      "source_detection_count": 5,
+      "avg_detection_score": 0.8384,
+      "min_detection_score": 0.7158,
+      "confidence_band": "high",
+      "notes": null
+    },
+    {
+      "library_key": "data_point",
+      "canonical_name": "Data outlet (Cat6)",
+      "quantity": 2,
+      "unit": "ea",
+      "spec": "Cat6 RJ45 wall plate, 1-port, white",
+      "unit_cost_aud": 18.5,
+      "line_total_aud": 37.0,
+      "source_pages": [
+        1
+      ],
+      "source_detection_count": 2,
+      "avg_detection_score": 0.8535,
+      "min_detection_score": 0.8018,
+      "confidence_band": "high",
+      "notes": null
+    },
+    {
+      "library_key": "dimmer",
+      "canonical_name": "Dimmer switch",
+      "quantity": 1,
+      "unit": "ea",
+      "spec": "240V 400W trailing-edge, suitable for LED",
+      "unit_cost_aud": 38.0,
+      "line_total_aud": 38.0,
+      "source_pages": [
+        1
+      ],
+      "source_detection_count": 1,
+      "avg_detection_score": 0.8926,
+      "min_detection_score": 0.8926,
+      "confidence_band": "high",
+      "notes": null
+    },
+    {
+      "library_key": "distribution_board",
+      "canonical_name": "Distribution board (consumer unit)",
+      "quantity": 1,
+      "unit": "ea",
+      "spec": "12-pole surface-mount distribution board with main switch and bus bars",
+      "unit_cost_aud": 240.0,
+      "line_total_aud": 240.0,
+      "source_pages": [
+        1
+      ],
+      "source_detection_count": 1,
+      "avg_detection_score": 0.7283,
+      "min_detection_score": 0.7283,
+      "confidence_band": "medium",
+      "notes": null
+    },
+    {
+      "library_key": "double_gpo",
+      "canonical_name": "Double GPO (general purpose outlet)",
+      "quantity": 13,
+      "unit": "ea",
+      "spec": "10A 250V double switched socket outlet, white",
+      "unit_cost_aud": 14.2,
+      "line_total_aud": 184.6,
+      "source_pages": [
+        1
+      ],
+      "source_detection_count": 13,
+      "avg_detection_score": 0.7643,
+      "min_detection_score": 0.6057,
+      "confidence_band": "medium",
+      "notes": null
+    },
+    {
+      "library_key": "downlight",
+      "canonical_name": "Recessed LED downlight",
+      "quantity": 11,
+      "unit": "ea",
+      "spec": "240V 10W LED recessed downlight, 90mm cutout, dimmable",
+      "unit_cost_aud": 22.0,
+      "line_total_aud": 242.0,
+      "source_pages": [
+        1
+      ],
+      "source_detection_count": 11,
+      "avg_detection_score": 0.9575,
+      "min_detection_score": 0.8773,
+      "confidence_band": "high",
+      "notes": null
+    },
+    {
+      "library_key": "exhaust_fan",
+      "canonical_name": "Exhaust fan",
+      "quantity": 1,
+      "unit": "ea",
+      "spec": "240V 250mm wall/ceiling exhaust fan, 200 m³/h",
+      "unit_cost_aud": 78.0,
+      "line_total_aud": 78.0,
+      "source_pages": [
+        1
+      ],
+      "source_detection_count": 1,
+      "avg_detection_score": 0.7377,
+      "min_detection_score": 0.7377,
+      "confidence_band": "medium",
+      "notes": null
+    },
+    {
+      "library_key": "single_gpo",
+      "canonical_name": "Single GPO (general purpose outlet)",
+      "quantity": 1,
+      "unit": "ea",
+      "spec": "10A 250V single switched socket outlet, white",
+      "unit_cost_aud": 9.4,
+      "line_total_aud": 9.4,
+      "source_pages": [
+        1
+      ],
+      "source_detection_count": 1,
+      "avg_detection_score": 0.9168,
+      "min_detection_score": 0.9168,
+      "confidence_band": "high",
+      "notes": null
+    },
+    {
+      "library_key": "single_pole_switch",
+      "canonical_name": "Single-pole switch (1-gang)",
+      "quantity": 4,
+      "unit": "ea",
+      "spec": "250V 10A, 1-gang, white moulded plate",
+      "unit_cost_aud": 8.5,
+      "line_total_aud": 34.0,
+      "source_pages": [
+        1
+      ],
+      "source_detection_count": 4,
+      "avg_detection_score": 0.8679,
+      "min_detection_score": 0.7268,
+      "confidence_band": "high",
+      "notes": null
+    },
+    {
+      "library_key": "smoke_detector",
+      "canonical_name": "Mains-wired photoelectric smoke alarm",
+      "quantity": 3,
+      "unit": "ea",
+      "spec": "240V hardwired photoelectric smoke alarm with 10-year battery backup, AS 3786 compliant",
+      "unit_cost_aud": 48.0,
+      "line_total_aud": 144.0,
+      "source_pages": [
+        1
+      ],
+      "source_detection_count": 3,
+      "avg_detection_score": 0.6477,
+      "min_detection_score": 0.5128,
+      "confidence_band": "low",
+      "notes": null
+    },
+    {
+      "library_key": "tv_point",
+      "canonical_name": "TV outlet (PAL/F-type)",
+      "quantity": 1,
+      "unit": "ea",
+      "spec": "PAL/F-type combined TV wall outlet, 1-gang, white",
+      "unit_cost_aud": 16.0,
+      "line_total_aud": 16.0,
+      "source_pages": [
+        1
+      ],
+      "source_detection_count": 1,
+      "avg_detection_score": 0.8027,
+      "min_detection_score": 0.8027,
+      "confidence_band": "high",
+      "notes": null
+    },
+    {
+      "library_key": "two_way_switch",
+      "canonical_name": "Two-way switch (intermediate / 2-way)",
+      "quantity": 5,
+      "unit": "ea",
+      "spec": "250V 10A, 2-way mechanism, 1-gang plate",
+      "unit_cost_aud": 11.2,
+      "line_total_aud": 56.0,
+      "source_pages": [
+        1
+      ],
+      "source_detection_count": 5,
+      "avg_detection_score": 0.7138,
+      "min_detection_score": 0.579,
+      "confidence_band": "medium",
+      "notes": null
+    },
+    {
+      "library_key": "wall_light",
+      "canonical_name": "Wall-mounted light",
+      "quantity": 2,
+      "unit": "ea",
+      "spec": "240V LED wall sconce 8W, IP44 indoor/outdoor",
+      "unit_cost_aud": 56.0,
+      "line_total_aud": 112.0,
+      "source_pages": [
+        1
+      ],
+      "source_detection_count": 2,
+      "avg_detection_score": 0.6632,
+      "min_detection_score": 0.5884,
+      "confidence_band": "medium",
+      "notes": null
+    },
+    {
+      "library_key": "wp_gpo",
+      "canonical_name": "Weatherproof GPO (IP rated)",
+      "quantity": 3,
+      "unit": "ea",
+      "spec": "10A 250V IP54 weatherproof switched outlet with hinged cover",
+      "unit_cost_aud": 29.5,
+      "line_total_aud": 88.5,
+      "source_pages": [
+        1
+      ],
+      "source_detection_count": 3,
+      "avg_detection_score": 0.7574,
+      "min_detection_score": 0.6347,
+      "confidence_band": "medium",
+      "notes": null
+    }
+  ],
+  "subtotal_aud": 2056.5,
+  "notes_from_assembler": "TEST HARNESS: deliberate deviations injected for safety-net verification.",
+  "prompt_version": "bom_v1_force_deviation",
+  "model": "claude-sonnet-4-6",
+  "page_count": 1,
+  "generated_at": "2026-05-28T06:05:46.353384+00:00"
+}

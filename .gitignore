@@ -26,6 +26,10 @@ poc/.env/
 # --- Audit store (may contain client-sensitive Claude responses) ---
 poc/audit_store/
 
+# --- User-ingested symbol library (Phase 6, may be client-sensitive) ---
+poc/symbol_library/user/
+poc/symbol_library/user_additions.json
+
 # --- Sample plan PDFs (potentially confidential — drop locally, do not commit) ---
 samples/*.pdf
 samples/*.PDF

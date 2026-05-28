@@ -1,0 +1,115 @@
+{
+  "_meta": {
+    "description": "Predefined electrical symbol library. Each entry feeds two stages of the pipeline: (1) Phase 2 CV template matching uses the PNG referenced by `template`; (2) Phase 3 RAG indexes the canonical_name + aliases for semantic symbol-to-library matching; (4) Phase 4 BOM assembly reads spec and indicative_cost_aud to produce the final line items.",
+    "version": "v1",
+    "currency": "AUD",
+    "standards_reference": "Indicative only — representative of common AS/NZS 3000 residential symbols. Not an authoritative standard."
+  },
+  "symbols": {
+    "single_pole_switch": {
+      "canonical_name": "Single-pole switch (1-gang)",
+      "aliases": ["1-gang switch", "single switch", "SP switch", "wall switch", "one-way switch"],
+      "unit": "ea",
+      "spec": "250V 10A, 1-gang, white moulded plate",
+      "indicative_cost_aud": 8.50
+    },
+    "two_way_switch": {
+      "canonical_name": "Two-way switch (intermediate / 2-way)",
+      "aliases": ["2-way switch", "intermediate switch", "S2 switch", "stair switch", "hallway switch"],
+      "unit": "ea",
+      "spec": "250V 10A, 2-way mechanism, 1-gang plate",
+      "indicative_cost_aud": 11.20
+    },
+    "dimmer": {
+      "canonical_name": "Dimmer switch",
+      "aliases": ["dimmer", "dimming switch", "rotary dimmer", "DIM switch", "trailing-edge dimmer"],
+      "unit": "ea",
+      "spec": "240V 400W trailing-edge, suitable for LED",
+      "indicative_cost_aud": 38.00
+    },
+    "single_gpo": {
+      "canonical_name": "Single GPO (general purpose outlet)",
+      "aliases": ["single power point", "1-gang outlet", "single socket", "SPO", "1-gang GPO"],
+      "unit": "ea",
+      "spec": "10A 250V single switched socket outlet, white",
+      "indicative_cost_aud": 9.40
+    },
+    "double_gpo": {
+      "canonical_name": "Double GPO (general purpose outlet)",
+      "aliases": ["double power point", "2-gang outlet", "double socket", "DPO", "twin GPO"],
+      "unit": "ea",
+      "spec": "10A 250V double switched socket outlet, white",
+      "indicative_cost_aud": 14.20
+    },
+    "wp_gpo": {
+      "canonical_name": "Weatherproof GPO (IP rated)",
+      "aliases": ["WP outlet", "weatherproof power point", "external GPO", "IP54 socket", "outdoor power point"],
+      "unit": "ea",
+      "spec": "10A 250V IP54 weatherproof switched outlet with hinged cover",
+      "indicative_cost_aud": 29.50
+    },
+    "ceiling_light": {
+      "canonical_name": "Ceiling-mounted batten / oyster light",
+      "aliases": ["batten light", "oyster light", "ceiling fixture", "main light", "centre light"],
+      "unit": "ea",
+      "spec": "240V LED oyster, 18W warm white, surface mount",
+      "indicative_cost_aud": 42.00
+    },
+    "wall_light": {
+      "canonical_name": "Wall-mounted light",
+      "aliases": ["wall sconce", "bracket light", "wall fixture", "wall-mount luminaire"],
+      "unit": "ea",
+      "spec": "240V LED wall sconce 8W, IP44 indoor/outdoor",
+      "indicative_cost_aud": 56.00
+    },
+    "downlight": {
+      "canonical_name": "Recessed LED downlight",
+      "aliases": ["recessed downlight", "LED downlight", "ceiling downlight", "can light", "pot light"],
+      "unit": "ea",
+      "spec": "240V 10W LED recessed downlight, 90mm cutout, dimmable",
+      "indicative_cost_aud": 22.00
+    },
+    "ceiling_fan": {
+      "canonical_name": "Ceiling fan",
+      "aliases": ["ceiling sweep fan", "paddle fan", "AC ceiling fan", "room fan"],
+      "unit": "ea",
+      "spec": "1200mm 4-blade AC ceiling fan with wall control",
+      "indicative_cost_aud": 189.00
+    },
+    "exhaust_fan": {
+      "canonical_name": "Exhaust fan",
+      "aliases": ["bathroom exhaust", "extractor fan", "ventilation fan", "EF", "extract fan"],
+      "unit": "ea",
+      "spec": "240V 250mm wall/ceiling exhaust fan, 200 m³/h",
+      "indicative_cost_aud": 78.00
+    },
+    "smoke_detector": {
+      "canonical_name": "Mains-wired photoelectric smoke alarm",
+      "aliases": ["smoke alarm", "fire alarm", "SD detector", "photoelectric smoke detector", "interconnected smoke alarm"],
+      "unit": "ea",
+      "spec": "240V hardwired photoelectric smoke alarm with 10-year battery backup, AS 3786 compliant",
+      "indicative_cost_aud": 48.00
+    },
+    "data_point": {
+      "canonical_name": "Data outlet (Cat6)",
+      "aliases": ["data point", "ethernet outlet", "RJ45 socket", "Cat6 outlet", "network point"],
+      "unit": "ea",
+      "spec": "Cat6 RJ45 wall plate, 1-port, white",
+      "indicative_cost_aud": 18.50
+    },
+    "tv_point": {
+      "canonical_name": "TV outlet (PAL/F-type)",
+      "aliases": ["TV point", "antenna outlet", "TV socket", "PAL outlet", "F-type wall plate"],
+      "unit": "ea",
+      "spec": "PAL/F-type combined TV wall outlet, 1-gang, white",
+      "indicative_cost_aud": 16.00
+    },
+    "distribution_board": {
+      "canonical_name": "Distribution board (consumer unit)",
+      "aliases": ["DB", "switchboard", "consumer unit", "circuit panel", "main switchboard"],
+      "unit": "ea",
+      "spec": "12-pole surface-mount distribution board with main switch and bus bars",
+      "indicative_cost_aud": 240.00
+    }
+  }
+}
