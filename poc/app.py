@@ -1049,6 +1049,23 @@ def _wizard_step2_pack() -> None:
     )
     pc = st.session_state.get("page_classification")
     has_legend = bool(pc and pc.suggested_legend_page)
+    pdf_name = (st.session_state.get("wizard_pdf_name") or "").lower()
+    # Built-in templates were drawn by symbol_library/generate_symbols.py
+    # to match symbols placed by synth/generate_sample.py. They only match
+    # the synth fixture; on any other PDF the built-in pack returns ~0
+    # detections. Detect that case and steer the user.
+    is_synth_fixture = "synthetic_layout" in pdf_name and "procalc" not in pdf_name
+
+    if not is_synth_fixture:
+        st.warning(
+            "⚠️ **Heads-up — your uploaded PDF is not the synthetic test fixture.** "
+            "The Built-in pack contains 15 templates I drew specifically to match "
+            "the symbols on `synthetic_layout.pdf`. On *any other PDF* (including "
+            "this one), the built-in templates won't visually match the drawing's "
+            "symbol style and detection will return **~0 detections**. "
+            "**Use the User pack** (right card) — it ingests your PDF's own "
+            "legend so detection matches your drawing's actual symbol style."
+        )
 
     col1, col2 = st.columns(2)
     with col1:
@@ -1058,10 +1075,16 @@ def _wizard_step2_pack() -> None:
             "lights, fans, DB, …). **Best for the synthetic test fixture** — "
             "the templates match its style exactly."
         )
-        st.caption("⚠️ On real ProCalc-style PDFs, recall will be low because "
-                   "the built-ins don't match the drawing's symbol style.")
-        if st.button("Use built-in (skip to Step 4)", use_container_width=True,
-                     key="pack_builtin_btn"):
+        if is_synth_fixture:
+            st.caption("✅ This PDF *is* the synth fixture — built-in pack will work.")
+        else:
+            st.caption("🔴 Not recommended for this PDF — see warning above.")
+        if st.button(
+            "Use built-in (skip to Step 4)",
+            use_container_width=True,
+            key="pack_builtin_btn",
+            type="primary" if is_synth_fixture else "secondary",
+        ):
             st.session_state["wizard_pack_choice"] = "builtin"
             st.session_state["_pending_symbol_pack"] = "builtin"
             _wizard_goto(4)
@@ -1074,12 +1097,17 @@ def _wizard_step2_pack() -> None:
             "preview them, and ingest into the user pack. Detection will use "
             "those templates instead."
         )
-        st.caption("Recommended for real drawing sets. The system will use a "
-                   "wider scale range + tuned thresholds for user-pack matching.")
-        if st.button("Use user pack (go to Step 3 to ingest)",
-                     type="primary", use_container_width=True,
-                     key="pack_user_btn",
-                     disabled=not has_legend):
+        if is_synth_fixture:
+            st.caption("(Optional for this PDF — built-in works fine.)")
+        else:
+            st.caption("✅ Recommended for this PDF.")
+        if st.button(
+            "Use user pack (go to Step 3 to ingest)",
+            type="primary" if not is_synth_fixture else "secondary",
+            use_container_width=True,
+            key="pack_user_btn",
+            disabled=not has_legend,
+        ):
             st.session_state["wizard_pack_choice"] = "user"
             _wizard_goto(3)
             st.rerun()
