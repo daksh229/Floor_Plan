@@ -38,6 +38,77 @@ samples/*.PDF
 # --- Generated artifacts ---
 _procalc_extract/
 
+# --- ML / training artifacts (NEVER commit — large, regenerable, or sensitive) ---
+
+# Trained model weights (any framework, any location).
+# Project root carries best.pt (~6 MB) and best.onnx (~12 MB).
+*.pt
+*.onnx
+*.pth
+*.h5
+*.pb
+*.tflite
+*.safetensors
+*.ckpt
+*.bin
+# Common weights / checkpoint output folders
+weights/
+checkpoints/
+ckpts/
+models/
+**/best.pt
+**/last.pt
+**/best.onnx
+yolov8*.pt
+yolov8*.onnx
+yolo11*.pt
+
+# Training output bundles (Colab download, Ultralytics auto-generated)
+model_result/
+runs/
+runs_train/
+runs_detect/
+runs_val/
+
+# Experiment tracking / logs
+wandb/
+mlruns/
+.mlflow/
+tb_logs/
+tensorboard/
+lightning_logs/
+events.out.tfevents.*
+
+# Datasets — synthetic + real. Regenerable via training/generate_image.py;
+# real client data must never go to a public repo.
+training_data/
+dataset/
+datasets/
+data/raw/
+data/processed/
+data/interim/
+yolo_dataset/
+*.tfrecord
+*.lmdb
+*.npy
+*.npz
+
+# Raw data drops (zipped uploads, exported folders)
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.rar
+
+# Training-run side artifacts at project root
+results.csv
+confusion_matrix*.png
+training_curves*.png
+augmented_samples*.png
+eda_*.png
+detections_*.png
+
 # --- RAG / ML caches (regenerable, large) ---
 poc/.cache/
 poc/rag_index/
