@@ -41,9 +41,14 @@ only way your work survives:
 WHAT YOU SHOULD DO:
   - Extract project metadata (project_name, drawing_number, revision, drawing_date) \
     from the OCR text. Use null if absent. Do not invent.
+  - When the input contains a `room` field on entries (extracted from OCR-detected \
+    room labels), preserve it verbatim on the corresponding line_items output. \
+    Multiple line items may share the same library_key when split across rooms — \
+    that is correct, do not collapse them.
   - In `notes_from_assembler`, write 1-3 sentences of estimator-facing commentary: \
-    counts that look unusually high or low for a residential ground floor, items you'd \
-    flag as commonly-missing, etc. Keep it short and useful.
+    counts that look unusually high or low for the room mix shown, room imbalances \
+    (e.g. "no lighting in Bedroom 2"), items you'd flag as commonly-missing, etc. \
+    Keep it short and useful.
 
 OUTPUT FORMAT — return ONLY this JSON object, no prose around it:
 
@@ -56,6 +61,7 @@ OUTPUT FORMAT — return ONLY this JSON object, no prose around it:
     {
       "library_key": <string>,
       "canonical_name": <string>,
+      "room": <string or null>,
       "quantity": <integer>,
       "unit": <string>,
       "spec": <string>,
@@ -76,16 +82,32 @@ def _v1_user_renderer(payload: dict[str, Any]) -> str:
     ocr_text = payload.get("ocr_text_joined") or "(no OCR text extracted)"
     pdf_name = payload.get("pdf_name", "(unknown)")
     page_count = payload.get("page_count", 1)
+    rooms_detected = payload.get("rooms_detected") or []
 
     lines = [
         f"Drawing: {pdf_name} ({page_count} page(s))",
         "",
-        "AGGREGATED CV DETECTIONS + LIBRARY MATCHES (your source of truth — do not deviate):",
     ]
+    if rooms_detected:
+        lines.append(
+            f"ROOMS DETECTED on the plan ({len(rooms_detected)}): "
+            + ", ".join(rooms_detected)
+        )
+        lines.append(
+            "Detections below are pre-grouped by (symbol_class, room). The `room` "
+            "field on each entry MUST be carried through to your line_items output."
+        )
+    else:
+        lines.append("ROOMS DETECTED: none — room assignment was disabled or OCR was too sparse. "
+                     "Treat every entry as room=null.")
+    lines.append("")
+    lines.append("AGGREGATED CV DETECTIONS + LIBRARY MATCHES (your source of truth — do not deviate):")
     for entry in aggregated:
+        room_str = entry.get("room") or "null (unassigned)"
         lines.append(
             f"  - library_key: {entry['library_key']}\n"
             f"    canonical_name: {entry['canonical_name']}\n"
+            f"    room: {room_str}\n"
             f"    quantity: {entry['quantity']}\n"
             f"    unit: {entry['unit']}\n"
             f"    unit_cost_aud: {entry['unit_cost_aud']:.2f}\n"

@@ -80,25 +80,23 @@ def build_svg_overlay_html(
         text_h_est = font_px + 2 * label_pad
         ly0 = max(0, y0 - text_h_est)
         ly1 = ly0 + text_h_est
-        # bbox
+        # Wrap the bbox + label-bg + label-text in a <g class="detection"
+        # data-class="..."> so the JS highlight logic can target detections
+        # by class as a single visual unit (legend hover -> dim non-matching).
         svg_elems.append(
+            f'<g class="detection" data-class="{_escape_attr(d.symbol_class)}">'
             f'<rect x="{x0}" y="{y0}" width="{x1 - x0}" height="{y1 - y0}" '
             f'fill="none" stroke="{c}" stroke-width="{stroke}" />'
-        )
-        # label background
-        svg_elems.append(
             f'<rect x="{x0}" y="{ly0}" width="{text_w_est + 2 * label_pad}" '
             f'height="{text_h_est}" fill="{c}" fill-opacity="0.85" />'
-        )
-        # label text
-        svg_elems.append(
             f'<text x="{x0 + label_pad}" y="{ly1 - label_pad - 2}" '
             f'font-family="system-ui, sans-serif" font-size="{font_px}" '
             f'font-weight="600" fill="white">{_escape_text(label)}</text>'
+            f'</g>'
         )
 
     svg = (
-        f'<svg xmlns="http://www.w3.org/2000/svg" '
+        f'<svg id="vec-svg" xmlns="http://www.w3.org/2000/svg" '
         f'viewBox="0 0 {img_w} {img_h}" '
         f'style="position:absolute;top:0;left:0;width:100%;height:100%;'
         f'pointer-events:none;">'
@@ -159,49 +157,217 @@ def build_svg_overlay_html(
 </script>
 """.strip()
 
-    legend_classes = sorted({d.symbol_class for d in dets})
-    legend_html = "".join(
-        f'<span style="display:inline-flex;align-items:center;margin:0 10px 4px 0;'
-        f'font-family:system-ui,sans-serif;font-size:12px;color:#333;">'
-        f'<span style="display:inline-block;width:12px;height:12px;'
-        f'background:{_colour_for_class(c)};border:1px solid #888;'
-        f'margin-right:4px;border-radius:2px;"></span>'
-        f'<code>{c}</code></span>'
+    # Per-class counts power the legend's count badges. Sorted desc by count
+    # so the highest-cardinality classes (typically downlights / GPOs) are
+    # at the top where they're easiest to reach.
+    class_counts: dict[str, int] = {}
+    for d in dets:
+        class_counts[d.symbol_class] = class_counts.get(d.symbol_class, 0) + 1
+    legend_classes = sorted(class_counts.keys(), key=lambda c: (-class_counts[c], c))
+
+    legend_rows_html = "".join(
+        f'<div class="legend-row" data-class="{_escape_attr(c)}" '
+        f'title="Hover to isolate · Click to lock · Esc to clear">'
+        f'<span class="legend-swatch" style="background:{_colour_for_class(c)};"></span>'
+        f'<span class="legend-name">{_escape_text(c.replace("_", " "))}</span>'
+        f'<span class="legend-count">{class_counts[c]}</span>'
+        f'</div>'
         for c in legend_classes
     )
 
+    # Interactive-legend CSS + JS. The pattern:
+    #   - All <g.detection> groups have a stable data-class attribute
+    #   - Hovering a .legend-row injects a <style> rule that dims every
+    #     non-matching detection group and every non-matching legend row
+    #   - Clicking a row toggles "locked" mode — the dim survives mouse
+    #     movement until the same row is clicked again or Esc is pressed
+    # We use injected CSS (not per-element class toggling) because there
+    # can be hundreds of detection groups; a single rule update is O(1).
+    interactive_css = """
+<style>
+  .bom-overlay-grid {
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    gap: 10px;
+    align-items: start;
+  }
+  .legend-panel {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fafafa;
+    padding: 6px;
+    max-height: __HEIGHT__px;
+    overflow-y: auto;
+    font-family: system-ui, sans-serif;
+    font-size: 12px;
+  }
+  .legend-header {
+    display:flex; justify-content:space-between; align-items:center;
+    font-weight:600; color:#444; padding:4px 6px 8px;
+    border-bottom:1px solid #ddd; margin-bottom:4px;
+  }
+  .legend-clear {
+    font-size:11px; padding:2px 8px; cursor:pointer; border-radius:3px;
+    border:1px solid #999; background:#fff; color:#555;
+  }
+  .legend-clear:hover { background:#eee; }
+  .legend-row {
+    display:flex; align-items:center; padding:5px 6px; margin:2px 0;
+    border-radius:3px; cursor:pointer; user-select:none;
+    transition: background 0.1s, opacity 0.15s;
+  }
+  .legend-row:hover { background:#e8e8e8; }
+  .legend-row.locked {
+    background:#dfe9f5; outline:2px solid #4a7bbd; outline-offset:-2px;
+  }
+  .legend-swatch {
+    display:inline-block; width:14px; height:14px;
+    border:1px solid #777; border-radius:3px; margin-right:8px;
+    flex-shrink:0;
+  }
+  .legend-name { flex:1; color:#222; }
+  .legend-count {
+    background:#666; color:#fff; font-weight:600;
+    padding:1px 7px; border-radius:9px; font-size:11px; min-width:18px;
+    text-align:center;
+  }
+  .legend-row.locked .legend-count { background:#4a7bbd; }
+  /* When any class is active, dim all detections + rows by default; the
+     dynamic <style> below un-dims the matching set. */
+  #vec-svg.has-active g.detection { opacity: 0.12; transition: opacity 0.15s; }
+  #legend-panel.has-active .legend-row { opacity: 0.45; }
+  /* Cursor hint when locked */
+  .legend-panel[data-locked="true"] .legend-row { cursor: pointer; }
+</style>
+""".replace("__HEIGHT__", str(component_height_px))
+
+    interactive_js = """
+<script>
+(function() {
+  const svg = document.getElementById('vec-svg');
+  const legend = document.getElementById('legend-panel');
+  if (!svg || !legend) return;
+  const rows = legend.querySelectorAll('.legend-row');
+  const clearBtn = legend.querySelector('.legend-clear');
+  let lockedClass = null;
+  const dyn = document.createElement('style');
+  document.head.appendChild(dyn);
+
+  function setActive(cls) {
+    if (!cls) {
+      svg.classList.remove('has-active');
+      legend.classList.remove('has-active');
+      dyn.textContent = '';
+      return;
+    }
+    svg.classList.add('has-active');
+    legend.classList.add('has-active');
+    // Quote-safety: data-class values come from server-escaped slugs
+    // (snake_case, only [a-z0-9_]), so a plain attribute selector is safe.
+    dyn.textContent =
+      '#vec-svg.has-active g.detection[data-class="' + cls + '"] { opacity: 1; }\\n' +
+      '#legend-panel.has-active .legend-row[data-class="' + cls + '"] { opacity: 1; }';
+  }
+
+  rows.forEach(row => {
+    row.addEventListener('mouseenter', () => {
+      if (!lockedClass) setActive(row.dataset.class);
+    });
+    row.addEventListener('mouseleave', () => {
+      if (!lockedClass) setActive(null);
+    });
+    row.addEventListener('click', () => {
+      const target = row.dataset.class;
+      if (lockedClass === target) {
+        // Toggle off
+        lockedClass = null;
+        row.classList.remove('locked');
+        legend.removeAttribute('data-locked');
+        setActive(null);
+      } else {
+        // Replace lock
+        legend.querySelectorAll('.legend-row.locked').forEach(r => r.classList.remove('locked'));
+        lockedClass = target;
+        row.classList.add('locked');
+        legend.setAttribute('data-locked', 'true');
+        setActive(lockedClass);
+      }
+    });
+  });
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      lockedClass = null;
+      legend.querySelectorAll('.legend-row.locked').forEach(r => r.classList.remove('locked'));
+      legend.removeAttribute('data-locked');
+      setActive(null);
+    });
+  }
+
+  // Esc clears lock (mirrors the clear button)
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lockedClass) {
+      lockedClass = null;
+      legend.querySelectorAll('.legend-row.locked').forEach(r => r.classList.remove('locked'));
+      legend.removeAttribute('data-locked');
+      setActive(null);
+    }
+  });
+})();
+</script>
+""".strip()
+
     html = f"""
+{interactive_css}
 <div style="font-family:system-ui,sans-serif;">
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
     <div style="font-size:13px;color:#555;">
       <strong>Vector overlay</strong> — drag to pan · scroll to zoom ·
-      double-click to reset
+      double-click to reset · <em>hover legend to isolate a class · click to lock</em>
     </div>
     <button id="vec-reset" style="font-size:12px;padding:4px 10px;cursor:pointer;
       border:1px solid #999;background:#f5f5f5;border-radius:4px;">
       Reset view
     </button>
   </div>
-  <div id="vec-root"
-       style="position:relative;width:100%;height:{component_height_px}px;
-              overflow:hidden;border:1px solid #ccc;background:#eee;
-              user-select:none;">
-    <div id="vec-inner"
-         style="position:absolute;top:0;left:0;width:100%;height:100%;
-                transform-origin:0 0;">
-      <div style="position:relative;width:100%;height:100%;">
-        <img src="data:image/jpeg;base64,{img_b64}"
-             style="width:100%;height:100%;object-fit:contain;display:block;"
-             draggable="false" />
-        {svg}
+  <div class="bom-overlay-grid">
+    <div id="vec-root"
+         style="position:relative;width:100%;height:{component_height_px}px;
+                overflow:hidden;border:1px solid #ccc;background:#eee;
+                user-select:none;">
+      <div id="vec-inner"
+           style="position:absolute;top:0;left:0;width:100%;height:100%;
+                  transform-origin:0 0;">
+        <div style="position:relative;width:100%;height:100%;">
+          <img src="data:image/jpeg;base64,{img_b64}"
+               style="width:100%;height:100%;object-fit:contain;display:block;"
+               draggable="false" />
+          {svg}
+        </div>
       </div>
     </div>
+    <div id="legend-panel" class="legend-panel">
+      <div class="legend-header">
+        <span>Detected classes ({len(legend_classes)})</span>
+        <button class="legend-clear" title="Esc">Clear</button>
+      </div>
+      {legend_rows_html}
+    </div>
   </div>
-  <div style="margin-top:8px;">{legend_html}</div>
 </div>
 {js}
+{interactive_js}
 """
     return html
+
+
+def _escape_attr(s: str) -> str:
+    """Escape for use inside double-quoted HTML attributes. Class slugs are
+    already snake_case ASCII so this is mostly defensive."""
+    return (
+        s.replace("&", "&amp;").replace('"', "&quot;")
+        .replace("<", "&lt;").replace(">", "&gt;")
+    )
 
 
 def _escape_text(s: str) -> str:

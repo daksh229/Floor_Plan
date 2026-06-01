@@ -41,6 +41,7 @@ from .schemas import (
     BOMLineItem,
     Detection,
     OCRSpan,
+    Room,
     SymbolWithMatches,
 )
 
@@ -67,20 +68,36 @@ def compute_aggregated_payload(
     ocr_spans: Iterable[OCRSpan] | None = None,
     pdf_name: str = "",
     page_count: int = 1,
+    room_assignments: dict[int, str | None] | None = None,
+    rooms: list[Room] | None = None,
 ) -> dict[str, Any]:
-    """Group detections by symbol_class, resolve each to its top-1 library
-    entry via RAG, and emit the payload that the prompt renderer consumes.
-    The same payload is the source of truth for post-validation."""
+    """Group detections by (symbol_class, room) when room data is provided,
+    else by symbol_class only. Resolve each group's symbol_class to its
+    top-1 library entry via RAG, and emit the payload that the prompt
+    renderer consumes. Same payload is the source of truth for post-validation.
+
+    `room_assignments` maps id(detection) -> canonical_room_name (or None
+    for unassigned). When omitted, behaviour is identical to the
+    pre-room-extraction implementation (one row per symbol_class).
+    """
     detections = list(detections)
     spans = list(ocr_spans or [])
+    assignments = room_assignments or {}
 
-    # Counts per class, with source-page tracking
-    by_class: dict[str, list[Detection]] = {}
+    # Group by (symbol_class, room). When no room assignments are present,
+    # everything lands in (symbol_class, None) which is equivalent to the
+    # old per-class behaviour.
+    by_key: dict[tuple[str, str | None], list[Detection]] = {}
     for d in detections:
-        by_class.setdefault(d.symbol_class, []).append(d)
+        room = assignments.get(id(d))
+        by_key.setdefault((d.symbol_class, room), []).append(d)
 
     aggregated: list[dict[str, Any]] = []
-    for symbol_class, dets in sorted(by_class.items()):
+    for (symbol_class, room), dets in sorted(
+        by_key.items(),
+        # Sort by room first (None = "Unassigned" at bottom), then by class
+        key=lambda kv: (kv[0][1] or "￿", kv[0][0]),
+    ):
         matches = rag.match(symbol_class, k=1)
         if not matches:
             continue
@@ -92,6 +109,7 @@ def compute_aggregated_payload(
             {
                 "library_key": m.library_key,
                 "canonical_name": m.canonical_name,
+                "room": room,
                 "quantity": len(dets),
                 "unit": m.unit,
                 "unit_cost_aud": m.indicative_cost_aud,
@@ -109,11 +127,20 @@ def compute_aggregated_payload(
         s.text for s in sorted(spans, key=lambda s: (s.bbox[1], s.bbox[0]))
     )
 
+    rooms_in_order: list[str] = []
+    if rooms:
+        # Display order: top-to-bottom by label centroid y, then left-to-right
+        rooms_in_order = [
+            r.canonical_name
+            for r in sorted(rooms, key=lambda r: (r.centroid[1], r.centroid[0]))
+        ]
+
     return {
         "aggregated": aggregated,
         "ocr_text_joined": ocr_text_joined,
         "pdf_name": pdf_name,
         "page_count": page_count,
+        "rooms_detected": rooms_in_order,
     }
 
 
@@ -202,6 +229,7 @@ def _build_deterministic_bom(
                 min_detection_score=min_s,
                 confidence_band=str(row.get("confidence_band", _confidence_band(avg_s))),
                 notes=None,
+                room=row.get("room"),
             )
         )
     md = metadata or {}
@@ -217,6 +245,7 @@ def _build_deterministic_bom(
         model=model,
         page_count=int(payload.get("page_count", 1)),
         generated_at=dt.datetime.now(dt.timezone.utc).isoformat(),
+        rooms_detected=list(payload.get("rooms_detected") or []),
     )
 
 
@@ -264,22 +293,35 @@ def assemble_bom(
     bom.drawing_date = _safe_str(parsed.get("drawing_date"))
     bom.notes_from_assembler = _safe_str(parsed.get("notes_from_assembler"))
 
-    # Validate Claude's line_items against deterministic source-of-truth
-    claude_items_by_key: dict[str, dict] = {}
-    for item in parsed.get("line_items") or []:
+    # Validate Claude's line_items against deterministic source-of-truth.
+    # With room-aware BOM, line items are keyed by (library_key, room) since
+    # the same symbol can appear in multiple rooms with separate quantities.
+    def _row_key(item: dict | BOMLineItem) -> tuple[str, str | None]:
+        if isinstance(item, BOMLineItem):
+            return (item.library_key, item.room)
         key = item.get("library_key")
-        if isinstance(key, str):
-            claude_items_by_key[key] = item
+        room = item.get("room")
+        return (str(key) if isinstance(key, str) else "", room if isinstance(room, str) else None)
 
-    truth_keys = {li.library_key for li in bom.line_items}
+    claude_items_by_key: dict[tuple[str, str | None], dict] = {}
+    for item in parsed.get("line_items") or []:
+        k = _row_key(item)
+        if k[0]:
+            claude_items_by_key[k] = item
+
+    truth_keys = {_row_key(li) for li in bom.line_items}
     for ckey in list(claude_items_by_key):
         if ckey not in truth_keys:
-            diagnostics["spurious_line_items_dropped"].append(ckey)
+            diagnostics["spurious_line_items_dropped"].append({
+                "library_key": ckey[0], "room": ckey[1],
+            })
 
     for li in bom.line_items:
-        c = claude_items_by_key.get(li.library_key)
+        c = claude_items_by_key.get(_row_key(li))
         if c is None:
-            diagnostics["missing_line_items_added"].append(li.library_key)
+            diagnostics["missing_line_items_added"].append({
+                "library_key": li.library_key, "room": li.room,
+            })
             continue
         try:
             c_qty = int(c.get("quantity"))
@@ -293,14 +335,18 @@ def assemble_bom(
 
         if c_qty is not None and c_qty != li.quantity:
             diagnostics["qty_overrides"].append(
-                {"library_key": li.library_key, "claude": c_qty, "truth": li.quantity}
+                {"library_key": li.library_key, "room": li.room,
+                 "claude": c_qty, "truth": li.quantity}
             )
         if c_cost is not None and abs(c_cost - li.unit_cost_aud) > 0.005:
             diagnostics["cost_overrides"].append(
-                {"library_key": li.library_key, "claude": c_cost, "truth": li.unit_cost_aud}
+                {"library_key": li.library_key, "room": li.room,
+                 "claude": c_cost, "truth": li.unit_cost_aud}
             )
         if isinstance(c_spec, str) and c_spec != li.spec:
-            diagnostics["spec_overrides"].append(li.library_key)
+            diagnostics["spec_overrides"].append({
+                "library_key": li.library_key, "room": li.room,
+            })
         # Note: we DO NOT mutate li from c. li is the truth.
 
     # Subtotal check

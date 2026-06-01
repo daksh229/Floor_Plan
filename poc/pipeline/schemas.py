@@ -107,6 +107,13 @@ class BOMLineItem(BaseModel):
     min_detection_score: float = Field(0.0, ge=0.0, le=1.0, description="min template-match score across source detections")
     confidence_band: str = Field("unknown", description="high / medium / low — derived from avg_detection_score")
     notes: str | None = None
+    # Phase 9 — room-wise BOM. None = either room extraction was disabled,
+    # or this line aggregates detections that couldn't be pinned to any room
+    # (the "Unassigned" bucket).
+    room: str | None = Field(
+        None,
+        description="Room canonical name (e.g. 'Living', 'Bedroom 1'). None for unassigned.",
+    )
 
 
 class BOM(BaseModel):
@@ -127,6 +134,64 @@ class BOM(BaseModel):
     model: str
     page_count: int = 1
     generated_at: str = Field(..., description="ISO 8601 timestamp")
+    # Phase 9 — room-wise BOM metadata. Empty list when room extraction was
+    # disabled or returned no rooms; UI falls back to By-Symbol-only view.
+    rooms_detected: List[str] = Field(
+        default_factory=list,
+        description="Canonical room names actually used in line_items, in display order",
+    )
+
+    def by_room(self) -> dict[str, list["BOMLineItem"]]:
+        """Group line_items by `room`. Unassigned items collected under
+        the literal key 'Unassigned'. Returned dict is ordered with named
+        rooms first (in `rooms_detected` order) then Unassigned last.
+        """
+        bucket: dict[str, list[BOMLineItem]] = {r: [] for r in self.rooms_detected}
+        unassigned: list[BOMLineItem] = []
+        for li in self.line_items:
+            if li.room is None:
+                unassigned.append(li)
+            else:
+                bucket.setdefault(li.room, []).append(li)
+        if unassigned:
+            bucket["Unassigned"] = unassigned
+        return bucket
+
+    def by_symbol(self) -> list["BOMLineItem"]:
+        """Re-aggregate per-(symbol, room) line items back to one row per
+        symbol_class for the global view. Returns aggregated BOMLineItem
+        objects with `room=None` and source_pages unioned.
+        """
+        agg: dict[str, BOMLineItem] = {}
+        for li in self.line_items:
+            base = agg.get(li.library_key)
+            if base is None:
+                agg[li.library_key] = li.model_copy(update={
+                    "room": None,
+                    "source_pages": list(li.source_pages),
+                    "quantity": li.quantity,
+                    "line_total_aud": li.line_total_aud,
+                    "source_detection_count": li.source_detection_count,
+                })
+            else:
+                base.quantity += li.quantity
+                base.line_total_aud = round(base.line_total_aud + li.line_total_aud, 2)
+                base.source_detection_count += li.source_detection_count
+                # union pages
+                pages = set(base.source_pages) | set(li.source_pages)
+                base.source_pages = sorted(pages)
+                # avg of avgs (count-weighted)
+                tot_n = base.source_detection_count
+                if tot_n > 0:
+                    base.avg_detection_score = round(
+                        (base.avg_detection_score * (tot_n - li.source_detection_count)
+                         + li.avg_detection_score * li.source_detection_count) / tot_n,
+                        4,
+                    )
+                base.min_detection_score = round(
+                    min(base.min_detection_score, li.min_detection_score), 4
+                )
+        return list(agg.values())
 
 
 class PipelineRun(BaseModel):
@@ -234,3 +299,44 @@ class ROIResult(BaseModel):
         bbox after CV runs on the cropped image, to bring it back into
         full-page coordinates. (0, 0) if no ROI."""
         return (self.bbox[0], self.bbox[1]) if self.bbox else (0, 0)
+
+
+# ---------- Phase 9: room-wise BOM ----------
+
+class Room(BaseModel):
+    """One room label extracted from OCR on the plan page.
+
+    `label_bbox` is the OCR-derived bounding box of the room's text label
+    (e.g. 'BED 02', 'LIVING') in page-image px. `centroid` is the geometric
+    centre — used as the seed point for nearest-centroid detection
+    assignment.
+
+    `canonical_name` is the normalised display name ('Bedroom 2',
+    'Living', 'Entry'). `source_tokens` records the raw OCR text fragments
+    that were merged to produce this label, for diagnostics.
+    """
+    model_config = ConfigDict(frozen=True)
+
+    canonical_name: str = Field(..., description="Normalised display name, e.g. 'Bedroom 2'")
+    label_bbox: Tuple[int, int, int, int]
+    centroid: Tuple[int, int]
+    source_tokens: List[str] = Field(default_factory=list)
+    ocr_confidence: float = Field(0.0, ge=0.0, le=1.0)
+    source_page: int = Field(..., ge=1)
+
+    @property
+    def label_area(self) -> int:
+        x0, y0, x1, y1 = self.label_bbox
+        return max(0, x1 - x0) * max(0, y1 - y0)
+
+
+class RoomExtraction(BaseModel):
+    """Output of room_extractor.extract_rooms() — the list of rooms found
+    plus diagnostics that the UI can surface (so the user understands why
+    the breakdown looks the way it does)."""
+    rooms: List[Room]
+    raw_ocr_span_count: int = 0
+    spans_inside_roi: int = 0
+    multi_token_merges: int = 0
+    skipped_vocab_misses: int = 0
+    warning: Optional[str] = None  # e.g. "only 1 room found — by-room BOM disabled"

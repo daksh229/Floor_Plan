@@ -21,7 +21,6 @@ import os
 import shutil
 import tempfile
 import time
-from collections import Counter
 from pathlib import Path
 
 import streamlit as st
@@ -38,7 +37,6 @@ from pipeline.bom_assembler import DEFAULT_MODEL                # noqa: E402
 from pipeline.detection_verifier import verify_detections       # noqa: E402
 from pipeline.legend_extractor import extract_legend            # noqa: E402
 from pipeline.overlay import (                                  # noqa: E402
-    class_colour_map,
     draw_detections,
     draw_ocr_spans,
 )
@@ -108,6 +106,16 @@ def _init_state() -> None:
     st.session_state.setdefault("page_classification", None)  # PDFClassification keyed by upload
     st.session_state.setdefault("page_classification_for", None)  # which file we classified
     st.session_state.setdefault("use_roi", True)  # opt-in Claude ROI crop, default ON
+    # CV backend: "template" = multi-scale template matching (cv_detect),
+    # "yolo" = trained YOLOv8 ONNX (yolo_detect). Auto-selects yolo when
+    # best.onnx is present in project root.
+    from pathlib import Path as _P
+    _default_backend = "yolo" if (_P(__file__).resolve().parent.parent / "best.onnx").exists() else "template"
+    st.session_state.setdefault("cv_backend", _default_backend)
+    # Claude vision fallback for room extraction — kicks in when OCR
+    # finds fewer than 5 rooms. Default ON since it materially improves
+    # the by-room BOM quality on plans where Tesseract misses labels.
+    st.session_state.setdefault("enable_claude_room_fallback", True)
     st.session_state.setdefault("cv_verify_findings", None)
     st.session_state.setdefault("cv_verify_error", None)
 
@@ -142,6 +150,10 @@ def _run_against_pdf(pdf_path: Path, source_label: str) -> None:
     pack: SymbolPack = st.session_state.get("symbol_pack", "builtin")  # type: ignore[assignment]
     page_index = int(st.session_state.get("pdf_page_index", 1))
     use_roi = bool(st.session_state.get("use_roi", True))
+    cv_backend = st.session_state.get("cv_backend", "template")
+    enable_claude_room_fallback = bool(
+        st.session_state.get("enable_claude_room_fallback", True)
+    )
 
     def _progress(stage: str, frac: float) -> None:
         elapsed = time.perf_counter() - t0
@@ -160,6 +172,8 @@ def _run_against_pdf(pdf_path: Path, source_label: str) -> None:
             symbol_pack=pack,
             pdf_page_index=page_index,
             use_roi=use_roi,
+            cv_backend=cv_backend,
+            enable_claude_room_fallback=enable_claude_room_fallback,
         )
     except Exception as exc:  # noqa: BLE001
         progress_box.update(label=f"Pipeline error: {exc}", state="error")
@@ -179,6 +193,8 @@ def _run_against_pdf(pdf_path: Path, source_label: str) -> None:
         label_extras.append(f"pack={pack}")
     if page_index != 1:
         label_extras.append(f"p{page_index}")
+    if cv_backend != "template":
+        label_extras.append(f"cv={cv_backend}")
     if force_dev:
         label_extras.append("demo-mode")
     suffix = (" [" + ", ".join(label_extras) + "]") if label_extras else ""
@@ -350,23 +366,14 @@ def _tab_cv() -> None:
                  "handle zoom much better than the in-browser preview.",
         )
     with right:
-        # Colour-legend strip — what class is which colour?
-        cmap = class_colour_map(run.detections)
-        if cmap:
-            st.markdown("**Class colours**")
-            legend_html_parts = ["<div style='line-height:1.7;font-size:0.9em'>"]
-            counts = Counter(d.symbol_class for d in run.detections)
-            for cls, rgb in cmap.items():
-                swatch = (
-                    f"<span style='display:inline-block;width:14px;height:14px;"
-                    f"background:rgb{rgb};border:1px solid #888;"
-                    f"vertical-align:middle;margin-right:6px;border-radius:2px'></span>"
-                )
-                legend_html_parts.append(
-                    f"{swatch}<code>{cls}</code> &nbsp;×&nbsp; {counts[cls]}<br>"
-                )
-            legend_html_parts.append("</div>")
-            st.markdown("".join(legend_html_parts), unsafe_allow_html=True)
+        # NOTE: the per-class colour legend that used to live here has moved
+        # *into* the vector-overlay component, where it's interactive
+        # (hover-to-isolate / click-to-lock). The detection-details table
+        # below still lives here as the sortable data-view.
+        st.caption(
+            "Tip: the colour legend now sits beside the plan — hover a class to "
+            "isolate it, click to lock, Esc to clear."
+        )
 
         with st.expander("Detection details (sortable)", expanded=False):
             st.dataframe(
@@ -704,27 +711,93 @@ def _tab_bom() -> None:
     meta[2].metric("Revision", bom.revision or "—")
     meta[3].metric("Date", bom.drawing_date or "—")
 
-    st.markdown("### Line items")
     _band_icon = {"high": "🟢 high", "medium": "🟡 medium", "low": "🔴 low",
                   "unknown": "⚪ unknown"}
-    st.dataframe(
-        [
-            {
-                "library_key": li.library_key,
-                "canonical_name": li.canonical_name,
-                "qty": li.quantity,
-                "unit": li.unit,
-                "unit AUD": li.unit_cost_aud,
-                "line total AUD": li.line_total_aud,
-                "CV conf": _band_icon.get(li.confidence_band, li.confidence_band),
-                "avg score": round(li.avg_detection_score, 3),
-                "src pages": ", ".join(map(str, li.source_pages)),
+
+    def _row_dict(li, *, include_room: bool):
+        row = {
+            "library_key": li.library_key,
+            "canonical_name": li.canonical_name,
+            "qty": li.quantity,
+            "unit": li.unit,
+            "unit AUD": li.unit_cost_aud,
+            "line total AUD": li.line_total_aud,
+            "spec": li.spec,
+            "CV conf": _band_icon.get(li.confidence_band, li.confidence_band),
+            "avg score": round(li.avg_detection_score, 3),
+            "src pages": ", ".join(map(str, li.source_pages)),
+        }
+        if include_room:
+            return {"room": li.room or "Unassigned", **row}
+        return row
+
+    # Surface the room-distribution sanity warning at the top of the BOM
+    # tab so it's the first thing the estimator sees before drilling in.
+    diag = st.session_state.get("diagnostics") or {}
+    dist_warn = diag.get("room_distribution_warning")
+    if dist_warn:
+        st.warning(dist_warn)
+    # Also surface the room-extraction-itself warning (zero rooms, fallback
+    # added N rooms, etc.) — separate signal, distinct from distribution.
+    re_diag = diag.get("room_extraction") or {}
+    re_warn = re_diag.get("warning")
+    if re_warn and re_warn != dist_warn:
+        st.info(re_warn)
+
+    has_rooms = bool(bom.rooms_detected)
+    tab_room, tab_sym = st.tabs([
+        f"By Room ({len(bom.rooms_detected)})" if has_rooms else "By Room (n/a)",
+        f"By Symbol ({len(bom.by_symbol())})",
+    ])
+
+    with tab_room:
+        if not has_rooms:
+            st.info(
+                "Room extraction was disabled or produced no labels — no per-room "
+                "breakdown available. The By-Symbol tab has the global view."
+            )
+            diag_re = (st.session_state.get("diagnostics") or {}).get("room_extraction")
+            if diag_re and diag_re.get("warning"):
+                st.warning(diag_re["warning"])
+        else:
+            grouped = bom.by_room()
+            # Decide which rooms open by default — only the largest 3 by qty
+            room_totals = [
+                (room, sum(li.quantity for li in items),
+                 sum(li.line_total_aud for li in items), items)
+                for room, items in grouped.items()
+                if room != "Unassigned"  # Unassigned is hidden when empty (req: option A)
+            ]
+            top3_open = {
+                r for r, _, _, _ in sorted(room_totals, key=lambda x: -x[1])[:3]
             }
-            for li in bom.line_items
-        ],
-        hide_index=True,
-        use_container_width=True,
-    )
+            for room, qty, rtot, items in sorted(room_totals, key=lambda x: -x[1]):
+                header = f"**{room}** — {qty} item{'s' if qty != 1 else ''} · AUD {rtot:,.2f}"
+                with st.expander(header, expanded=(room in top3_open)):
+                    st.dataframe(
+                        [_row_dict(li, include_room=False) for li in items],
+                        hide_index=True, use_container_width=True,
+                    )
+            unassigned = grouped.get("Unassigned") or []
+            if unassigned:
+                u_qty = sum(li.quantity for li in unassigned)
+                u_tot = sum(li.line_total_aud for li in unassigned)
+                with st.expander(
+                    f"**Unassigned** — {u_qty} item · AUD {u_tot:,.2f} "
+                    "_(could not pin to a room)_",
+                    expanded=False,
+                ):
+                    st.dataframe(
+                        [_row_dict(li, include_room=False) for li in unassigned],
+                        hide_index=True, use_container_width=True,
+                    )
+
+    with tab_sym:
+        st.dataframe(
+            [_row_dict(li, include_room=False) for li in bom.by_symbol()],
+            hide_index=True, use_container_width=True,
+        )
+
     low_conf = [li for li in bom.line_items if li.confidence_band == "low"]
     if low_conf:
         st.warning(
@@ -771,11 +844,12 @@ def _tab_bom() -> None:
     csv_buf = io.StringIO()
     writer = csv.writer(csv_buf)
     writer.writerow([
-        "library_key", "canonical_name", "quantity", "unit",
+        "room", "library_key", "canonical_name", "quantity", "unit",
         "unit_cost_aud", "line_total_aud", "spec", "source_pages",
     ])
     for li in bom.line_items:
         writer.writerow([
+            li.room or "Unassigned",
             li.library_key, li.canonical_name, li.quantity, li.unit,
             li.unit_cost_aud, li.line_total_aud, li.spec,
             "|".join(map(str, li.source_pages)),
@@ -1336,6 +1410,7 @@ def _wizard_sidebar() -> None:
             st.markdown(f"**Source:** `{src}`")
             st.metric("Detections", len(run.detections))
             st.metric("BOM lines", len(run.bom.line_items))
+            st.metric("Rooms found", len(run.bom.rooms_detected))
             st.metric("Subtotal AUD", f"{run.bom.subtotal_aud:,.0f}")
             st.metric("Pipeline elapsed", f"{run.elapsed_seconds}s")
 
@@ -1351,6 +1426,33 @@ def _wizard_sidebar() -> None:
             key="force_deviation",
             help="Next live pipeline run uses the bom_v1_force_deviation prompt.",
         )
+        st.checkbox(
+            "Claude vision room fallback",
+            key="enable_claude_room_fallback",
+            help="When OCR finds fewer than 5 rooms, ask Claude vision to "
+                 "enumerate any missed labels. Costs ~1 extra Claude call (~$0.01) "
+                 "but significantly improves room recall on plans with small/stylised "
+                 "labels Tesseract misses.",
+        )
+
+        # CV backend selector (only when best.onnx is available)
+        from pathlib import Path as _P
+        _yolo_available = (_P(__file__).resolve().parent.parent / "best.onnx").exists()
+        if _yolo_available:
+            backend_options = ["template", "yolo"]
+            current_backend = st.session_state.get("cv_backend", "template")
+            if current_backend not in backend_options:
+                current_backend = "template"
+                st.session_state["cv_backend"] = current_backend
+            st.radio(
+                "CV backend",
+                options=backend_options,
+                index=backend_options.index(current_backend),
+                key="cv_backend",
+                help="template = multi-scale matching against symbol PNGs. "
+                     "yolo = trained YOLOv8 (best.onnx, 15-class library). "
+                     "YOLO ignores the active symbol pack.",
+            )
 
         user_count = user_pack_size()
         if user_count > 0:

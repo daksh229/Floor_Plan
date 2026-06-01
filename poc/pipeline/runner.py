@@ -13,7 +13,7 @@ import shutil
 import time
 import uuid
 from pathlib import Path
-from typing import Callable, Optional
+from typing import Callable, Literal, Optional
 
 import pypdfium2 as pdfium
 from PIL import Image
@@ -23,12 +23,17 @@ from .bom_assembler import (
     assemble_bom,
     compute_aggregated_payload,
 )
-from .cv_detect import detect_symbols
+from .cv_detect import detect_symbols as detect_symbols_tm
 from .ocr import TesseractNotInstalledError, extract_text_spans
 from .prompts import DEFAULT_VERSION, FORCE_DEVIATION_VERSION
 from .rag import SymbolRAG
 from .roi_extractor import extract_plan_roi
-from .schemas import Detection, PipelineRun, ROIResult, SymbolWithMatches
+from .room_extractor import (
+    assign_detections_to_rooms,
+    compute_distribution_warning,
+    extract_rooms_with_fallback,
+)
+from .schemas import Detection, PipelineRun, ROIResult, RoomExtraction, SymbolWithMatches
 from .symbol_pack import SymbolPack, resolve_symbol_pngs
 
 
@@ -73,6 +78,8 @@ USER_PACK_PER_CLASS_THRESHOLD: dict[str, float] = {
     "data_point":         0.58,
     "tv_point":           0.58,
 }
+
+CVBackend = Literal["template", "yolo"]
 ProgressFn = Callable[[str, float], None]
 
 
@@ -186,6 +193,9 @@ def run_pipeline(
     symbol_pack: SymbolPack = "builtin",
     pdf_page_index: int = 1,
     use_roi: bool = False,
+    cv_backend: CVBackend = "template",
+    extract_room_breakdown: bool = True,
+    enable_claude_room_fallback: bool = True,
 ) -> tuple[PipelineRun, Image.Image, dict]:
     """Run the full PDF → BOM pipeline and return (run, rendered page image, diagnostics).
 
@@ -257,20 +267,31 @@ def run_pipeline(
                 "padded_bbox": (x0p, y0p, x1p, y1p),
             }
 
-    _p("CV symbol detection", 0.10)
-    pack_pngs = resolve_symbol_pngs(symbol_pack)
-    detect_kwargs: dict = {}
-    if symbol_pack in ("user", "both"):
-        detect_kwargs["scales"] = USER_PACK_SCALES
-        detect_kwargs["default_threshold"] = USER_PACK_DEFAULT_THRESHOLD
-        detect_kwargs["per_class_threshold"] = USER_PACK_PER_CLASS_THRESHOLD
-    raw_detections = detect_symbols(
-        cv_target,
-        symbol_pngs=pack_pngs,
-        source_page=pdf_page_index,
-        mask_regions=mask_regions if cv_target is page else None,
-        **detect_kwargs,
-    )
+    _p(f"CV symbol detection ({cv_backend})", 0.10)
+    if cv_backend == "yolo":
+        # YOLO learned scale + rotation invariance + the 15-class library at
+        # training time, so it ignores the symbol-pack PNGs and the
+        # user-pack threshold overrides entirely. The model is the library.
+        from .yolo_detect import detect_symbols as detect_symbols_yolo
+        raw_detections = detect_symbols_yolo(
+            cv_target,
+            source_page=pdf_page_index,
+            mask_regions=mask_regions if cv_target is page else None,
+        )
+    else:
+        pack_pngs = resolve_symbol_pngs(symbol_pack)
+        detect_kwargs: dict = {}
+        if symbol_pack in ("user", "both"):
+            detect_kwargs["scales"] = USER_PACK_SCALES
+            detect_kwargs["default_threshold"] = USER_PACK_DEFAULT_THRESHOLD
+            detect_kwargs["per_class_threshold"] = USER_PACK_PER_CLASS_THRESHOLD
+        raw_detections = detect_symbols_tm(
+            cv_target,
+            symbol_pngs=pack_pngs,
+            source_page=pdf_page_index,
+            mask_regions=mask_regions if cv_target is page else None,
+            **detect_kwargs,
+        )
     detections = _translate_by_offset(raw_detections, crop_offset)
 
     _p("OCR pass", 0.60)
@@ -278,6 +299,38 @@ def run_pipeline(
         ocr_spans = extract_text_spans(page, source_page=pdf_page_index)
     except TesseractNotInstalledError:
         ocr_spans = []  # graceful degradation; BOM stage still works
+
+    # Room extraction + per-detection assignment. Runs in full-page
+    # coordinate space (detections already translated above) so the ROI
+    # offset doesn't need to be applied to room label bboxes.
+    #
+    # Three layers of robustness:
+    #   1. OCR-based extraction (cheap, fast, primary path)
+    #   2. Claude-vision fallback when OCR yields <5 rooms (toggleable)
+    #   3. Distance-gated nearest-centroid assignment so detections in
+    #      undetected rooms fall into Unassigned rather than silently
+    #      mis-attributing to the nearest labelled room
+    room_extraction: Optional[RoomExtraction] = None
+    room_assignments: dict[int, str | None] = {}
+    distribution_warning: Optional[str] = None
+    if extract_room_breakdown and ocr_spans:
+        _p("Extracting room labels", 0.65)
+        roi_bbox_full_page = roi.bbox if (roi is not None and roi.has_roi) else None
+        room_extraction = extract_rooms_with_fallback(
+            ocr_spans,
+            page_image=page,
+            roi_bbox=roi_bbox_full_page,
+            source_page=pdf_page_index,
+            enable_claude_fallback=enable_claude_room_fallback,
+        )
+        room_assignments = assign_detections_to_rooms(
+            detections,
+            room_extraction.rooms,
+            page_size=(page.width, page.height),
+        )
+        distribution_warning = compute_distribution_warning(
+            detections, room_assignments, len(room_extraction.rooms)
+        )
 
     _p("RAG: matching detections to library", 0.70)
     rag.build()  # idempotent
@@ -289,6 +342,8 @@ def run_pipeline(
         ocr_spans=ocr_spans,
         pdf_name=pdf_path.name,
         page_count=1,
+        room_assignments=room_assignments,
+        rooms=room_extraction.rooms if room_extraction else None,
     )
 
     _p("Claude BOM assembly", 0.85)
@@ -316,6 +371,10 @@ def run_pipeline(
         diagnostics["roi"] = roi.model_dump()
         if roi_pad_info is not None:
             diagnostics["roi_padding"] = roi_pad_info
+    if room_extraction is not None:
+        diagnostics["room_extraction"] = room_extraction.model_dump()
+    if distribution_warning is not None:
+        diagnostics["room_distribution_warning"] = distribution_warning
     return run, page, diagnostics
 
 
