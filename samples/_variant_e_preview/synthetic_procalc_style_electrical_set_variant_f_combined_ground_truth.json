@@ -1,0 +1,1151 @@
+{
+  "schema_version": "combined-fixture-v1",
+  "variant": "F",
+  "project_name": "HILLCREST COURT L-SHAPE EXTENSION",
+  "project_address": "27 HILLCREST COURT, BRUNSWICK EAST, VIC 3057",
+  "page_px": [
+    2480,
+    1754
+  ],
+  "page_roles": {
+    "1": "cover",
+    "2": "demolition_plan",
+    "3": "proposed_electrical_plan",
+    "4": "electrical_legend",
+    "5": "proposed_ground_floor_measurement_plan",
+    "6": "window_door_area_schedule"
+  },
+  "plan_origin_px": [
+    360,
+    250
+  ],
+  "render_px_per_mm": 0.115,
+  "coordinate_convention": "All bbox_px values are [x0,y0,x1,y1] in page-local pixels with origin at top-left.",
+  "measurement": {
+    "source_page": 5,
+    "scale_label": "1:50",
+    "total_floor_area_m2": 72.41,
+    "wet_area_total_m2": 10.34,
+    "bathroom_count": 1,
+    "glass_doors_windows": 8,
+    "rooms": [
+      {
+        "name": "BEDROOM 1",
+        "x": 0,
+        "y": 0,
+        "w": 3500,
+        "h": 3500,
+        "wet": false,
+        "area_m2": 12.25,
+        "bbox_px": [
+          360,
+          250,
+          762,
+          652
+        ],
+        "centre_px": [
+          561,
+          451
+        ]
+      },
+      {
+        "name": "BATH",
+        "x": 3500,
+        "y": 0,
+        "w": 2200,
+        "h": 2500,
+        "wet": true,
+        "area_m2": 5.5,
+        "bbox_px": [
+          762,
+          250,
+          1016,
+          538
+        ],
+        "centre_px": [
+          889,
+          394
+        ]
+      },
+      {
+        "name": "ENTRY",
+        "x": 0,
+        "y": 3500,
+        "w": 2200,
+        "h": 2200,
+        "wet": false,
+        "area_m2": 4.84,
+        "bbox_px": [
+          360,
+          652,
+          613,
+          906
+        ],
+        "centre_px": [
+          486,
+          779
+        ]
+      },
+      {
+        "name": "HALL",
+        "x": 2200,
+        "y": 3500,
+        "w": 3500,
+        "h": 2200,
+        "wet": false,
+        "area_m2": 7.7,
+        "bbox_px": [
+          613,
+          652,
+          1016,
+          906
+        ],
+        "centre_px": [
+          814,
+          779
+        ]
+      },
+      {
+        "name": "LIVING",
+        "x": 5700,
+        "y": 2500,
+        "w": 3800,
+        "h": 3200,
+        "wet": false,
+        "area_m2": 12.16,
+        "bbox_px": [
+          1016,
+          538,
+          1452,
+          906
+        ],
+        "centre_px": [
+          1234,
+          722
+        ]
+      },
+      {
+        "name": "KITCHEN / DINING",
+        "x": 9500,
+        "y": 2500,
+        "w": 4000,
+        "h": 3200,
+        "wet": false,
+        "area_m2": 12.8,
+        "bbox_px": [
+          1452,
+          538,
+          1912,
+          906
+        ],
+        "centre_px": [
+          1682,
+          722
+        ]
+      },
+      {
+        "name": "LAUNDRY",
+        "x": 5700,
+        "y": 5700,
+        "w": 2200,
+        "h": 2200,
+        "wet": true,
+        "area_m2": 4.84,
+        "bbox_px": [
+          1016,
+          906,
+          1268,
+          1158
+        ],
+        "centre_px": [
+          1142,
+          1032
+        ]
+      },
+      {
+        "name": "GARAGE",
+        "x": 7900,
+        "y": 5700,
+        "w": 5600,
+        "h": 2200,
+        "wet": false,
+        "area_m2": 12.32,
+        "bbox_px": [
+          1268,
+          906,
+          1912,
+          1158
+        ],
+        "centre_px": [
+          1590,
+          1032
+        ]
+      }
+    ],
+    "windows": [
+      {
+        "label": "W1",
+        "wall": "top",
+        "width_mm": 1400,
+        "centre_mm": [
+          1700,
+          0
+        ],
+        "bbox_px": [
+          476,
+          236,
+          636,
+          264
+        ],
+        "source_page": 5
+      },
+      {
+        "label": "W2",
+        "wall": "top",
+        "width_mm": 900,
+        "centre_mm": [
+          4600,
+          0
+        ],
+        "bbox_px": [
+          838,
+          236,
+          940,
+          264
+        ],
+        "source_page": 5
+      },
+      {
+        "label": "W3",
+        "wall": "right",
+        "width_mm": 1800,
+        "centre_mm": [
+          13500,
+          3800
+        ],
+        "bbox_px": [
+          1898,
+          584,
+          1926,
+          790
+        ],
+        "source_page": 5
+      },
+      {
+        "label": "W4",
+        "wall": "bottom",
+        "width_mm": 1200,
+        "centre_mm": [
+          6700,
+          7900
+        ],
+        "bbox_px": [
+          1061,
+          1144,
+          1199,
+          1172
+        ],
+        "source_page": 5
+      },
+      {
+        "label": "W5",
+        "wall": "bottom",
+        "width_mm": 1600,
+        "centre_mm": [
+          10500,
+          7900
+        ],
+        "bbox_px": [
+          1476,
+          1144,
+          1660,
+          1172
+        ],
+        "source_page": 5
+      },
+      {
+        "label": "W6",
+        "wall": "left",
+        "width_mm": 900,
+        "centre_mm": [
+          0,
+          1550
+        ],
+        "bbox_px": [
+          346,
+          377,
+          374,
+          479
+        ],
+        "source_page": 5
+      },
+      {
+        "label": "W7",
+        "wall": "left",
+        "width_mm": 800,
+        "centre_mm": [
+          0,
+          4500
+        ],
+        "bbox_px": [
+          346,
+          722,
+          374,
+          814
+        ],
+        "source_page": 5
+      }
+    ],
+    "doors": [
+      {
+        "label": "D1",
+        "wall": "left",
+        "width_mm": 920,
+        "centre_mm": [
+          0,
+          4550
+        ],
+        "is_external": true,
+        "is_glass": false,
+        "bbox_px": [
+          338,
+          721,
+          485,
+          825
+        ],
+        "source_page": 5
+      },
+      {
+        "label": "SD1",
+        "wall": "right",
+        "width_mm": 2400,
+        "centre_mm": [
+          13500,
+          4100
+        ],
+        "is_external": true,
+        "is_glass": true,
+        "bbox_px": [
+          1890,
+          584,
+          2208,
+          860
+        ],
+        "source_page": 5
+      },
+      {
+        "label": "D2",
+        "wall": "bottom",
+        "width_mm": 820,
+        "centre_mm": [
+          6800,
+          7900
+        ],
+        "is_external": false,
+        "is_glass": false,
+        "bbox_px": [
+          1095,
+          1044,
+          1189,
+          1180
+        ],
+        "source_page": 5
+      }
+    ],
+    "scale_bar": {
+      "bbox_px": [
+        420,
+        112,
+        650,
+        187
+      ],
+      "label": "SCALE 1:50",
+      "represents_mm": 3000,
+      "source_page": 5
+    }
+  },
+  "electrical": {
+    "source_page": 3,
+    "symbol_count": 40,
+    "class_counts": {
+      "ceiling_light": 2,
+      "smoke_detector": 2,
+      "double_gpo": 5,
+      "data_point": 2,
+      "single_pole_switch": 5,
+      "exhaust_fan": 2,
+      "downlight": 11,
+      "single_gpo": 1,
+      "wall_light": 1,
+      "two_way_switch": 3,
+      "ceiling_fan": 1,
+      "tv_point": 1,
+      "dimmer": 1,
+      "wp_gpo": 2,
+      "distribution_board": 1
+    },
+    "symbols": [
+      {
+        "class_name": "ceiling_light",
+        "bbox": [
+          547,
+          432,
+          575,
+          460
+        ],
+        "center_px": [
+          561,
+          446
+        ],
+        "center_mm": [
+          1750,
+          1700
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "smoke_detector",
+        "bbox": [
+          674,
+          316,
+          702,
+          344
+        ],
+        "center_px": [
+          688,
+          330
+        ],
+        "center_mm": [
+          2850,
+          700
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "double_gpo",
+        "bbox": [
+          690,
+          580,
+          720,
+          610
+        ],
+        "center_px": [
+          705,
+          595
+        ],
+        "center_mm": [
+          3000,
+          3000
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "data_point",
+        "bbox": [
+          403,
+          603,
+          433,
+          633
+        ],
+        "center_px": [
+          418,
+          618
+        ],
+        "center_mm": [
+          500,
+          3200
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "single_pole_switch",
+        "bbox": [
+          609,
+          649,
+          639,
+          679
+        ],
+        "center_px": [
+          624,
+          664
+        ],
+        "center_mm": [
+          2300,
+          3600
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "exhaust_fan",
+        "bbox": [
+          866,
+          325,
+          900,
+          359
+        ],
+        "center_px": [
+          883,
+          342
+        ],
+        "center_mm": [
+          4550,
+          800
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "downlight",
+        "bbox": [
+          817,
+          448,
+          835,
+          466
+        ],
+        "center_px": [
+          826,
+          457
+        ],
+        "center_mm": [
+          4050,
+          1800
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "single_pole_switch",
+        "bbox": [
+          1001,
+          523,
+          1031,
+          553
+        ],
+        "center_px": [
+          1016,
+          538
+        ],
+        "center_mm": [
+          5700,
+          2500
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "single_gpo",
+        "bbox": [
+          938,
+          500,
+          966,
+          528
+        ],
+        "center_px": [
+          952,
+          514
+        ],
+        "center_mm": [
+          5150,
+          2300
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "wall_light",
+        "bbox": [
+          437,
+          689,
+          467,
+          719
+        ],
+        "center_px": [
+          452,
+          704
+        ],
+        "center_mm": [
+          800,
+          3950
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "downlight",
+        "bbox": [
+          489,
+          770,
+          507,
+          788
+        ],
+        "center_px": [
+          498,
+          779
+        ],
+        "center_mm": [
+          1200,
+          4600
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "double_gpo",
+        "bbox": [
+          563,
+          862,
+          593,
+          892
+        ],
+        "center_px": [
+          578,
+          877
+        ],
+        "center_mm": [
+          1900,
+          5450
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "single_pole_switch",
+        "bbox": [
+          598,
+          758,
+          628,
+          788
+        ],
+        "center_px": [
+          613,
+          773
+        ],
+        "center_mm": [
+          2200,
+          4550
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "two_way_switch",
+        "bbox": [
+          724,
+          757,
+          756,
+          789
+        ],
+        "center_px": [
+          740,
+          773
+        ],
+        "center_mm": [
+          3300,
+          4550
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "downlight",
+        "bbox": [
+          731,
+          741,
+          749,
+          759
+        ],
+        "center_px": [
+          740,
+          750
+        ],
+        "center_mm": [
+          3300,
+          4350
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "downlight",
+        "bbox": [
+          891,
+          741,
+          909,
+          759
+        ],
+        "center_px": [
+          900,
+          750
+        ],
+        "center_mm": [
+          4700,
+          4350
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "smoke_detector",
+        "bbox": [
+          932,
+          834,
+          960,
+          862
+        ],
+        "center_px": [
+          946,
+          848
+        ],
+        "center_mm": [
+          5100,
+          5200
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "data_point",
+        "bbox": [
+          955,
+          649,
+          985,
+          679
+        ],
+        "center_px": [
+          970,
+          664
+        ],
+        "center_mm": [
+          5300,
+          3600
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "ceiling_fan",
+        "bbox": [
+          1159,
+          681,
+          1193,
+          715
+        ],
+        "center_px": [
+          1176,
+          698
+        ],
+        "center_mm": [
+          7100,
+          3900
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "downlight",
+        "bbox": [
+          1064,
+          621,
+          1082,
+          639
+        ],
+        "center_px": [
+          1073,
+          630
+        ],
+        "center_mm": [
+          6200,
+          3300
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "downlight",
+        "bbox": [
+          1329,
+          621,
+          1347,
+          639
+        ],
+        "center_px": [
+          1338,
+          630
+        ],
+        "center_mm": [
+          8500,
+          3300
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "double_gpo",
+        "bbox": [
+          1391,
+          833,
+          1421,
+          863
+        ],
+        "center_px": [
+          1406,
+          848
+        ],
+        "center_mm": [
+          9100,
+          5200
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "tv_point",
+        "bbox": [
+          1047,
+          856,
+          1077,
+          886
+        ],
+        "center_px": [
+          1062,
+          871
+        ],
+        "center_mm": [
+          6100,
+          5400
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "two_way_switch",
+        "bbox": [
+          1000,
+          717,
+          1032,
+          749
+        ],
+        "center_px": [
+          1016,
+          733
+        ],
+        "center_mm": [
+          5700,
+          4200
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "downlight",
+        "bbox": [
+          1524,
+          621,
+          1542,
+          639
+        ],
+        "center_px": [
+          1533,
+          630
+        ],
+        "center_mm": [
+          10200,
+          3300
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "downlight",
+        "bbox": [
+          1771,
+          621,
+          1789,
+          639
+        ],
+        "center_px": [
+          1780,
+          630
+        ],
+        "center_mm": [
+          12350,
+          3300
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "dimmer",
+        "bbox": [
+          1529,
+          833,
+          1559,
+          863
+        ],
+        "center_px": [
+          1544,
+          848
+        ],
+        "center_mm": [
+          10300,
+          5200
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "double_gpo",
+        "bbox": [
+          1667,
+          856,
+          1697,
+          886
+        ],
+        "center_px": [
+          1682,
+          871
+        ],
+        "center_mm": [
+          11500,
+          5400
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "wp_gpo",
+        "bbox": [
+          1861,
+          705,
+          1895,
+          739
+        ],
+        "center_px": [
+          1878,
+          722
+        ],
+        "center_mm": [
+          13200,
+          4100
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "single_pole_switch",
+        "bbox": [
+          1437,
+          707,
+          1467,
+          737
+        ],
+        "center_px": [
+          1452,
+          722
+        ],
+        "center_mm": [
+          9500,
+          4100
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "exhaust_fan",
+        "bbox": [
+          1091,
+          981,
+          1125,
+          1015
+        ],
+        "center_px": [
+          1108,
+          998
+        ],
+        "center_mm": [
+          6500,
+          6500
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "downlight",
+        "bbox": [
+          1145,
+          989,
+          1163,
+          1007
+        ],
+        "center_px": [
+          1154,
+          998
+        ],
+        "center_mm": [
+          6900,
+          6500
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "double_gpo",
+        "bbox": [
+          1219,
+          1109,
+          1249,
+          1139
+        ],
+        "center_px": [
+          1234,
+          1124
+        ],
+        "center_mm": [
+          7600,
+          7600
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "single_pole_switch",
+        "bbox": [
+          1001,
+          1017,
+          1031,
+          1047
+        ],
+        "center_px": [
+          1016,
+          1032
+        ],
+        "center_mm": [
+          5700,
+          6800
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "distribution_board",
+        "bbox": [
+          1294,
+          932,
+          1334,
+          972
+        ],
+        "center_px": [
+          1314,
+          952
+        ],
+        "center_mm": [
+          8300,
+          6100
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "downlight",
+        "bbox": [
+          1409,
+          1000,
+          1427,
+          1018
+        ],
+        "center_px": [
+          1418,
+          1009
+        ],
+        "center_mm": [
+          9200,
+          6600
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "downlight",
+        "bbox": [
+          1651,
+          1000,
+          1669,
+          1018
+        ],
+        "center_px": [
+          1660,
+          1009
+        ],
+        "center_mm": [
+          11300,
+          6600
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "wp_gpo",
+        "bbox": [
+          1838,
+          1107,
+          1872,
+          1141
+        ],
+        "center_px": [
+          1855,
+          1124
+        ],
+        "center_mm": [
+          13000,
+          7600
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "two_way_switch",
+        "bbox": [
+          1252,
+          1016,
+          1284,
+          1048
+        ],
+        "center_px": [
+          1268,
+          1032
+        ],
+        "center_mm": [
+          7900,
+          6800
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      },
+      {
+        "class_name": "ceiling_light",
+        "bbox": [
+          1519,
+          1081,
+          1547,
+          1109
+        ],
+        "center_px": [
+          1533,
+          1095
+        ],
+        "center_mm": [
+          10200,
+          7350
+        ],
+        "source_page": 3,
+        "rotation_deg": 0
+      }
+    ]
+  },
+  "notes": "Variant F is a 6-page combined fixture for electrical BOM and measurement extraction, with an L-shaped footprint and different symbol placements from variants A-E."
+}

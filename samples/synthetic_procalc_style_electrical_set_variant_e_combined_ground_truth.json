@@ -1,0 +1,622 @@
+{
+  "schema_version": "combined-fixture-v1",
+  "variant": "E",
+  "project": {
+    "name": "MERRI CREEK TERRACE UPGRADE",
+    "address": "82 TURNER LANE, BRUNSWICK EAST, VIC 3057",
+    "client": "R. WILSON & A. NGUYEN",
+    "job": "POC-1811-E",
+    "date": "JUN 2026",
+    "rev": "E",
+    "scale": "1:100",
+    "status": "POC DEMO - NOT FOR CONSTRUCTION"
+  },
+  "page_px": [
+    2480,
+    1754
+  ],
+  "plan_origin_px": [
+    360,
+    260
+  ],
+  "render_px_per_mm": 0.105,
+  "pages": [
+    {
+      "page": 1,
+      "sheet": "A-000",
+      "role": "cover"
+    },
+    {
+      "page": 2,
+      "sheet": "A-100",
+      "role": "demolition_plan"
+    },
+    {
+      "page": 3,
+      "sheet": "E-101",
+      "role": "proposed_electrical_plan"
+    },
+    {
+      "page": 4,
+      "sheet": "E-900",
+      "role": "legend"
+    },
+    {
+      "page": 5,
+      "sheet": "A-101",
+      "role": "proposed_ground_floor_plan"
+    },
+    {
+      "page": 6,
+      "sheet": "A-600",
+      "role": "schedule"
+    }
+  ],
+  "electrical_symbols": [
+    {
+      "class_name": "ceiling_light",
+      "bbox_px": [
+        501,
+        411,
+        539,
+        449
+      ],
+      "center_px": [
+        520,
+        430
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "smoke_detector",
+      "bbox_px": [
+        591,
+        336,
+        629,
+        374
+      ],
+      "center_px": [
+        610,
+        355
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "single_pole_switch",
+      "bbox_px": [
+        391,
+        601,
+        429,
+        639
+      ],
+      "center_px": [
+        410,
+        620
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "double_gpo",
+      "bbox_px": [
+        541,
+        566,
+        579,
+        620
+      ],
+      "center_px": [
+        560,
+        593
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "data_point",
+      "bbox_px": [
+        601,
+        686,
+        639,
+        724
+      ],
+      "center_px": [
+        620,
+        705
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "exhaust_fan",
+      "bbox_px": [
+        761,
+        341,
+        799,
+        379
+      ],
+      "center_px": [
+        780,
+        360
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "downlight",
+      "bbox_px": [
+        886,
+        331,
+        924,
+        369
+      ],
+      "center_px": [
+        905,
+        350
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "wp_gpo",
+      "bbox_px": [
+        942,
+        332,
+        988,
+        378
+      ],
+      "center_px": [
+        965,
+        355
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "dimmer",
+      "bbox_px": [
+        996,
+        541,
+        1034,
+        579
+      ],
+      "center_px": [
+        1015,
+        560
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "ceiling_light",
+      "bbox_px": [
+        501,
+        801,
+        539,
+        839
+      ],
+      "center_px": [
+        520,
+        820
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "single_pole_switch",
+      "bbox_px": [
+        411,
+        906,
+        449,
+        944
+      ],
+      "center_px": [
+        430,
+        925
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "double_gpo",
+      "bbox_px": [
+        606,
+        856,
+        644,
+        910
+      ],
+      "center_px": [
+        625,
+        883
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "two_way_switch",
+      "bbox_px": [
+        856,
+        651,
+        894,
+        689
+      ],
+      "center_px": [
+        875,
+        670
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "wall_light",
+      "bbox_px": [
+        961,
+        731,
+        999,
+        769
+      ],
+      "center_px": [
+        980,
+        750
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "downlight",
+      "bbox_px": [
+        1051,
+        551,
+        1089,
+        589
+      ],
+      "center_px": [
+        1070,
+        570
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "downlight",
+      "bbox_px": [
+        1146,
+        551,
+        1184,
+        589
+      ],
+      "center_px": [
+        1165,
+        570
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "ceiling_fan",
+      "bbox_px": [
+        1166,
+        716,
+        1204,
+        754
+      ],
+      "center_px": [
+        1185,
+        735
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "double_gpo",
+      "bbox_px": [
+        1111,
+        881,
+        1149,
+        935
+      ],
+      "center_px": [
+        1130,
+        908
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "tv_point",
+      "bbox_px": [
+        1011,
+        896,
+        1049,
+        934
+      ],
+      "center_px": [
+        1030,
+        915
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "downlight",
+      "bbox_px": [
+        1391,
+        541,
+        1429,
+        579
+      ],
+      "center_px": [
+        1410,
+        560
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "downlight",
+      "bbox_px": [
+        1521,
+        541,
+        1559,
+        579
+      ],
+      "center_px": [
+        1540,
+        560
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "ceiling_light",
+      "bbox_px": [
+        1501,
+        761,
+        1539,
+        799
+      ],
+      "center_px": [
+        1520,
+        780
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "double_gpo",
+      "bbox_px": [
+        1431,
+        911,
+        1469,
+        965
+      ],
+      "center_px": [
+        1450,
+        938
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "double_gpo",
+      "bbox_px": [
+        1581,
+        911,
+        1619,
+        965
+      ],
+      "center_px": [
+        1600,
+        938
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "single_gpo",
+      "bbox_px": [
+        1321,
+        776,
+        1359,
+        830
+      ],
+      "center_px": [
+        1340,
+        803
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "distribution_board",
+      "bbox_px": [
+        1539,
+        320,
+        1581,
+        370
+      ],
+      "center_px": [
+        1560,
+        345
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "ceiling_light",
+      "bbox_px": [
+        1291,
+        361,
+        1329,
+        399
+      ],
+      "center_px": [
+        1310,
+        380
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "single_pole_switch",
+      "bbox_px": [
+        1261,
+        461,
+        1299,
+        499
+      ],
+      "center_px": [
+        1280,
+        480
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "wp_gpo",
+      "bbox_px": [
+        1647,
+        482,
+        1693,
+        528
+      ],
+      "center_px": [
+        1670,
+        505
+      ],
+      "page": 3
+    },
+    {
+      "class_name": "smoke_detector",
+      "bbox_px": [
+        1461,
+        701,
+        1499,
+        739
+      ],
+      "center_px": [
+        1480,
+        720
+      ],
+      "page": 3
+    }
+  ],
+  "measurement": {
+    "source_page": 5,
+    "total_floor_area_m2": 82.96,
+    "wet_area_m2": 8.64,
+    "bathroom_count": 2,
+    "glass_doors_windows": 8,
+    "scale_detected": "1:100",
+    "rooms": [
+      {
+        "name": "BED 1",
+        "bbox_px": [
+          360,
+          260,
+          696,
+          638
+        ],
+        "x_mm": 0,
+        "y_mm": 0,
+        "w_mm": 3200,
+        "h_mm": 3600,
+        "area_m2": 11.52,
+        "is_wet": false
+      },
+      {
+        "name": "BATH",
+        "bbox_px": [
+          696,
+          260,
+          895,
+          512
+        ],
+        "x_mm": 3200,
+        "y_mm": 0,
+        "w_mm": 1900,
+        "h_mm": 2400,
+        "area_m2": 4.56,
+        "is_wet": true
+      },
+      {
+        "name": "LAUNDRY",
+        "bbox_px": [
+          895,
+          260,
+          1074,
+          512
+        ],
+        "x_mm": 5100,
+        "y_mm": 0,
+        "w_mm": 1700,
+        "h_mm": 2400,
+        "area_m2": 4.08,
+        "is_wet": true
+      },
+      {
+        "name": "BED 2",
+        "bbox_px": [
+          360,
+          638,
+          696,
+          995
+        ],
+        "x_mm": 0,
+        "y_mm": 3600,
+        "w_mm": 3200,
+        "h_mm": 3400,
+        "area_m2": 10.88,
+        "is_wet": false
+      },
+      {
+        "name": "HALL",
+        "bbox_px": [
+          696,
+          512,
+          864,
+          995
+        ],
+        "x_mm": 3200,
+        "y_mm": 2400,
+        "w_mm": 1600,
+        "h_mm": 4600,
+        "area_m2": 7.36,
+        "is_wet": false
+      },
+      {
+        "name": "LIVING",
+        "bbox_px": [
+          864,
+          512,
+          1242,
+          995
+        ],
+        "x_mm": 4800,
+        "y_mm": 2400,
+        "w_mm": 3600,
+        "h_mm": 4600,
+        "area_m2": 16.56,
+        "is_wet": false
+      },
+      {
+        "name": "KITCHEN / DINING",
+        "bbox_px": [
+          1242,
+          512,
+          1662,
+          995
+        ],
+        "x_mm": 8400,
+        "y_mm": 2400,
+        "w_mm": 4000,
+        "h_mm": 4600,
+        "area_m2": 18.4,
+        "is_wet": false
+      },
+      {
+        "name": "STUDIO",
+        "bbox_px": [
+          1242,
+          260,
+          1504,
+          512
+        ],
+        "x_mm": 8400,
+        "y_mm": 0,
+        "w_mm": 2500,
+        "h_mm": 2400,
+        "area_m2": 6.0,
+        "is_wet": false
+      },
+      {
+        "name": "GARAGE",
+        "bbox_px": [
+          1504,
+          260,
+          1662,
+          512
+        ],
+        "x_mm": 10900,
+        "y_mm": 0,
+        "w_mm": 1500,
+        "h_mm": 2400,
+        "area_m2": 3.6,
+        "is_wet": false
+      }
+    ]
+  }
+}

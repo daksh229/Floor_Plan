@@ -1,0 +1,413 @@
+{
+  "document_id": "DOC-20260602-204377",
+  "extraction_id": "EXT-07764157",
+  "status": "success",
+  "source_file": "synthetic_procalc_style_electrical_set_variant_e_combined.pdf",
+  "extractions": [
+    {
+      "field_key": "room_count",
+      "field_label": "Total Rooms",
+      "value": 9,
+      "unit": "count",
+      "source_page": 5,
+      "coordinates": null,
+      "coordinate_status": "actual",
+      "confidence": 0.95,
+      "notes": "9 indoor room label(s) extracted. Plus 1 outdoor space(s) (Courtyard) excluded."
+    },
+    {
+      "field_key": "bedroom_count",
+      "field_label": "Bedrooms",
+      "value": 2,
+      "unit": "count",
+      "source_page": 5,
+      "coordinates": {
+        "type": "multi_region",
+        "regions": [
+          {
+            "label": "Bedroom 1",
+            "type": "bounding_box",
+            "bbox": [
+              918,
+              791,
+              973,
+              810
+            ]
+          },
+          {
+            "label": "Bedroom 2",
+            "type": "bounding_box",
+            "bbox": [
+              918,
+              1457,
+              973,
+              1476
+            ]
+          }
+        ],
+        "coordinate_system": "pixel",
+        "image_dimensions": {
+          "width": 4500,
+          "height": 3183
+        }
+      },
+      "coordinate_status": "actual",
+      "confidence": 0.92,
+      "notes": "2 bedroom(s) by name match against the AU residential vocabulary."
+    },
+    {
+      "field_key": "bathroom_count",
+      "field_label": "Bathrooms / Ensuites",
+      "value": 1,
+      "unit": "count",
+      "source_page": 5,
+      "coordinates": {
+        "type": "multi_region",
+        "regions": [
+          {
+            "label": "Bathroom",
+            "type": "bounding_box",
+            "bbox": [
+              1406,
+              677,
+              1478,
+              695
+            ]
+          }
+        ],
+        "coordinate_system": "pixel",
+        "image_dimensions": {
+          "width": 4500,
+          "height": 3183
+        }
+      },
+      "coordinate_status": "actual",
+      "confidence": 0.92,
+      "notes": "1 wet room(s) identified (Bath/Ensuite/WC/Toilet/Powder)."
+    },
+    {
+      "field_key": "per_room_areas",
+      "field_label": "Per-Room Breakdown",
+      "value": [
+        {
+          "name": "Bathroom",
+          "label_bbox_px": [
+            1406,
+            677,
+            1478,
+            695
+          ],
+          "is_wet": true,
+          "is_outdoor": false,
+          "w_mm": 1900,
+          "h_mm": 2400,
+          "area_m2": 4.56
+        },
+        {
+          "name": "Laundry",
+          "label_bbox_px": [
+            1720,
+            677,
+            1853,
+            695
+          ],
+          "is_wet": true,
+          "is_outdoor": false,
+          "w_mm": 1700,
+          "h_mm": 2400,
+          "area_m2": 4.08
+        },
+        {
+          "name": "Studio",
+          "label_bbox_px": [
+            2439,
+            677,
+            2544,
+            695
+          ],
+          "is_wet": false,
+          "is_outdoor": false,
+          "w_mm": 2500,
+          "h_mm": 2400,
+          "area_m2": 6.0
+        },
+        {
+          "name": "Garage",
+          "label_bbox_px": [
+            2816,
+            677,
+            2930,
+            695
+          ],
+          "is_wet": false,
+          "is_outdoor": false,
+          "w_mm": 1500,
+          "h_mm": 2400,
+          "area_m2": 3.6
+        },
+        {
+          "name": "Bedroom 1",
+          "label_bbox_px": [
+            918,
+            791,
+            973,
+            810
+          ],
+          "is_wet": false,
+          "is_outdoor": false,
+          "w_mm": 3200,
+          "h_mm": 3600,
+          "area_m2": 11.52
+        },
+        {
+          "name": "Bedroom 2",
+          "label_bbox_px": [
+            918,
+            1457,
+            973,
+            1476
+          ],
+          "is_wet": false,
+          "is_outdoor": false,
+          "w_mm": 3200,
+          "h_mm": 3400,
+          "area_m2": 10.88
+        },
+        {
+          "name": "Hallway",
+          "label_bbox_px": [
+            1381,
+            1343,
+            1451,
+            1361
+          ],
+          "is_wet": false,
+          "is_outdoor": false,
+          "w_mm": 1600,
+          "h_mm": 4600,
+          "area_m2": 7.36
+        },
+        {
+          "name": "Living",
+          "label_bbox_px": [
+            1864,
+            1343,
+            1957,
+            1361
+          ],
+          "is_wet": false,
+          "is_outdoor": false,
+          "w_mm": 3600,
+          "h_mm": 4600,
+          "area_m2": 16.56
+        },
+        {
+          "name": "Kitchen",
+          "label_bbox_px": [
+            2510,
+            1343,
+            2761,
+            1361
+          ],
+          "is_wet": false,
+          "is_outdoor": false,
+          "w_mm": 4000,
+          "h_mm": 4600,
+          "area_m2": 18.4
+        },
+        {
+          "name": "Courtyard",
+          "label_bbox_px": [
+            3062,
+            1343,
+            3234,
+            1361
+          ],
+          "is_wet": false,
+          "is_outdoor": true,
+          "w_mm": null,
+          "h_mm": null,
+          "area_m2": null
+        }
+      ],
+      "unit": "list",
+      "source_page": 5,
+      "coordinates": null,
+      "coordinate_status": "placeholder",
+      "confidence": 0.6,
+      "notes": "9 of 10 rooms have OCR'd dimension labels — others left as area_m2=null. Run higher-DPI OCR or supply via manual edit."
+    },
+    {
+      "field_key": "window_count",
+      "field_label": "Windows",
+      "value": 0,
+      "unit": "count",
+      "source_page": 5,
+      "coordinates": null,
+      "coordinate_status": "not_detected",
+      "confidence": 0.0,
+      "notes": "No W* labels found in OCR or Claude-vision fallback."
+    },
+    {
+      "field_key": "external_door_count",
+      "field_label": "External Doors",
+      "value": 2,
+      "unit": "count",
+      "source_page": 5,
+      "coordinates": {
+        "type": "multi_region",
+        "regions": [
+          {
+            "label": "DL",
+            "type": "point",
+            "position": [
+              699,
+              1730
+            ]
+          },
+          {
+            "label": "DO",
+            "type": "point",
+            "position": [
+              105,
+              2924
+            ]
+          }
+        ],
+        "coordinate_system": "pixel",
+        "image_dimensions": {
+          "width": 4500,
+          "height": 3183
+        }
+      },
+      "coordinate_status": "actual",
+      "confidence": 0.85,
+      "notes": "2 door label(s) (D1..Dn) detected (OCR)."
+    },
+    {
+      "field_key": "glass_doors_windows",
+      "field_label": "Glass Doors & Windows",
+      "value": 0,
+      "unit": "count",
+      "source_page": 5,
+      "coordinates": null,
+      "coordinate_status": "not_detected",
+      "confidence": 0.0,
+      "notes": "No W*/SD* labels found in OCR or Claude-vision fallback."
+    },
+    {
+      "field_key": "scale_detected",
+      "field_label": "Drawing Scale",
+      "value": "1:20",
+      "unit": "ratio",
+      "source_page": 5,
+      "coordinates": null,
+      "coordinate_status": "actual",
+      "confidence": 0.8971660887241414,
+      "notes": "Derived from dimension chain totals — calibrated mm_per_px = 5.1901, axes agree to within 2.1%."
+    },
+    {
+      "field_key": "total_floor_area",
+      "field_label": "Total Floor Area",
+      "value": 85.05,
+      "unit": "m2",
+      "source_page": 5,
+      "coordinates": {
+        "type": "polygon",
+        "points": [
+          [
+            251,
+            471
+          ],
+          [
+            3018,
+            471
+          ],
+          [
+            3018,
+            2801
+          ],
+          [
+            251,
+            2801
+          ]
+        ],
+        "coordinate_system": "pixel",
+        "image_dimensions": {
+          "width": 4500,
+          "height": 3183
+        }
+      },
+      "coordinate_status": "actual",
+      "confidence": 0.8971660887241414,
+      "notes": "Derived from dimension chain totals (12400 mm x 7000 mm = 85.05 m^2 net after wall-thickness correction). Calibrated at 5.1901 mm/px, axes agree to within 2.1%."
+    },
+    {
+      "field_key": "wet_area_total",
+      "field_label": "Wet Area Total",
+      "value": 8.64,
+      "unit": "m2",
+      "source_page": 5,
+      "coordinates": null,
+      "coordinate_status": "actual",
+      "confidence": 0.9,
+      "notes": "Sum of 2 wet room(s) (Bathroom, Laundry) using per-room dimensions from the plan's room labels."
+    },
+    {
+      "field_key": "building_perimeter",
+      "field_label": "Building Perimeter",
+      "value": 38.8,
+      "unit": "m",
+      "source_page": 5,
+      "coordinates": null,
+      "coordinate_status": "actual",
+      "confidence": 0.8971660887241414,
+      "notes": "2 * (width + height) = 2 * (12400 + 7000) mm = 38.8 m."
+    },
+    {
+      "field_key": "building_envelope",
+      "field_label": "Building Envelope",
+      "value": null,
+      "unit": "polygon",
+      "source_page": 5,
+      "coordinates": {
+        "type": "polygon",
+        "points": [
+          [
+            251,
+            471
+          ],
+          [
+            3018,
+            471
+          ],
+          [
+            3018,
+            2801
+          ],
+          [
+            251,
+            2801
+          ]
+        ],
+        "coordinate_system": "pixel",
+        "image_dimensions": {
+          "width": 4500,
+          "height": 3183
+        }
+      },
+      "coordinate_status": "actual",
+      "confidence": 0.7625911754155201,
+      "notes": "Outer-wall rectangle from longest H wall x longest V wall. Size: 2767 x 2330 px."
+    }
+  ],
+  "errors": [],
+  "processing_time_ms": 4918,
+  "model_version": "techuz-procalc-v0.1",
+  "scale_detected": {
+    "value": "1:20",
+    "source": "dimension_chain",
+    "confidence": 0.8971660887241414
+  },
+  "cross_validation": null
+}

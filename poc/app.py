@@ -116,6 +116,20 @@ def _init_state() -> None:
     # finds fewer than 5 rooms. Default ON since it materially improves
     # the by-room BOM quality on plans where Tesseract misses labels.
     st.session_state.setdefault("enable_claude_room_fallback", True)
+    # Phase 3 — when on, _run_against_pdf uses the combined orchestrator
+    # (page classifier + electrical BOM + measurement extraction) instead
+    # of the legacy single-page run_pipeline.
+    st.session_state.setdefault("use_combined_pipeline", True)
+    # Phase 3 result — populated by the combined runner
+    st.session_state.setdefault("combined_result", None)
+    # Phase 5 — schedule cross-validation. Default ON.
+    st.session_state.setdefault("enable_schedule_validation", True)
+    # Phase 5 — demo perturbation. When ON, the measurement's total_floor_area
+    # gets multiplied by 0.85 before the schedule diff so the safety net visibly
+    # fires on the demo.
+    st.session_state.setdefault("force_schedule_disagreement", False)
+    # Phase 6 — admin / wizard view switch
+    st.session_state.setdefault("app_view", "wizard")
     st.session_state.setdefault("cv_verify_findings", None)
     st.session_state.setdefault("cv_verify_error", None)
 
@@ -162,26 +176,62 @@ def _run_against_pdf(pdf_path: Path, source_label: str) -> None:
         with progress_box:
             st.write(f"[{frac:>5.0%}]  {stage}  (t+{elapsed:.1f}s)")
 
+    use_combined = bool(st.session_state.get("use_combined_pipeline", True))
+
     try:
-        run, page, diagnostics = run_pipeline(
-            pdf_path,
-            rag=rag,
-            audit_dir=AUDIT_DIR,
-            progress=_progress,
-            force_demo_deviation=force_dev,
-            symbol_pack=pack,
-            pdf_page_index=page_index,
-            use_roi=use_roi,
-            cv_backend=cv_backend,
-            enable_claude_room_fallback=enable_claude_room_fallback,
-        )
+        if use_combined:
+            # Phase 3 — combined pipeline. Routes via the page classifier,
+            # runs electrical BOM + measurement extraction in sequence,
+            # surfaces both via session state.
+            from pipeline.combined_runner import run_combined_pipeline
+            combined = run_combined_pipeline(
+                pdf_path,
+                rag=rag,
+                audit_dir=AUDIT_DIR,
+                progress=_progress,
+                cv_backend=cv_backend,
+                symbol_pack=pack,
+                use_roi=use_roi,
+                force_demo_deviation=force_dev,
+                enable_claude_room_fallback=enable_claude_room_fallback,
+                enable_claude_scale_reader=True,
+                enable_schedule_validation=bool(
+                    st.session_state.get("enable_schedule_validation", True)
+                ),
+                force_schedule_disagreement=bool(
+                    st.session_state.get("force_schedule_disagreement", False)
+                ),
+            )
+            st.session_state["combined_result"] = combined
+            run = combined.electrical_pipeline
+            page = combined.electrical_page_image
+            diagnostics = combined.electrical_diagnostics
+        else:
+            # Legacy single-page run (used when user explicitly disables combined)
+            run, page, diagnostics = run_pipeline(
+                pdf_path,
+                rag=rag,
+                audit_dir=AUDIT_DIR,
+                progress=_progress,
+                force_demo_deviation=force_dev,
+                symbol_pack=pack,
+                pdf_page_index=page_index,
+                use_roi=use_roi,
+                cv_backend=cv_backend,
+                enable_claude_room_fallback=enable_claude_room_fallback,
+            )
+            st.session_state["combined_result"] = None
     except Exception as exc:  # noqa: BLE001
         progress_box.update(label=f"Pipeline error: {exc}", state="error")
         st.exception(exc)
         return
+
+    elapsed_str = (f"{run.elapsed_seconds}s" if run is not None
+                   else (f"{st.session_state['combined_result'].processing_time_ms/1000:.1f}s"
+                         if st.session_state.get("combined_result") else "—"))
     progress_box.update(
-        label=f"Pipeline complete in {run.elapsed_seconds}s"
-              + (f"  ·  pack: {pack}  ·  page: {page_index}")
+        label=f"Pipeline complete in {elapsed_str}"
+              + (f"  ·  pack: {pack}")
               + (" (DEMO MODE: override active)" if force_dev else ""),
         state="complete",
         expanded=False,
@@ -191,7 +241,9 @@ def _run_against_pdf(pdf_path: Path, source_label: str) -> None:
     label_extras = []
     if pack != "builtin":
         label_extras.append(f"pack={pack}")
-    if page_index != 1:
+    if use_combined:
+        label_extras.append("combined")
+    elif page_index != 1:
         label_extras.append(f"p{page_index}")
     if cv_backend != "template":
         label_extras.append(f"cv={cv_backend}")
@@ -1366,6 +1418,462 @@ def _wizard_step4_run(api_key_ok: bool) -> None:
 
 # ---------------- step 5: dashboard ----------------
 
+def _tab_measurement_and_approval() -> None:
+    """Phase 3 + 4 — measurement extraction output with per-field approval gate.
+
+    Reads `st.session_state["combined_result"]` (set by the combined-pipeline
+    runner) and the file-backed approval store. Renders one row per
+    extraction field with: value, unit, status badge, confidence, approval
+    badge, and the four action buttons (Accept / Edit / Reject / Revert).
+    Calculate/Save at the bottom is hard-blocked until every row is
+    resolved.
+    """
+    from pipeline.combined_runner import CombinedResult, combined_to_client_schema
+    from pipeline.approval_state import FieldState, get_default_store
+
+    combined: CombinedResult = st.session_state["combined_result"]
+    if combined.measurement is None:
+        st.info(
+            "Measurement extraction didn't run for this PDF. Possible reasons: "
+            "no architectural floor-plan page was detected by the page classifier, "
+            "or the measurement extractor failed. Use the BOM tab for the "
+            "electrical Bill of Materials extracted from this run."
+        )
+        if combined.errors:
+            with st.expander("Errors during run"):
+                for e in combined.errors:
+                    st.code(e)
+        return
+
+    meas = combined.measurement
+    store = get_default_store()
+    # Seed approvals (idempotent — preserves user state across reruns)
+    approvals = store.initialise_from_extractions(meas.extraction_id, meas.extractions)
+
+    # Header
+    st.subheader("Measurement extraction")
+    cols = st.columns([2, 1, 1, 1])
+    cols[0].markdown(f"**Source:** `{combined.source_file}`")
+    cols[1].metric("Fields", len(meas.extractions))
+    actual_count = sum(1 for f in meas.extractions if f.coordinate_status == "actual")
+    cols[2].metric("With actual coords", actual_count)
+    cols[3].metric("Pipeline elapsed", f"{combined.processing_time_ms} ms")
+
+    if meas.scale_detected is not None:
+        st.caption(
+            f"📐 Top-level scale: **{meas.scale_detected.value}** "
+            f"(source: {meas.scale_detected.source}, "
+            f"confidence: {meas.scale_detected.confidence:.0%})"
+        )
+
+    # ----- Phase 7 — failure-mode catalog panel -----
+    if combined.failure_modes:
+        severity_icon = {
+            "info":     "ℹ️",
+            "warning":  "⚠️",
+            "error":    "❌",
+            "blocking": "🛑",
+        }
+        n_blocking = sum(1 for e in combined.failure_modes if e.severity.value == "blocking")
+        n_error    = sum(1 for e in combined.failure_modes if e.severity.value == "error")
+        n_warning  = sum(1 for e in combined.failure_modes if e.severity.value == "warning")
+        n_info     = sum(1 for e in combined.failure_modes if e.severity.value == "info")
+
+        header = (
+            f"### 🚦 Pipeline status ({len(combined.failure_modes)} finding"
+            f"{'s' if len(combined.failure_modes) != 1 else ''})"
+        )
+        st.markdown(header)
+        st.caption(
+            f"🛑 blocking: {n_blocking}  ·  ❌ error: {n_error}  ·  "
+            f"⚠️ warning: {n_warning}  ·  ℹ️ info: {n_info}"
+        )
+
+        for err in combined.failure_modes:
+            icon = severity_icon.get(err.severity.value, "·")
+            display = f"{icon} **{err.title}**"
+            if err.severity.value == "blocking":
+                container = st.error
+            elif err.severity.value == "error":
+                container = st.error
+            elif err.severity.value == "warning":
+                container = st.warning
+            else:
+                container = st.info
+            container(display + "\n\n" + err.message
+                       + "\n\n**Recommended:** " + err.recommended_action)
+
+    cv = combined.cross_validation
+    if cv:
+        n_compare = cv["summary"]["fields_compared"]
+        n_agree = cv["summary"]["fields_agree"]
+        n_disagree = cv["summary"]["fields_disagree"]
+        st.markdown("### 🛡️ Schedule cross-validation")
+        st.caption(
+            f"Compared the measurement extraction against the schedule "
+            f"on page {cv['schedule_page']}. "
+            f"**{n_agree}/{n_compare} fields agree** within tolerance."
+        )
+        if n_disagree == 0:
+            st.success(
+                f"✅ All {n_agree} comparable fields agree between page-5 measurement "
+                f"and page-{cv['schedule_page']} schedule. High trust in extraction."
+            )
+        else:
+            st.warning(
+                f"⚠️ {n_disagree} field(s) disagree between measurement and schedule. "
+                "Review each row below — the safety-net is doing its job."
+            )
+        rows = []
+        for c in cv["comparisons"]:
+            badge = "✅" if c["agree"] else "❌"
+            rows.append({
+                "": badge,
+                "field": c["field_key"],
+                "measurement": c["measurement_value"],
+                "schedule": c["schedule_value"],
+                "diff_abs": c["diff_abs"],
+                "diff_%": c["diff_pct"],
+                "tolerance_%": c["tolerance_pct"],
+            })
+        st.dataframe(rows, hide_index=True, use_container_width=True)
+        if cv.get("schedule_error"):
+            st.info(f"Schedule reader note: {cv['schedule_error']}")
+
+    # Approval gate progress bar
+    resolved, total = store.progress(meas.extraction_id)
+    ready, blockers = store.is_ready_to_save(meas.extraction_id)
+    st.markdown("### Approval gate")
+    progress_pct = resolved / max(1, total)
+    st.progress(progress_pct, text=f"{resolved} / {total} fields resolved")
+    if ready:
+        st.success(
+            "✅ All fields resolved — **Calculate / Save is unlocked.** "
+            "Every value below has been either confirmed by you, edited by you, "
+            "or rejected. The downstream calculator can consume this extraction."
+        )
+    else:
+        st.warning(
+            f"🔒 **Calculate / Save is locked** — {len(blockers)} field(s) "
+            f"awaiting your review. Click ✓ Accept, ✏️ Edit, or ❌ Reject on each."
+        )
+
+    # Status-band styling
+    status_style = {
+        "actual":        ("🟢", "actual"),
+        "placeholder":   ("🟡", "placeholder"),
+        "not_detected":  ("🔴", "not detected"),
+    }
+
+    st.markdown("### Fields")
+    # One row per field. Layout: name + value | status badge | approval badge | action buttons
+    for f in meas.extractions:
+        rec = approvals.get(f.field_key)
+        if rec is None:
+            continue   # shouldn't happen post-init
+
+        with st.container():
+            cols = st.columns([3.5, 1.3, 1.7, 3.5])
+            value_display = rec.current_value
+            if isinstance(value_display, list):
+                value_display = f"<list of {len(value_display)} items>"
+            elif value_display is None:
+                value_display = "—"
+            else:
+                value_display = str(value_display)
+            unit_display = f" {f.unit}" if f.unit and f.unit != "list" else ""
+
+            with cols[0]:
+                edited_marker = " *(edited)*" if rec.state == FieldState.USER_CORRECTED else ""
+                st.markdown(
+                    f"**{f.field_label}**  \n"
+                    f"`{f.field_key}` = **{value_display}**{unit_display}{edited_marker}"
+                )
+                if f.notes:
+                    st.caption(f.notes[:280])
+
+            with cols[1]:
+                icon, label = status_style.get(f.coordinate_status, ("⚪", f.coordinate_status))
+                st.markdown(f"{icon} *{label}*  \nconf {f.confidence:.0%}")
+
+            with cols[2]:
+                st.markdown(f"**{rec.state.display_badge}**")
+
+            with cols[3]:
+                btn_cols = st.columns(4)
+                accept = btn_cols[0].button("✓", key=f"acc_{f.field_key}",
+                                             help="Accept this value as-is", use_container_width=True)
+                edit = btn_cols[1].button("✏️", key=f"edt_{f.field_key}",
+                                           help="Edit the value", use_container_width=True)
+                reject = btn_cols[2].button("❌", key=f"rej_{f.field_key}",
+                                             help="Reject this field", use_container_width=True)
+                revert = btn_cols[3].button("↩", key=f"rev_{f.field_key}",
+                                             help="Revert to AI value", use_container_width=True)
+
+                if accept:
+                    store.confirm(meas.extraction_id, f.field_key)
+                    st.rerun()
+                if reject:
+                    store.reject(meas.extraction_id, f.field_key,
+                                  user_note="Rejected via UI")
+                    st.rerun()
+                if revert:
+                    store.revert(meas.extraction_id, f.field_key)
+                    st.rerun()
+                if edit:
+                    st.session_state[f"_editing_{f.field_key}"] = True
+
+            if st.session_state.get(f"_editing_{f.field_key}"):
+                with st.form(f"form_edit_{f.field_key}"):
+                    if isinstance(rec.original_value, (int, float)):
+                        new_value = st.number_input(
+                            "New value",
+                            value=float(rec.current_value) if rec.current_value is not None else 0.0,
+                            key=f"input_{f.field_key}",
+                        )
+                    else:
+                        new_value = st.text_input(
+                            "New value",
+                            value=str(rec.current_value) if rec.current_value is not None else "",
+                            key=f"input_{f.field_key}",
+                        )
+                    note = st.text_input("Note (optional)", key=f"note_{f.field_key}")
+                    saved = st.form_submit_button("Save edit")
+                    if saved:
+                        # Coerce back to the same type as original_value
+                        if isinstance(rec.original_value, int):
+                            new_value = int(new_value)
+                        store.update(meas.extraction_id, f.field_key,
+                                      current_value=new_value, user_note=note or None)
+                        st.session_state[f"_editing_{f.field_key}"] = False
+                        st.rerun()
+
+            st.divider()
+
+    # Calculate / Save bar — two independent gates:
+    #   1. approval state: all fields must be resolved
+    #   2. failure modes: no BLOCKING-severity finding
+    blocking_failure = combined.has_blocking_error()
+    fully_ready = ready and not blocking_failure
+    save_cols = st.columns([3, 1])
+    with save_cols[0]:
+        if blocking_failure:
+            st.markdown(
+                "🛑 **Save blocked by pipeline error.** "
+                "Resolve the blocking finding(s) above before pushing to "
+                "the calculator."
+            )
+        elif fully_ready:
+            st.markdown("**Ready to push to the ProCalc calculator.**")
+        else:
+            st.markdown(
+                f"**Awaiting:** "
+                f"{', '.join(b.replace('_', ' ').title() for b in blockers[:5])}"
+                + (" …" if len(blockers) > 5 else "")
+            )
+    with save_cols[1]:
+        clicked = st.button("Calculate / Save", type="primary",
+                             disabled=not fully_ready, use_container_width=True)
+        if clicked and fully_ready:
+            # In a real ProCalc integration this would POST to the
+            # calculator endpoint. For the POC we serialise to the
+            # client schema + write a JSON file the user can download.
+            from pathlib import Path
+            import json
+            client_json = combined_to_client_schema(combined)
+            # Replace each extraction's value with the user-resolved value
+            user_resolved = {k: v.current_value for k, v in approvals.items()}
+            for entry in client_json.get("extractions", []):
+                if entry["field_key"] in user_resolved:
+                    entry["value"] = user_resolved[entry["field_key"]]
+                    entry["approval_state"] = approvals[entry["field_key"]].state.value
+            out_dir = Path("samples")
+            out_path = out_dir / f"{meas.extraction_id}_resolved.json"
+            out_path.write_text(json.dumps(client_json, indent=2), encoding="utf-8")
+            st.success(f"Saved resolved extraction to `{out_path}`")
+            st.session_state["_last_saved_path"] = str(out_path)
+
+    # Export corrections (Phase 6 admin-feedback input)
+    corrections = store.export_corrections(meas.extraction_id)
+    if corrections:
+        with st.expander(f"📋 Corrections this session ({len(corrections)})"):
+            st.markdown(
+                "These fields were edited by the user. They will be exported "
+                "to the admin feedback store for prompt-iteration analysis."
+            )
+            st.dataframe(corrections, hide_index=True, use_container_width=True)
+
+
+def _admin_dashboard() -> None:
+    """Phase 6 — admin feedback page.
+
+    The proposal §7 #6 says this page must ship with v1, with comparison
+    artefacts captured from the very first jobs. We already have two
+    on-disk stores doing exactly that:
+
+      - `poc/audit_store/` — every Claude BOM-assembly call's payload,
+        raw response, BOM, and diagnostics (override-mechanism findings)
+      - `poc/approval_store/` — per-extraction field approvals + user
+        edits (Phase 4 output)
+
+    This page reads from both, lists every extraction the system has
+    processed, and exposes:
+
+      - per-extraction summary (counts of confirmed / corrected / rejected)
+      - per-correction diff: AI suggested vs user-corrected value
+      - CSV export of all corrections (for prompt-iteration analysis)
+      - filters by state, confidence band, time window
+    """
+    import csv, io as _io, json as _json
+    from pathlib import Path as _P
+
+    from pipeline.approval_state import (
+        ApprovalStore, FieldState, get_default_store, DEFAULT_STORE_DIR,
+    )
+
+    st.title("Admin · Feedback & Audit")
+    st.caption(
+        "Read-only view across every extraction the system has processed. "
+        "Each row is one upload + extraction. Drill into a row to see what "
+        "Claude suggested vs what the builder confirmed/corrected — that diff "
+        "is the input for prompt iteration. "
+        "Backed by the on-disk approval store + Claude audit log; nothing is "
+        "computed live on this page."
+    )
+
+    store = get_default_store()
+    store_dir = _P(DEFAULT_STORE_DIR)
+
+    # ----- discover every approval file -----
+    rows = []
+    if store_dir.exists():
+        for jf in sorted(store_dir.glob("EXT-*.json"), key=lambda p: p.stat().st_mtime, reverse=True):
+            try:
+                payload = _json.loads(jf.read_text(encoding="utf-8"))
+            except (OSError, _json.JSONDecodeError):
+                continue
+            fields = payload.get("fields") or {}
+            extraction_id = payload.get("extraction_id") or jf.stem
+            n_total = len(fields)
+            n_conf = sum(1 for f in fields.values() if f.get("state") == "user_confirmed")
+            n_corr = sum(1 for f in fields.values() if f.get("state") == "user_corrected")
+            n_rej = sum(1 for f in fields.values() if f.get("state") == "rejected")
+            n_pending = sum(1 for f in fields.values() if f.get("state") in ("pending", "ai_suggested"))
+            rows.append({
+                "extraction_id": extraction_id,
+                "fields": n_total,
+                "confirmed": n_conf,
+                "corrected": n_corr,
+                "rejected": n_rej,
+                "pending": n_pending,
+                "updated_at": payload.get("updated_at", ""),
+                "_path": jf,
+            })
+
+    if not rows:
+        st.info(
+            f"No approvals have been recorded yet. Run an extraction through "
+            f"the wizard's Measurement & Approval tab — each Accept/Edit/Reject "
+            f"click writes to `{store_dir}/EXT-*.json` and will appear here."
+        )
+        if st.button("← Back to wizard"):
+            st.session_state["app_view"] = "wizard"
+            st.rerun()
+        return
+
+    # ----- top-level summary -----
+    cols = st.columns(5)
+    cols[0].metric("Extractions", len(rows))
+    cols[1].metric("Confirmed (total)", sum(r["confirmed"] for r in rows))
+    cols[2].metric("Corrected (total)", sum(r["corrected"] for r in rows))
+    cols[3].metric("Rejected (total)", sum(r["rejected"] for r in rows))
+    cols[4].metric("Pending (total)", sum(r["pending"] for r in rows))
+
+    # ----- filter strip -----
+    st.divider()
+    filter_cols = st.columns([2, 2, 1])
+    show_only_with_corrections = filter_cols[0].checkbox(
+        "Only extractions with corrections",
+        value=False,
+        help="Filter to extractions where the builder edited at least one AI value.",
+    )
+    sort_options = ["Most recent", "Most corrections", "Most rejections"]
+    sort_choice = filter_cols[1].selectbox("Sort by", sort_options, index=0)
+    if sort_choice == "Most corrections":
+        rows.sort(key=lambda r: -r["corrected"])
+    elif sort_choice == "Most rejections":
+        rows.sort(key=lambda r: -r["rejected"])
+    # else: rows are already mtime-desc
+
+    visible = [r for r in rows if (not show_only_with_corrections or r["corrected"] > 0)]
+    st.caption(f"Showing {len(visible)} of {len(rows)} extraction(s).")
+
+    # ----- one expandable block per extraction -----
+    for r in visible:
+        ext_id = r["extraction_id"]
+        header = (
+            f"**{ext_id}**  ·  "
+            f"{r['fields']} fields  ·  "
+            f"✅ {r['confirmed']}  ✏️ {r['corrected']}  ❌ {r['rejected']}  "
+            f"⏳ {r['pending']}  ·  "
+            f"updated {r['updated_at'][:19] if r['updated_at'] else '—'}"
+        )
+        with st.expander(header, expanded=False):
+            try:
+                payload = _json.loads(r["_path"].read_text(encoding="utf-8"))
+            except (OSError, _json.JSONDecodeError):
+                st.error("Could not read approval file."); continue
+            fields = payload.get("fields") or {}
+            # Build a row per field with AI vs user values
+            diff_rows = []
+            for k, f in fields.items():
+                state = f.get("state", "")
+                ai_val = f.get("original_value")
+                user_val = f.get("current_value")
+                changed = (state == "user_corrected") and (ai_val != user_val)
+                diff_rows.append({
+                    "field": k,
+                    "state": state,
+                    "AI value": ai_val if not isinstance(ai_val, list)
+                                 else f"<list[{len(ai_val)}]>",
+                    "User value": user_val if not isinstance(user_val, list)
+                                  else f"<list[{len(user_val)}]>",
+                    "Changed?": "✏️" if changed else "",
+                    "AI conf": f.get("original_confidence", 0.0),
+                    "Note": f.get("user_note") or "",
+                })
+            st.dataframe(diff_rows, hide_index=True, use_container_width=True)
+
+    # ----- CSV export of all corrections (for prompt iteration) -----
+    st.divider()
+    st.markdown("### Export for prompt iteration")
+    buf = _io.StringIO()
+    w = csv.writer(buf)
+    w.writerow(["extraction_id", "field_key", "ai_value", "user_value",
+                "ai_confidence", "user_note", "updated_at"])
+    total_corr = 0
+    for r in rows:
+        for corr in store.export_corrections(r["extraction_id"]):
+            w.writerow([
+                r["extraction_id"], corr["field_key"], corr["ai_value"],
+                corr["user_value"], corr["ai_confidence"], corr["user_note"] or "",
+                corr["updated_at"],
+            ])
+            total_corr += 1
+    st.download_button(
+        f"📥 Download {total_corr} correction(s) as CSV",
+        data=buf.getvalue().encode("utf-8"),
+        file_name="procalc_corrections.csv",
+        mime="text/csv",
+        disabled=(total_corr == 0),
+    )
+
+    st.divider()
+    if st.button("← Back to wizard"):
+        st.session_state["app_view"] = "wizard"
+        st.rerun()
+
+
 def _wizard_step5_dashboard() -> None:
     if st.session_state.get("run") is None:
         st.warning("No run loaded. Start a new run or open the cached demo.")
@@ -1380,17 +1888,23 @@ def _wizard_step5_dashboard() -> None:
         "library matching; BOM shows the final assembled bill."
     )
 
-    tab_cv, tab_ocr, tab_rag, tab_bom = st.tabs(
-        ["CV Detections", "OCR", "RAG Matches", "BOM"]
-    )
-    with tab_cv:
+    # Show measurement tab only when there's combined-run output to display.
+    has_combined = st.session_state.get("combined_result") is not None
+    tab_labels = ["CV Detections", "OCR", "RAG Matches", "BOM"]
+    if has_combined:
+        tab_labels.append("Measurement & Approval")
+    tabs = st.tabs(tab_labels)
+    with tabs[0]:
         _tab_cv()
-    with tab_ocr:
+    with tabs[1]:
         _tab_ocr()
-    with tab_rag:
+    with tabs[2]:
         _tab_rag()
-    with tab_bom:
+    with tabs[3]:
         _tab_bom()
+    if has_combined:
+        with tabs[4]:
+            _tab_measurement_and_approval()
 
 
 # ---------------- wizard sidebar ----------------
@@ -1433,6 +1947,30 @@ def _wizard_sidebar() -> None:
                  "enumerate any missed labels. Costs ~1 extra Claude call (~$0.01) "
                  "but significantly improves room recall on plans with small/stylised "
                  "labels Tesseract misses.",
+        )
+        st.checkbox(
+            "Combined pipeline (BOM + measurement)",
+            key="use_combined_pipeline",
+            help="Phase 3 — routes each PDF page to the right extractor via the "
+                 "page classifier. Runs electrical BOM on the electrical page AND "
+                 "measurement extraction on the architectural plan, then surfaces "
+                 "both side by side in the dashboard's 'Measurement & Approval' tab.",
+        )
+        st.checkbox(
+            "Schedule cross-validation",
+            key="enable_schedule_validation",
+            help="Phase 5 — when on, sends the schedule page (typically the last "
+                 "page of an AU residential set) to Claude vision. Reads the area "
+                 "and window/door schedules and diffs them against the measurement "
+                 "extraction. Disagreements surface as a yellow panel in the "
+                 "Measurement & Approval tab.",
+        )
+        st.checkbox(
+            "Force schedule disagreement (demo)",
+            key="force_schedule_disagreement",
+            help="Phase 5 demo lever — perturbs the measurement's total_floor_area "
+                 "by -15% before running cross-validation, so the schedule diff "
+                 "produces a visible DISAGREE finding on cue.",
         )
 
         # CV backend selector (only when best.onnx is available)
@@ -1495,6 +2033,24 @@ def main() -> None:
     _init_state()
     api_key_ok = _check_api_key()
 
+    # ---- View switch: Wizard (default) vs Admin (Phase 6) ----
+    with st.sidebar:
+        view = st.radio(
+            "View",
+            options=["wizard", "admin"],
+            format_func=lambda v: {
+                "wizard": "🧙 Wizard",
+                "admin": "🛠 Admin · Feedback",
+            }[v],
+            key="app_view",
+            horizontal=True,
+        )
+
+    if view == "admin":
+        _admin_dashboard()
+        return
+
+    # ---- Wizard (default) ----
     _wizard_sidebar()
 
     st.title("ProCalc Interview POC — Electrical Layout → BOM")

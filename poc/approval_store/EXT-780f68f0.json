@@ -1,0 +1,405 @@
+{
+  "extraction_id": "EXT-780f68f0",
+  "updated_at": "2026-06-02T14:29:54.725851+00:00",
+  "fields": {
+    "room_count": {
+      "field_key": "room_count",
+      "state": "user_confirmed",
+      "original_value": 9,
+      "current_value": 9,
+      "original_confidence": 0.95,
+      "user_note": null,
+      "updated_at": "2026-06-02T14:29:54.725851+00:00"
+    },
+    "bedroom_count": {
+      "field_key": "bedroom_count",
+      "state": "ai_suggested",
+      "original_value": 2,
+      "current_value": 2,
+      "original_confidence": 0.92,
+      "user_note": null,
+      "updated_at": "2026-06-02T14:25:21.312668+00:00"
+    },
+    "wet_room_count": {
+      "field_key": "wet_room_count",
+      "state": "ai_suggested",
+      "original_value": 2,
+      "current_value": 2,
+      "original_confidence": 0.92,
+      "user_note": null,
+      "updated_at": "2026-06-02T14:25:21.312668+00:00"
+    },
+    "bathroom_count": {
+      "field_key": "bathroom_count",
+      "state": "ai_suggested",
+      "original_value": 1,
+      "current_value": 1,
+      "original_confidence": 0.92,
+      "user_note": null,
+      "updated_at": "2026-06-02T14:25:21.312668+00:00"
+    },
+    "per_room_areas": {
+      "field_key": "per_room_areas",
+      "state": "ai_suggested",
+      "original_value": [
+        {
+          "name": "Bathroom",
+          "label_bbox_px": [
+            1406,
+            677,
+            1478,
+            695
+          ],
+          "is_wet": true,
+          "is_outdoor": false,
+          "w_mm": 1900,
+          "h_mm": 2400,
+          "area_m2": 4.56
+        },
+        {
+          "name": "Laundry",
+          "label_bbox_px": [
+            1720,
+            677,
+            1853,
+            695
+          ],
+          "is_wet": true,
+          "is_outdoor": false,
+          "w_mm": 1700,
+          "h_mm": 2400,
+          "area_m2": 4.08
+        },
+        {
+          "name": "Studio",
+          "label_bbox_px": [
+            2439,
+            677,
+            2544,
+            695
+          ],
+          "is_wet": false,
+          "is_outdoor": false,
+          "w_mm": 2500,
+          "h_mm": 2400,
+          "area_m2": 6.0
+        },
+        {
+          "name": "Garage",
+          "label_bbox_px": [
+            2816,
+            677,
+            2930,
+            695
+          ],
+          "is_wet": false,
+          "is_outdoor": false,
+          "w_mm": 1500,
+          "h_mm": 2400,
+          "area_m2": 3.6
+        },
+        {
+          "name": "Bedroom 1",
+          "label_bbox_px": [
+            918,
+            791,
+            973,
+            810
+          ],
+          "is_wet": false,
+          "is_outdoor": false,
+          "w_mm": 3200,
+          "h_mm": 3600,
+          "area_m2": 11.52
+        },
+        {
+          "name": "Bedroom 2",
+          "label_bbox_px": [
+            918,
+            1457,
+            973,
+            1476
+          ],
+          "is_wet": false,
+          "is_outdoor": false,
+          "w_mm": 3200,
+          "h_mm": 3400,
+          "area_m2": 10.88
+        },
+        {
+          "name": "Hallway",
+          "label_bbox_px": [
+            1381,
+            1343,
+            1451,
+            1361
+          ],
+          "is_wet": false,
+          "is_outdoor": false,
+          "w_mm": 1600,
+          "h_mm": 4600,
+          "area_m2": 7.36
+        },
+        {
+          "name": "Living",
+          "label_bbox_px": [
+            1864,
+            1343,
+            1957,
+            1361
+          ],
+          "is_wet": false,
+          "is_outdoor": false,
+          "w_mm": 3600,
+          "h_mm": 4600,
+          "area_m2": 16.56
+        },
+        {
+          "name": "Kitchen",
+          "label_bbox_px": [
+            2510,
+            1343,
+            2761,
+            1361
+          ],
+          "is_wet": false,
+          "is_outdoor": false,
+          "w_mm": 4000,
+          "h_mm": 4600,
+          "area_m2": 18.4
+        },
+        {
+          "name": "Courtyard",
+          "label_bbox_px": [
+            3062,
+            1343,
+            3234,
+            1361
+          ],
+          "is_wet": false,
+          "is_outdoor": true,
+          "w_mm": null,
+          "h_mm": null,
+          "area_m2": null
+        }
+      ],
+      "current_value": [
+        {
+          "name": "Bathroom",
+          "label_bbox_px": [
+            1406,
+            677,
+            1478,
+            695
+          ],
+          "is_wet": true,
+          "is_outdoor": false,
+          "w_mm": 1900,
+          "h_mm": 2400,
+          "area_m2": 4.56
+        },
+        {
+          "name": "Laundry",
+          "label_bbox_px": [
+            1720,
+            677,
+            1853,
+            695
+          ],
+          "is_wet": true,
+          "is_outdoor": false,
+          "w_mm": 1700,
+          "h_mm": 2400,
+          "area_m2": 4.08
+        },
+        {
+          "name": "Studio",
+          "label_bbox_px": [
+            2439,
+            677,
+            2544,
+            695
+          ],
+          "is_wet": false,
+          "is_outdoor": false,
+          "w_mm": 2500,
+          "h_mm": 2400,
+          "area_m2": 6.0
+        },
+        {
+          "name": "Garage",
+          "label_bbox_px": [
+            2816,
+            677,
+            2930,
+            695
+          ],
+          "is_wet": false,
+          "is_outdoor": false,
+          "w_mm": 1500,
+          "h_mm": 2400,
+          "area_m2": 3.6
+        },
+        {
+          "name": "Bedroom 1",
+          "label_bbox_px": [
+            918,
+            791,
+            973,
+            810
+          ],
+          "is_wet": false,
+          "is_outdoor": false,
+          "w_mm": 3200,
+          "h_mm": 3600,
+          "area_m2": 11.52
+        },
+        {
+          "name": "Bedroom 2",
+          "label_bbox_px": [
+            918,
+            1457,
+            973,
+            1476
+          ],
+          "is_wet": false,
+          "is_outdoor": false,
+          "w_mm": 3200,
+          "h_mm": 3400,
+          "area_m2": 10.88
+        },
+        {
+          "name": "Hallway",
+          "label_bbox_px": [
+            1381,
+            1343,
+            1451,
+            1361
+          ],
+          "is_wet": false,
+          "is_outdoor": false,
+          "w_mm": 1600,
+          "h_mm": 4600,
+          "area_m2": 7.36
+        },
+        {
+          "name": "Living",
+          "label_bbox_px": [
+            1864,
+            1343,
+            1957,
+            1361
+          ],
+          "is_wet": false,
+          "is_outdoor": false,
+          "w_mm": 3600,
+          "h_mm": 4600,
+          "area_m2": 16.56
+        },
+        {
+          "name": "Kitchen",
+          "label_bbox_px": [
+            2510,
+            1343,
+            2761,
+            1361
+          ],
+          "is_wet": false,
+          "is_outdoor": false,
+          "w_mm": 4000,
+          "h_mm": 4600,
+          "area_m2": 18.4
+        },
+        {
+          "name": "Courtyard",
+          "label_bbox_px": [
+            3062,
+            1343,
+            3234,
+            1361
+          ],
+          "is_wet": false,
+          "is_outdoor": true,
+          "w_mm": null,
+          "h_mm": null,
+          "area_m2": null
+        }
+      ],
+      "original_confidence": 0.9,
+      "user_note": null,
+      "updated_at": "2026-06-02T14:25:21.312668+00:00"
+    },
+    "window_count": {
+      "field_key": "window_count",
+      "state": "ai_suggested",
+      "original_value": 7,
+      "current_value": 7,
+      "original_confidence": 0.82,
+      "user_note": null,
+      "updated_at": "2026-06-02T14:25:21.312668+00:00"
+    },
+    "external_door_count": {
+      "field_key": "external_door_count",
+      "state": "ai_suggested",
+      "original_value": 1,
+      "current_value": 1,
+      "original_confidence": 0.8,
+      "user_note": null,
+      "updated_at": "2026-06-02T14:25:21.312668+00:00"
+    },
+    "glass_doors_windows": {
+      "field_key": "glass_doors_windows",
+      "state": "ai_suggested",
+      "original_value": 8,
+      "current_value": 8,
+      "original_confidence": 0.81,
+      "user_note": null,
+      "updated_at": "2026-06-02T14:25:21.312668+00:00"
+    },
+    "scale_detected": {
+      "field_key": "scale_detected",
+      "state": "ai_suggested",
+      "original_value": "1:100",
+      "current_value": "1:100",
+      "original_confidence": 0.95,
+      "user_note": null,
+      "updated_at": "2026-06-02T14:25:21.312668+00:00"
+    },
+    "total_floor_area": {
+      "field_key": "total_floor_area",
+      "state": "ai_suggested",
+      "original_value": 85.05,
+      "current_value": 85.05,
+      "original_confidence": 0.8971660887241414,
+      "user_note": null,
+      "updated_at": "2026-06-02T14:25:21.312668+00:00"
+    },
+    "wet_area_total": {
+      "field_key": "wet_area_total",
+      "state": "ai_suggested",
+      "original_value": 8.64,
+      "current_value": 8.64,
+      "original_confidence": 0.9,
+      "user_note": null,
+      "updated_at": "2026-06-02T14:25:21.312668+00:00"
+    },
+    "building_perimeter": {
+      "field_key": "building_perimeter",
+      "state": "ai_suggested",
+      "original_value": 38.8,
+      "current_value": 38.8,
+      "original_confidence": 0.8971660887241414,
+      "user_note": null,
+      "updated_at": "2026-06-02T14:25:21.312668+00:00"
+    },
+    "building_envelope": {
+      "field_key": "building_envelope",
+      "state": "ai_suggested",
+      "original_value": "12400 \u00d7 7000 mm rectangle (4-vertex polygon, 2767 \u00d7 2330 px on page)",
+      "current_value": "12400 \u00d7 7000 mm rectangle (4-vertex polygon, 2767 \u00d7 2330 px on page)",
+      "original_confidence": 0.7625911754155201,
+      "user_note": null,
+      "updated_at": "2026-06-02T14:25:21.312668+00:00"
+    }
+  }
+}

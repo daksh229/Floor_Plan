@@ -1,0 +1,586 @@
+{
+  "schema_version": "measurement-v1",
+  "layout_name": "6room",
+  "seed": 1,
+  "page_px": [
+    2480,
+    1754
+  ],
+  "plan_origin_px": [
+    350,
+    220
+  ],
+  "render_px_per_mm": 0.16,
+  "total_w_mm": 10000,
+  "total_h_mm": 8000,
+  "total_floor_area_m2": 80.0,
+  "wall_thickness_mm": 90,
+  "rooms": [
+    {
+      "name": "BED 2",
+      "polygon_mm": [
+        [
+          0,
+          0
+        ],
+        [
+          2500,
+          0
+        ],
+        [
+          2500,
+          4000
+        ],
+        [
+          0,
+          4000
+        ]
+      ],
+      "centre_mm": [
+        1250.0,
+        2000.0
+      ],
+      "centre_px": [
+        550,
+        540
+      ],
+      "w_mm": 2500,
+      "h_mm": 4000,
+      "area_m2": 10.0,
+      "is_wet": false
+    },
+    {
+      "name": "ENSUITE",
+      "polygon_mm": [
+        [
+          2500,
+          0
+        ],
+        [
+          5000,
+          0
+        ],
+        [
+          5000,
+          4000
+        ],
+        [
+          2500,
+          4000
+        ]
+      ],
+      "centre_mm": [
+        3750.0,
+        2000.0
+      ],
+      "centre_px": [
+        950,
+        540
+      ],
+      "w_mm": 2500,
+      "h_mm": 4000,
+      "area_m2": 10.0,
+      "is_wet": true
+    },
+    {
+      "name": "BATH",
+      "polygon_mm": [
+        [
+          5000,
+          0
+        ],
+        [
+          7500,
+          0
+        ],
+        [
+          7500,
+          4000
+        ],
+        [
+          5000,
+          4000
+        ]
+      ],
+      "centre_mm": [
+        6250.0,
+        2000.0
+      ],
+      "centre_px": [
+        1350,
+        540
+      ],
+      "w_mm": 2500,
+      "h_mm": 4000,
+      "area_m2": 10.0,
+      "is_wet": true
+    },
+    {
+      "name": "BED 1",
+      "polygon_mm": [
+        [
+          7500,
+          0
+        ],
+        [
+          10000,
+          0
+        ],
+        [
+          10000,
+          4000
+        ],
+        [
+          7500,
+          4000
+        ]
+      ],
+      "centre_mm": [
+        8750.0,
+        2000.0
+      ],
+      "centre_px": [
+        1750,
+        540
+      ],
+      "w_mm": 2500,
+      "h_mm": 4000,
+      "area_m2": 10.0,
+      "is_wet": false
+    },
+    {
+      "name": "LIVING",
+      "polygon_mm": [
+        [
+          0,
+          4000
+        ],
+        [
+          5000,
+          4000
+        ],
+        [
+          5000,
+          8000
+        ],
+        [
+          0,
+          8000
+        ]
+      ],
+      "centre_mm": [
+        2500.0,
+        6000.0
+      ],
+      "centre_px": [
+        750,
+        1180
+      ],
+      "w_mm": 5000,
+      "h_mm": 4000,
+      "area_m2": 20.0,
+      "is_wet": false
+    },
+    {
+      "name": "KITCHEN",
+      "polygon_mm": [
+        [
+          5000,
+          4000
+        ],
+        [
+          10000,
+          4000
+        ],
+        [
+          10000,
+          8000
+        ],
+        [
+          5000,
+          8000
+        ]
+      ],
+      "centre_mm": [
+        7500.0,
+        6000.0
+      ],
+      "centre_px": [
+        1550,
+        1180
+      ],
+      "w_mm": 5000,
+      "h_mm": 4000,
+      "area_m2": 20.0,
+      "is_wet": false
+    }
+  ],
+  "walls": [
+    {
+      "id": "outer_top",
+      "kind": "outer",
+      "start_mm": [
+        0,
+        0
+      ],
+      "end_mm": [
+        10000,
+        0
+      ],
+      "length_mm": 10000
+    },
+    {
+      "id": "outer_right",
+      "kind": "outer",
+      "start_mm": [
+        10000,
+        0
+      ],
+      "end_mm": [
+        10000,
+        8000
+      ],
+      "length_mm": 8000
+    },
+    {
+      "id": "outer_bottom",
+      "kind": "outer",
+      "start_mm": [
+        10000,
+        8000
+      ],
+      "end_mm": [
+        0,
+        8000
+      ],
+      "length_mm": 10000
+    },
+    {
+      "id": "outer_left",
+      "kind": "outer",
+      "start_mm": [
+        0,
+        8000
+      ],
+      "end_mm": [
+        0,
+        0
+      ],
+      "length_mm": 8000
+    },
+    {
+      "id": "internal_4",
+      "kind": "internal",
+      "start_mm": [
+        0,
+        4000
+      ],
+      "end_mm": [
+        2500,
+        4000
+      ],
+      "length_mm": 2500
+    },
+    {
+      "id": "internal_5",
+      "kind": "internal",
+      "start_mm": [
+        2500,
+        0
+      ],
+      "end_mm": [
+        2500,
+        4000
+      ],
+      "length_mm": 4000
+    },
+    {
+      "id": "internal_6",
+      "kind": "internal",
+      "start_mm": [
+        2500,
+        4000
+      ],
+      "end_mm": [
+        5000,
+        4000
+      ],
+      "length_mm": 2500
+    },
+    {
+      "id": "internal_7",
+      "kind": "internal",
+      "start_mm": [
+        5000,
+        0
+      ],
+      "end_mm": [
+        5000,
+        4000
+      ],
+      "length_mm": 4000
+    },
+    {
+      "id": "internal_8",
+      "kind": "internal",
+      "start_mm": [
+        5000,
+        4000
+      ],
+      "end_mm": [
+        7500,
+        4000
+      ],
+      "length_mm": 2500
+    },
+    {
+      "id": "internal_9",
+      "kind": "internal",
+      "start_mm": [
+        7500,
+        0
+      ],
+      "end_mm": [
+        7500,
+        4000
+      ],
+      "length_mm": 4000
+    },
+    {
+      "id": "internal_10",
+      "kind": "internal",
+      "start_mm": [
+        7500,
+        4000
+      ],
+      "end_mm": [
+        10000,
+        4000
+      ],
+      "length_mm": 2500
+    },
+    {
+      "id": "internal_11",
+      "kind": "internal",
+      "start_mm": [
+        0,
+        4000
+      ],
+      "end_mm": [
+        5000,
+        4000
+      ],
+      "length_mm": 5000
+    },
+    {
+      "id": "internal_12",
+      "kind": "internal",
+      "start_mm": [
+        5000,
+        4000
+      ],
+      "end_mm": [
+        5000,
+        8000
+      ],
+      "length_mm": 4000
+    },
+    {
+      "id": "internal_13",
+      "kind": "internal",
+      "start_mm": [
+        5000,
+        4000
+      ],
+      "end_mm": [
+        10000,
+        4000
+      ],
+      "length_mm": 5000
+    }
+  ],
+  "dimensions": [
+    {
+      "value_mm": 2500,
+      "segment_start_mm": 0,
+      "segment_end_mm": 2500,
+      "edge": "top"
+    },
+    {
+      "value_mm": 2500,
+      "segment_start_mm": 2500,
+      "segment_end_mm": 5000,
+      "edge": "top"
+    },
+    {
+      "value_mm": 2500,
+      "segment_start_mm": 5000,
+      "segment_end_mm": 7500,
+      "edge": "top"
+    },
+    {
+      "value_mm": 2500,
+      "segment_start_mm": 7500,
+      "segment_end_mm": 10000,
+      "edge": "top"
+    },
+    {
+      "value_mm": 5000,
+      "segment_start_mm": 0,
+      "segment_end_mm": 5000,
+      "edge": "bottom"
+    },
+    {
+      "value_mm": 5000,
+      "segment_start_mm": 5000,
+      "segment_end_mm": 10000,
+      "edge": "bottom"
+    },
+    {
+      "value_mm": 4000,
+      "segment_start_mm": 0,
+      "segment_end_mm": 4000,
+      "edge": "left"
+    },
+    {
+      "value_mm": 4000,
+      "segment_start_mm": 4000,
+      "segment_end_mm": 8000,
+      "edge": "left"
+    },
+    {
+      "value_mm": 4000,
+      "segment_start_mm": 0,
+      "segment_end_mm": 4000,
+      "edge": "right"
+    },
+    {
+      "value_mm": 4000,
+      "segment_start_mm": 4000,
+      "segment_end_mm": 8000,
+      "edge": "right"
+    }
+  ],
+  "windows": [
+    {
+      "label": "W1",
+      "wall": "top",
+      "width_mm": 1500,
+      "centre_mm": [
+        1250,
+        0
+      ],
+      "centre_px": [
+        550,
+        220
+      ]
+    },
+    {
+      "label": "W2",
+      "wall": "top",
+      "width_mm": 1500,
+      "centre_mm": [
+        8750,
+        0
+      ],
+      "centre_px": [
+        1750,
+        220
+      ]
+    },
+    {
+      "label": "W3",
+      "wall": "left",
+      "width_mm": 1500,
+      "centre_mm": [
+        0,
+        2000
+      ],
+      "centre_px": [
+        350,
+        540
+      ]
+    },
+    {
+      "label": "W4",
+      "wall": "left",
+      "width_mm": 1500,
+      "centre_mm": [
+        0,
+        6000
+      ],
+      "centre_px": [
+        350,
+        1180
+      ]
+    },
+    {
+      "label": "W5",
+      "wall": "right",
+      "width_mm": 1500,
+      "centre_mm": [
+        10000,
+        2000
+      ],
+      "centre_px": [
+        1950,
+        540
+      ]
+    },
+    {
+      "label": "W6",
+      "wall": "bottom",
+      "width_mm": 1800,
+      "centre_mm": [
+        2500,
+        8000
+      ],
+      "centre_px": [
+        750,
+        1500
+      ]
+    },
+    {
+      "label": "W7",
+      "wall": "bottom",
+      "width_mm": 1800,
+      "centre_mm": [
+        7500,
+        8000
+      ],
+      "centre_px": [
+        1550,
+        1500
+      ]
+    }
+  ],
+  "doors": [
+    {
+      "label": "D1",
+      "wall": "left",
+      "position_mm": 5500,
+      "width_mm": 900,
+      "is_external": true,
+      "is_glass": false
+    },
+    {
+      "label": "SD1",
+      "wall": "bottom",
+      "position_mm": 5000,
+      "width_mm": 2400,
+      "is_external": true,
+      "is_glass": true
+    }
+  ],
+  "scale_bar": {
+    "bbox_px": [
+      80,
+      78,
+      560,
+      150
+    ],
+    "label": "1:50",
+    "represents_mm": 3000,
+    "length_px": 480
+  }
+}
